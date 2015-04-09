@@ -1,0 +1,190 @@
+//this grabs the data for the aggregate data on the 
+                        //eightfold path and spits out the polar chart
+                        //every time the 'summaries' or 'seek' button is clicked
+                        
+                        $("#linkThree").click(function() {
+                        		
+                        		
+                        		
+                        		 $.ajax({
+                        			  type: "GET",
+                        			  url: '/pathAggGraph',
+                        			  data: { userID: userID},
+                        			  success: function(data)
+                        				{
+                        
+                        					//if any of the truths aren't present yet, set them to 0, for the graph.. so uses can get a visualization of the fact that they haven't spun those yet
+                        					if(! data.truths[0]) {
+                        						data.truths[0] = {}
+                        						data.truths[0].truth_count = 0;
+                        						}
+                        					if(! data.truths[1]) {
+                        						data.truths[1] = {}
+                        						data.truths[1].truth_count = 0;
+                        						}
+                        					if(! data.truths[2]) {
+                        						data.truths[2] = {}
+                        						data.truths[2].truth_count = 0;
+                        						}
+                        					if(! data.truths[3]) {
+                        						data.truths[3] = {}
+                        						data.truths[3].truth_count = 0;
+                        						}
+                        
+                        			  		var sumData = {
+                        					 labels: ["First Noble Truth", "Third Noble Truth"],
+                        					 datasets: [
+                        						  {
+                        								label: "Sum of Scores",
+                        								fillColor: "rgba(220,220,220,0.5)",
+                        								strokeColor: "rgba(220,220,220,0.8)",
+                        								pointColor: "rgba(220,220,220,1)",
+                        								highlightFill: "#fff",
+                        								highlightStroke: "rgba(220,220,220,1)",
+                        								data: [data.truths[0].truth_count, data.truths[2].truth_count]
+                        						  }
+                        					 ]
+                        				};
+                        					var ctx = document.getElementById("truthCanvas").getContext("2d");
+                        					new Chart(ctx).Bar(sumData, { scaleBeginAtZero: true, scaleLabel: "<%= ' ' + value%>", scaleFontFamily: 'Special Elite'});
+                        				}
+                        		 });
+                        		
+                        		 $.ajax({
+                        			  type: "GET",
+                        			  url: '/pathAggGraph',
+                        			  data: { userID: userID},
+                        			  success: function(data)
+                        				{
+                        
+                        					//if any of the twelves aren't present yet, set them to 0, for the graph..
+                        					if(! data.twelves[0]) {
+                        						data.twelves[0] = {}
+                        						data.twelves[0].twelve_count = 0;
+                        						}
+                        					if(! data.twelves[1]) {
+                        						data.twelves[1] = {}
+                        						data.twelves[1].twelve_count = 0;
+                        						}
+                        					if(! data.twelves[2]) {
+                        						data.twelves[2] = {}
+                        						data.twelves[2].twelve_count = 0;
+                        						}
+                        					if(! data.twelves[3]) {
+                        						data.twelves[3] = {}
+                        						data.twelves[3].twelve_count = 0;
+                        						}
+                        					if(! data.twelves[4]) {
+                        						data.twelves[4] = {}
+                        						data.twelves[4].twelve_count = 0;
+                        						}
+                        					if(!data.twelves[5]) {
+                        						data.twelves[5] = {}
+                        						data.twelves[5].twelve_count = 0;
+                        						}
+                        					if(! data.twelves[6]) {
+                        						data.twelves[6] = {}
+                        						data.twelves[6].twelve_count = 0;
+                        						}
+                        					if(! data.twelves[7]) {
+                        						data.twelves[7] = {}
+                        						data.twelves[7].twelve_count = 0;
+                        						}
+                        					if(! data.twelves[8]) {
+                        					data.twelves[8] = {}
+                        						data.twelves[8].twelve_count = 0;
+                        
+                        						}
+                        					if(! data.twelves[9]) {
+                        						data.twelves[9] = {}
+                        						data.twelves[9].twelve_count = 0;
+                        						}
+                        					if(! data.twelves[10]) {
+                        						data.twelves[10] = {}
+                        						data.twelves[10].twelve_count = 0;
+                        						}
+                        					if(! data.twelves[11]) {
+                        						data.twelves[11] = {}
+                        						data.twelves[11].twelve_count = 0;
+                        						}
+                        
+                        			  		var sumData = {
+                        					 labels: ["Ignorance", "Will", "Consciousness", "Name/Form", "Six Senses", "Contact", "Sensory Feelings", "Craving", "Attachment", "Ego", "Birth", "Death"],
+                        					 datasets: [
+                        						  {
+                        								label: "Sum of Scores",
+                        								fillColor: "rgba(220,220,220,0.5)",
+                        								strokeColor: "rgba(220,220,220,0.8)",
+                        								pointColor: "rgba(220,220,220,1)",
+                        								highlightFill: "#fff",
+                        								highlightStroke: "rgba(220,220,220,1)",
+                        								data: [data.twelves[0].twelve_count, data.twelves[1].twelve_count, data.twelves[2].twelve_count, data.twelves[3].twelve_count,  data.twelves[4].twelve_count,  data.twelves[5].twelve_count,  data.twelves[6].twelve_count, data.twelves[7].twelve_count, data.twelves[8].twelve_count, data.twelves[9].twelve_count, data.twelves[10].twelve_count, data.twelves[11].twelve_count]
+                        						  }
+                        					 ]
+                        				};
+                        					var ctx = document.getElementById("twelveCanvas").getContext("2d");
+                        					new Chart(ctx).Bar(sumData, { scaleBeginAtZero: true, scaleLabel: "<%= ' ' + value%>", scaleFontFamily: 'Special Elite'});
+                        				}
+                        		 });
+                        		
+                        		 $.ajax({
+                        			  type: "GET",
+                        			  url: '/pathAggGraph',
+                        			  data: { userID: userID},
+                        			  success: function(data)
+                        				{
+                        
+                        				//if any of the paths aren't present yet, set them to 0, for the graph..
+                        					if(! data.paths[0]) {
+                        						data.paths[0].path_count = {}
+                        						data.paths[0].path_count = 0;
+                        						}
+                        					if(! data.paths[1]) {
+                        						data.paths[1].path_count = {}
+                        						data.paths[1].path_count = 0;
+                        						}
+                        					if(! data.paths[2]) {
+                        						data.paths[2].path_count = {}
+                        						data.paths[2].path_count = 0;
+                        						}
+                        					if(! data.paths[3]) {
+                        						data.paths[3].path_count = {}
+                        						data.paths[3].path_count = 0;
+                        						}
+                        					if(! data.paths[4]) {
+                        						data.paths[4].path_count = {}
+                        						data.paths[4].path_count = 0;
+                        						}
+                        					if(! data.paths[5]) {
+                        						data.paths[5].path_count = {}
+                        						data.paths[5].path_count = 0;
+                        						}
+                        					if(! data.paths[6]) {
+                        						data.paths[6].path_count = {}
+                        						data.paths[6].path_count = 0;
+                        						}
+                        					if(! data.paths[7]) {
+                        						ata.paths[7].path_count = {}
+                        						data.paths[7].path_count = 0;
+                        						}
+                       
+                        			  		var sumData = {
+                        					 labels: ["View", "Thought", "Speech", "Action", "Livelihood", "Effort", "Mindfulness", "Concentration"],
+                        					 datasets: [
+                        						  {
+                        								label: "Sum of Scores",
+                        								fillColor: "rgba(220,220,220,0.5)",
+                        								strokeColor: "rgba(220,220,220,0.8)",
+                        								pointColor: "rgba(220,220,220,1)",
+                        								highlightFill: "#fff",
+                        								highlightStroke: "rgba(220,220,220,1)",
+                        								data: [data.paths[0].path_count, data.paths[1].path_count, data.paths[2].path_count, data.paths[3].path_count, data.paths[4].path_count, data.paths[5].path_count, data.paths[6].path_count, data.paths[7].path_count]
+                        						  }
+                        					 ]
+                        				};
+                        					var ctx = document.getElementById("pathCanvas").getContext("2d");
+                        					new Chart(ctx).Bar(sumData, { scaleBeginAtZero: true, scaleLabel: "<%= ' ' + value%>", scaleFontFamily: 'Special Elite'});
+                        				}
+                        		 });
+                        	
+                        	

@@ -1,0 +1,414 @@
+ 
+ .container {
+ 
+ position:relative;
+ height: 800px;
+ width: 800px;
+ }
+ 
+ .hide {
+ display:none;
+ }
+ .display {
+ position:absolute;
+ display:block;
+ }
+ 
+ .harnessGrid {
+ 	position:relative;
+ 	top:60px;
+	width:400px;
+	height:100px;
+	margin-bottom:10px;
+	}
+	
+.colorPick {
+	position:relative;
+	width:400px;
+	height:40px;
+	}
+	
+.warpOneColor {
+	position:absolute;
+	top:0;
+	left:0%;
+	width:10%;
+	height:10px;
+}
+.warpTwoColor {
+	position:absolute;
+	top:0;
+	left:10%;
+	width:10%;
+	height:10px;
+}
+.warpThreeColor {
+	position:absolute;
+	top:0;
+	left:20%;
+	width:10%;
+	height:10px;
+}
+.warpFourColor {
+	position:absolute;
+	top:0;
+	left:30%;
+	width:10%;
+	height:10px;
+}
+.warpFiveColor {
+	position:absolute;
+	top:0;
+	left:40%;
+	width:10%;
+	height:10px;
+}
+.warpSixColor {
+	position:absolute;
+	top:0;
+	left:50%;
+	width:10%;
+	height:10px;
+}
+.warpSevenColor {
+	position:absolute;
+	top:0;
+	left:60%;
+	width:10%;
+	height:10px;
+}
+.warpEightColor {
+	position:absolute;
+	top:0;
+	left:70%;
+	width:10%;
+	height:10px;
+}
+.warpNineColor {
+	position:absolute;
+	top:0;
+	left:80%;
+	width:10%;
+	height:10px;
+}
+.warpTenColor {
+	position:absolute;
+	top:0;
+	left:90%;
+	width:10%;
+	height:10px;
+}
+ .hGridColOne {
+ 		position:absolute;
+ 		top:0;
+ 		left:0;
+		width:10%;
+		height:100%;
+		}
+		
+	.hGridColTwo {
+ 		position:absolute;
+ 		top:0;
+ 		left:10%;
+		width:10%;
+		height:100%;
+		}
+	.hGridColThree {
+ 		position:absolute;
+ 		top:0;
+ 		left:20%;
+		width:10%;
+		height:100%;
+		}
+	.hGridColFour {
+ 		position:absolute;
+ 		top:0;
+ 		left:30%;
+		width:10%;
+		height:100%;
+		}
+	.hGridColFive {
+ 		position:absolute;
+ 		top:0;
+ 		left:40%;
+		width:10%;
+		height:100%;
+		}
+	.hGridColSix {
+ 		position:absolute;
+ 		top:0;
+ 		left:50%;
+		width:10%;
+		height:100%;
+		}
+	.hGridColSeven {
+ 		position:absolute;
+ 		top:0;
+ 		left:60%;
+		width:10%;
+		height:100%;
+		}
+	.hGridColEight {
+ 		position:absolute;
+ 		top:0;
+ 		left:70%;
+		width:10%;
+		height:100%;
+		}
+	.hGridColNine {
+ 		position:absolute;
+ 		top:0;
+ 		left:80%;
+		width:10%;
+		height:100%;
+		}
+	.hGridColTen {
+ 		position:absolute;
+ 		top:0;
+ 		left:90%;
+		width:10%;
+		height:100%;
+		}
+	.harnessOne {
+	}
+	
+	.hGridRowOne {
+		position:absolute;
+		margin-left:6px;
+		top:0;
+ 		left:0;
+		width:70%;
+		height:25%;
+
+
+		-webkit-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		-moz-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		}
+		
+	.hGridRowTwo {
+		margin-left:6px;
+		position:absolute;
+		top:25%;
+ 		left:0;
+		width:70%;
+		height:25%;
+		-webkit-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		-moz-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		}
+		
+	.hGridRowThree {
+		position:absolute;
+		margin-left:6px;
+		top:50%;
+ 		left:0;
+		width:70%;
+		height:25%;
+		-webkit-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		-moz-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		}
+		
+	.hGridRowFour {
+		position:absolute;
+		margin-left:6px;
+		top:75%;
+ 		left:0;
+		width:70%;
+		height:25%;
+		-webkit-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		-moz-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		}
+		
+	
+ .weaveBox {
+ padding: 0px;
+ margin-bottom:0px;
+ margin-top:0px;
+ 	position:relative;
+ 	top:80px;
+	width:400px;
+	height:400px;
+	background-color: #CCFFFF
+	}
+	
+	.weftOne {
+		position:absolute;
+		top:0%;
+		background-color:blue;
+		height:10%;
+		width:100%;
+		}
+	.weftTwo {
+		position:absolute;
+		top:10%;
+		background-color:blue;
+		height:10%;
+		width:100%;
+		}
+	.weftThree {
+		position:absolute;
+		top:20%;
+		background-color:blue;
+		height:10%;
+		width:100%;
+		}
+	.weftFour {
+		position:absolute;
+		top:30%;
+		background-color:blue;
+		height:10%;
+		width:100%;
+		}
+	.weftFive {
+		position:absolute;
+		top:40%;
+		background-color:blue;
+		height:10%;
+		width:100%;
+		}
+	.weftSix {
+		position:absolute;
+		top:50%;
+		background-color:blue;
+		height:10%;
+		width:100%;
+		}
+	.weftSeven {
+		position:absolute;
+		top:60%;
+		background-color:blue;
+		height:10%;
+		width:100%;
+		}
+	.weftEight {
+		position:absolute;
+		top:70%;
+		background-color:blue;
+		height:10%;
+		width:100%;
+		}
+	.weftNine {
+		position:absolute;
+		top:80%;
+		background-color:blue;
+		height:10%;
+		width:100%;
+		}
+	.weftTen {
+	z-index:10;
+		position:absolute;
+		top:90%;
+		background-color:blue;
+		height:10%
+		width:100%;
+		}
+		
+	#above {
+		z-index:2;
+		}
+	
+	#below {
+		z-index:0;
+		}
+	
+	#base {
+		z-index:1;
+		}
+	
+	.warpOne {
+	position:absolute;
+	left:0%;
+	width:10%;
+	height:10%;
+	}
+	.warpTwo {
+	position:absolute;
+	left:10%;
+	width:10%;
+	height:10%;
+	}
+	.warpThree {
+	position:absolute;
+	left:20%;
+	width:10%;
+	height:10%;
+	}
+	.warpFour {
+	position:absolute;
+	left:30%;
+	width:10%;
+	height:10%;
+	}
+	.warpFive {
+	position:absolute;
+	left:40%;
+	width:10%;
+	height:10%;
+	}
+	.warpSix {
+	position:absolute;
+	left:50%;
+	width:10%;
+	height:10%;
+	}
+	.warpSeven {
+	position:absolute;
+	left:60%;
+	width:10%;
+	height:10%;
+	}
+	.warpEight {
+	position:absolute;
+	left:70%;
+	width:10%;
+	height:10%;
+	}
+	.warpNine {
+	position:absolute;
+	left:80%;
+	width:10%;
+	height:10%;
+	}
+	.warpTen {
+	position:absolute;
+	left:90%;
+	width:10%;
+	height:10%;
+	}
+	.activeButton {
+	background:grey;
+	}
+	.rowOne {
+	top:0%;
+	}
+	.rowTwo {
+	top:10%;
+	}
+	.rowThree {
+	top:20%;
+	}
+	.rowFour {
+	top:30%;
+	}
+	.rowFive {
+	top:40%;
+	}
+	.rowSix {
+	top:50%;
+	}
+	.rowSeven {
+	top:60%;
+	}
+	.rowEight {
+	top:70%;
+	}	
+	.rowNine {
+	top:80%;
+	}	
+	.rowTen {
+	top:90%;
+	}	
+	.

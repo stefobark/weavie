@@ -1,0 +1,209 @@
+  .navbar-default {
+         opacity: 0;
+         border-style: none;
+         background-color:#666666;
+         }
+         .back {
+         position:fixed;
+			  top:0;
+			  width:100%;
+			}
+         .sidebar{
+         top: 0;
+   		bottom:0;
+   		left:0;
+    		position:fixed;
+    		overflow-y:auto;
+    		overflow-x:hidden;
+         width: 300px; 
+         box-shadow: 3px 0px 6px #999;
+         background-color:#E6E6E6;
+         }
+         #commentBox {
+         overflow-y:auto; 
+         height:300px; 
+         position:absolute; 
+         top:335px; 
+         right:0px;
+         left:0;
+         right:0;  
+         border-style:solid; 
+         border-width:1px; 
+         border-color:#C5C5C5;
+         }
+         .box
+         {
+         width:100%; 
+         height:auto;
+         box-shadow: 3px 4px 18px #99CCFF;
+         color:#F7F7F7; 
+         background: rgb(40,40,40); /* Old browsers */
+         background: -moz-linear-gradient(left, rgba(40,40,40,1) 0%, rgba(71,71,71,1) 2%, rgba(183,183,183,1) 45%, rgba(183,183,183,1) 65%, rgba(71,71,71,1) 98%, rgba(33,33,33,1) 100%); /* FF3.6+ */
+         background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(40,40,40,1)), color-stop(2%,rgba(71,71,71,1)), color-stop(45%,rgba(183,183,183,1)), color-stop(65%,rgba(183,183,183,1)), color-stop(98%,rgba(71,71,71,1)), color-stop(100%,rgba(33,33,33,1))); /* Chrome,Safari4+ */
+         background: -webkit-linear-gradient(left, rgba(40,40,40,1) 0%,rgba(71,71,71,1) 2%,rgba(183,183,183,1) 45%,rgba(183,183,183,1) 65%,rgba(71,71,71,1) 98%,rgba(33,33,33,1) 100%); /* Chrome10+,Safari5.1+ */
+         background: -o-linear-gradient(left, rgba(40,40,40,1) 0%,rgba(71,71,71,1) 2%,rgba(183,183,183,1) 45%,rgba(183,183,183,1) 65%,rgba(71,71,71,1) 98%,rgba(33,33,33,1) 100%); /* Opera 11.10+ */
+         background: -ms-linear-gradient(left, rgba(40,40,40,1) 0%,rgba(71,71,71,1) 2%,rgba(183,183,183,1) 45%,rgba(183,183,183,1) 65%,rgba(71,71,71,1) 98%,rgba(33,33,33,1) 100%); /* IE10+ */
+         background: linear-gradient(to right, rgba(40,40,40,1) 0%,rgba(71,71,71,1) 2%,rgba(183,183,183,1) 45%,rgba(183,183,183,1) 65%,rgba(71,71,71,1) 98%,rgba(33,33,33,1) 100%); /* W3C */
+         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#282828', endColorstr='#212121',GradientType=1 ); /* IE6-9 */
+         border-style:outset; 
+         border-radius:30px; 
+         padding:10px;
+         }
+         
+         #spinImage {
+         
+         width: auto; 
+         height: 250px;
+         
+         }
+         
+          #spinBoxImage {
+         height: 220px;
+         
+			}
+         
+         .innerBox 
+         {
+         color:#2E2E2E; 
+         background-color:white;
+         border-style:inset; 
+         border-radius:30px; 
+         margin-bottom:10px;
+         padding:20px;
+         }
+         
+         .innerWheelBox 
+         {
+         position:relative;
+         color:#2E2E2E; 
+         background-color:white;
+         border-style:inset; 
+         border-radius:30px; 
+         margin-bottom:10px;
+         margin-top:10px;
+         height:250px;
+         }
+         .box:hover {
+         box-shadow: 1px 2px 60px #FF8080;
+         transition: box-shadow .5s;
+         }
+         .circle:hover {
+         fill: #FF8080;
+         transition: fill .5s;
+         }
+         
+         .homeHead {
+         
+         position:absolute;
+         left:0px;
+         background-color:#333333;
+         color:white;
+         height:100px;
+         }
+         
+         .homeBody {
+         
+         position:absolute;
+         top:100px;
+         }
+         
+         .topHead {
+         
+         position:absolute;
+         top:0px;
+         left:0px;
+         background-color:#333333;
+         color:white;
+         height:100px;
+         }
+         
+         #spin1or3, #spin2, #spin4 {
+         z-index:1;
+         font-family: 'Special Elite'; 
+         box-shadow: 0 1px 0 0 #999; 
+         width: 60px;
+         height: 60px;
+         text-align: center;
+         padding: 20px 0;
+         font-size: 16px;
+         line-height: 2.1px;
+         border-radius:30px;
+         }	
+         
+         #buttonBackground {
+         z-index:3;
+         box-shadow: 0 1px 0 0 #999;
+         background-color:#A3B8CC;
+         border-radius:50%;
+         width:75px;
+         height:75px;
+         }
+         
+         .mail {
+         background-color:#A3B8CC;
+         border-radius:50%;
+         width:75px;
+         height:75px;
+         color:#fff;
+         font-family: 'Special Elite'; 
+         box-shadow: 0 1px 0 0 #999; 
+         text-align:center;
+         
+         }
+         
+         #buttons {
+         z-index:2;
+         font-family: \'Special Elite\';
+         }
+         p {
+         font-family: 'Roboto';
+         }
+         h3 {
+         font-family: 'Roboto';
+         }
+         h4 {
+         font-family: 'Roboto';
+         }
+         h2 {
+         font-family: 'Roboto';
+         }
+         h1 {
+         font-family: 'Roboto';
+         }
+         
+         #logo {
+         font-family: 'Special Elite';
+         .bs-example {
+         margin: 20px;
+         }
+         .nav-tabs > li > a {
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+         }
+         
+         hr { width:100%; height:1px; background: #fff; margin-bottom: 20px; }
+         
+         .nav {
+         background-color:#CCE6FF;
+         border-style:solid;
+         border-width:1px;
+         border-color:#C5C5C5    
+         }
+         .nav .active a {
+         background-color: #F0F0F0;
+         border-radius:0px;
+         }
+         #summaries {
+         position:absolute;
+         top:0px;
+         }
+         .indent {
+          margin-left: 30px;
+          }
+          .btn:focus, .btn:active:focus, .btn.active:focus  {
+          border:none;
+          outline: none; ! important;
+          outline-style: none;
+          }
+          .btn:focus, { outline: none; ! important; outline-style: none; } 
