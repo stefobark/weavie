@@ -26,16 +26,16 @@
 					<button class="warpNineColor"></button>
 					<button class="warpTenColor"></button>
 					
-					<p id="pickWarpOneColor" class="hide">Warp One: <input class="color"></input></p>
-					<p id="pickWarpTwoColor" class="hide">Warp Two: <input class="color"></input></p>
-					<p id="pickWarpThreeColor" class="hide">Warp Three: <input class="color"></input></p>
-					<p id="pickWarpFourColor" class="hide">Warp Four: <input class="color"></input></p>
-					<p id="pickWarpFiveColor" class="hide">Warp Five: <input class="color"></input></p>
-					<p id="pickWarpSixColor" class="hide">Warp Six: <input class="color"></input></p>
-					<p id="pickWarpSevenColor" class="hide">Warp Seven: <input class="color"></input></p>
-					<p id="pickWarpEightColor" class="hide">Warp Eight: <input class="color"></input></p>
-					<p id="pickWarpNineColor" class="hide">Warp Nine: <input class="color"></input></p>
-					<p id="pickWarpTenColor" class="hide">Warp Ten: <input class="color"></input></p>
+					<p id="pickWarpOneColor" class="hide">Warp One: <input class="color" onchange="$('.warpOne').css('background','#'+this.color);"></input></p>
+					<p id="pickWarpTwoColor" class="hide">Warp Two: <input class="color" onchange="$('.warpTwo').css('background','#'+this.color);"></input></p>
+					<p id="pickWarpThreeColor" class="hide">Warp Three: <input class="color" onchange="$('.warpThree').css('background','#'+this.color);"></input></p>
+					<p id="pickWarpFourColor" class="hide">Warp Four: <input class="color" onchange="$('.warpFour').css('background','#'+this.color);"></input></p>
+					<p id="pickWarpFiveColor" class="hide">Warp Five: <input class="color" onchange="$('.warpFive').css('background','#'+this.color);"></input></p>
+					<p id="pickWarpSixColor" class="hide">Warp Six: <input class="color" onchange="$('.warpSix').css('background','#'+this.color);"></input></p>
+					<p id="pickWarpSevenColor" class="hide">Warp Seven: <input class="color" onchange="$('.warpSeven').css('background','#'+this.color);"></input></p>
+					<p id="pickWarpEightColor" class="hide">Warp Eight: <input class="color" onchange="$('.warpEight').css('background','#'+this.color);"></input></p>
+					<p id="pickWarpNineColor" class="hide">Warp Nine: <input class="color" onchange="$('.warpNine').css('background','#'+this.color);"></input></p>
+					<p id="pickWarpTenColor" class="hide">Warp Ten: <input class="color" onchange="$('.warpTen').css('background','#'+this.color);"></input></p>
 				</div>
 				<div class="harnessGrid">
 					<div class="hGridColOne">
@@ -100,7 +100,7 @@
 					</div>
 				</div>
 				<div class="weaveBox">
-						<div class="warpOne rowOne" id="above"></div>
+						<div class="warpOne rowOne" id="above" style=""></div>
 						<div class="warpTwo rowOne" id="below"></div>
 						<div class="warpThree rowOne" id="above"></div>
 						<div class="warpFour rowOne"  id="below"></div>
