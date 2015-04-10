@@ -15,16 +15,16 @@
 				<h1>Weaver</h1>
 				<h2>Pick Warp Colors</h2>
 				<div class="colorPick">
-					<button class="warpOneColor"></button>
-					<button class="warpTwoColor"></button>
-					<button class="warpThreeColor"></button>
-					<button class="warpFourColor"></button>
-					<button class="warpFiveColor"></button>
-					<button class="warpSixColor"></button>
-					<button class="warpSevenColor"></button>
-					<button class="warpEightColor"></button>
-					<button class="warpNineColor"></button>
-					<button class="warpTenColor"></button>
+					<div class="warpOneColor"></div>
+					<div class="warpTwoColor"></div>
+					<div class="warpThreeColor"></div>
+					<div class="warpFourColor"></div>
+					<div class="warpFiveColor"></div>
+					<div class="warpSixColor"></div>
+					<div class="warpSevenColor"></div>
+					<div class="warpEightColor"></div>
+					<div class="warpNineColor"></div>
+					<div class="warpTenColor"></div>
 					
 					<p id="pickWarpOneColor" class="hide">Warp One: <input class="color" onchange="$('.warpOne').css('background','#'+this.color);"></input></p>
 					<p id="pickWarpTwoColor" class="hide">Warp Two: <input class="color" onchange="$('.warpTwo').css('background','#'+this.color);"></input></p>

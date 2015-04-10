@@ -26,16 +26,16 @@
 					<button class="warpNineColor"></button>
 					<button class="warpTenColor"></button>
 					
-					<p style="display:none">Warp One: <input class="color"></input></p>
-					<p style="display:none">Warp Two: <input class="color"></input></p>
-					<p style="display:none">Warp Three: <input class="color"></input></p>
-					<p style="display:none">Warp Four: <input class="color"></input></p>
-					<p style="display:none">Warp Five: <input class="color"></input></p>
-					<p style="display:none">Warp Six: <input class="color"></input></p>
-					<p style="display:none">Warp Seven: <input class="color"></input></p>
-					<p style="display:none">Warp Eight: <input class="color"></input></p>
-					<p style="display:none">Warp Nine: <input class="color"></input></p>
-					<p style="display:none">Warp Ten: <input class="color"></input></p>
+					<p id="pickWarpOneColor" class="hide">Warp One: <input class="color"></input></p>
+					<p id="pickWarpTwoColor" class="hide">Warp Two: <input class="color"></input></p>
+					<p id="pickWarpThreeColor" class="hide">Warp Three: <input class="color"></input></p>
+					<p id="pickWarpFourColor" class="hide">Warp Four: <input class="color"></input></p>
+					<p id="pickWarpFiveColor" class="hide">Warp Five: <input class="color"></input></p>
+					<p id="pickWarpSixColor" class="hide">Warp Six: <input class="color"></input></p>
+					<p id="pickWarpSevenColor" class="hide">Warp Seven: <input class="color"></input></p>
+					<p id="pickWarpEightColor" class="hide">Warp Eight: <input class="color"></input></p>
+					<p id="pickWarpNineColor" class="hide">Warp Nine: <input class="color"></input></p>
+					<p id="pickWarpTenColor" class="hide">Warp Ten: <input class="color"></input></p>
 				</div>
 				<div class="harnessGrid">
 					<div class="hGridColOne">

@@ -30,6 +30,7 @@
 	
 .warpOneColor {
 	position:absolute;
+	border-style:outset;
 	top:0;
 	left:0%;
 	width:10%;
@@ -37,6 +38,7 @@
 }
 .warpTwoColor {
 	position:absolute;
+	border-style:outset;
 	top:0;
 	left:10%;
 	width:10%;
@@ -44,6 +46,7 @@
 }
 .warpThreeColor {
 	position:absolute;
+	border-style:outset;
 	top:0;
 	left:20%;
 	width:10%;
@@ -51,6 +54,7 @@
 }
 .warpFourColor {
 	position:absolute;
+	border-style:outset;
 	top:0;
 	left:30%;
 	width:10%;
@@ -58,6 +62,7 @@
 }
 .warpFiveColor {
 	position:absolute;
+	border-style:outset;
 	top:0;
 	left:40%;
 	width:10%;
@@ -65,6 +70,7 @@
 }
 .warpSixColor {
 	position:absolute;
+	border-style:outset;
 	top:0;
 	left:50%;
 	width:10%;
@@ -72,6 +78,7 @@
 }
 .warpSevenColor {
 	position:absolute;
+	border-style:outset;
 	top:0;
 	left:60%;
 	width:10%;
@@ -79,6 +86,7 @@
 }
 .warpEightColor {
 	position:absolute;
+	border-style:outset;
 	top:0;
 	left:70%;
 	width:10%;
@@ -86,6 +94,7 @@
 }
 .warpNineColor {
 	position:absolute;
+	border-style:outset;
 	top:0;
 	left:80%;
 	width:10%;
@@ -93,6 +102,7 @@
 }
 .warpTenColor {
 	position:absolute;
+	border-style:outset;
 	top:0;
 	left:90%;
 	width:10%;
