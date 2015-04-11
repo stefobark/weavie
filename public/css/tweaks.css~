@@ -1,7 +1,7 @@
 /* the overall box that everything weave related is happening in, and it will
 	also get envoloped by a bootstrap container */
  .weaveContainer {
- 
+ margin-top:-80px;
  position:relative;
  height: 1000px;
  width: 800px;
@@ -10,6 +10,11 @@
 .title {
  position:absolute;
  top:80px;
+ }
+.description {
+ position:absolute;
+ left:120px;
+ top:119px;
  }
 
 
@@ -24,10 +29,9 @@
  display:block;
  }
  
+ /* picking colors */
  
-/* these are the weave view box, the harness to heddle grid, the weft grid and the tie up grid */
-
-		
+ 		
 .warpColorPick {
 	position:absolute;
 	top:257px;
@@ -65,7 +69,8 @@
 .warpColorInput {
 	width:75px;
 	}
-
+ 
+/* these are the weave view box, the harness to heddle grid, the weft grid and the tie up grid */
 
   .weaveBox {
 	padding: 0px;

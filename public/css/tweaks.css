@@ -11,6 +11,11 @@
  position:absolute;
  top:80px;
  }
+.description {
+ position:absolute;
+ left:140px;
+ top:112px;
+ }
 
 
 
@@ -24,10 +29,9 @@
  display:block;
  }
  
+ /* picking colors */
  
-/* these are the weave view box, the harness to heddle grid, the weft grid and the tie up grid */
-
-		
+ 		
 .warpColorPick {
 	position:absolute;
 	top:257px;
@@ -65,7 +69,8 @@
 .warpColorInput {
 	width:75px;
 	}
-
+ 
+/* these are the weave view box, the harness to heddle grid, the weft grid and the tie up grid */
 
   .weaveBox {
 	padding: 0px;

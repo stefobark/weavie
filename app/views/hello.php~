@@ -20,7 +20,8 @@
    
    
     	<div class="weaveContainer">
-    		 <h1 class="title text-center">Weavie</h1>
+    		 <h1 class="title">Weavie<span><p class="help-block">Weave Draft Designer</p></span></h1>
+    		 
 			<div class="warpColorPick">
 				<div class="warpOneColor"></div>
 				<div class="warpTwoColor"></div>

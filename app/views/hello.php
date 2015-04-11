@@ -21,6 +21,7 @@
    
     	<div class="weaveContainer">
     		 <h1 class="title">Weavie</h1>
+    		 <p class="help-block description">Weave Draft Designer</p>
 			<div class="warpColorPick">
 				<div class="warpOneColor"></div>
 				<div class="warpTwoColor"></div>
