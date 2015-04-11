@@ -30,7 +30,7 @@
 		
 .warpColorPick {
 	position:absolute;
-	top:253px;
+	top:257px;
 	z-index:3;
 	width:400px;
 	height:40px;
@@ -39,7 +39,7 @@
 .pickWarpColors {
 	position:absolute;
 	background:#fff;
-	top:20px;
+	top:16px;
 	}
 	
 .weftColorPick {
@@ -54,7 +54,7 @@
 .pickWeftColors {
 	position:absolute;
 	background:#fff;
-	top:-35px;
+	top:-34px;
 	left:-45px;
 	}
 

@@ -12,19 +12,7 @@
  top:80px;
  }
 
-.describeHarness {
-position:absolute;
-width:200px;
-top:180px;
-left:-198px;
-}
 
-.describeWarpColor {
-position:absolute;
-width:120px;
-top:245px;
-left:-140px;
-}
 
 /* for hiding and displaying things */
 
@@ -42,7 +30,7 @@ left:-140px;
 		
 .warpColorPick {
 	position:absolute;
-	top:253px;
+	top:257px;
 	z-index:3;
 	width:400px;
 	height:40px;
@@ -51,7 +39,7 @@ left:-140px;
 .pickWarpColors {
 	position:absolute;
 	background:#fff;
-	top:20px;
+	top:16px;
 	}
 	
 .weftColorPick {
@@ -66,7 +54,7 @@ left:-140px;
 .pickWeftColors {
 	position:absolute;
 	background:#fff;
-	top:-35px;
+	top:-34px;
 	left:-45px;
 	}
 
