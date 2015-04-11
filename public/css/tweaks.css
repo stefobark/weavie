@@ -1,11 +1,21 @@
- 
- .container {
+/* the overall box that everything weave related is happening in, and it will
+	also get envoloped by a bootstrap container */
+ .weaveContainer {
  
  position:relative;
- height: 800px;
+ height: 500px;
  width: 800px;
  }
- 
+
+.title {
+ position:absolute;
+ top:80px;
+ }
+
+
+
+/* for hiding and displaying things */
+
  .hide {
  display:none;
  }
@@ -14,19 +24,289 @@
  display:block;
  }
  
- .harnessGrid {
- 	position:relative;
- 	top:60px;
-	width:400px;
-	height:100px;
-	margin-bottom:10px;
-	}
-	
-.colorPick {
-	position:relative;
+ 
+/* these are the weave view box, the harness to heddle grid, the weft grid and the tie up grid */
+
+		
+.warpColorPick {
+	position:absolute;
+	top:253px;
+	z-index:3;
 	width:400px;
 	height:40px;
+	}	
+
+.pickWarpColors {
+	position:absolute;
+	background:#fff;
+	top:20px;
 	}
+	
+.weftColorPick {
+	position:absolute;
+	top:308px;
+	left:410px;
+	z-index:3;
+	width:200px;
+	height:400px;
+	}	
+
+.pickWeftColors {
+	position:absolute;
+	background:#fff;
+	top:-35px;
+	left:-45px;
+	}
+
+.weftColorInput {
+	width:75px;
+	}
+
+.warpColorInput {
+	width:75px;
+	}
+
+
+  .weaveBox {
+	padding: 0px;
+	margin-bottom:0px;
+	margin-top:0px;
+ 	position:absolute;
+ 	top:300px;
+	width:400px;
+	height:400px;
+	background-color: #CCFFFF
+	}
+	
+ 
+ .harnessGrid {
+ 	position:absolute;
+ 	top:150px;
+	width:400px;
+	height:100px;
+	}
+	
+	.tieGrid {
+ 	position:absolute;
+ 	z-index:3;
+ 	top:150px;
+ 	left:430px;
+	width:150px;
+	height:100px;
+	}
+	
+.weftGrid {
+ 	position:absolute;
+ 	z-index:3;
+ 	top:308px;
+ 	left:430px;
+	width:150px;
+	height:400px;
+	}
+ 
+/* weft columns */
+
+.weftGridColOne {
+ 		position:absolute;
+ 		top:0;
+ 		left:0%;
+		width:25%;
+		height:100%;
+		}
+	.weftGridColTwo {
+ 		position:absolute;
+ 		top:0;
+ 		left:25%;;
+		width:25%;
+		height:100%;
+		}
+	.weftGridColThree {
+ 		position:absolute;
+ 		top:0;
+ 		left:50%;
+		width:25%;;
+		height:100%;
+		}
+	.weftGridColFour {
+ 		position:absolute;
+ 		top:0;
+ 		left:75%;
+		width:25%;
+		height:100%;
+		}
+
+/* weft rows */
+
+	.weftGridRowOne {
+		position:absolute;
+		margin-left:6px;
+		top:0;
+ 		left:0;
+		width:70%;
+		height:25px;
+		
+		}
+		
+	.weftGridRowTwo {
+		margin-left:6px;
+		position:absolute;
+		top:10%;
+ 		left:0;
+		width:70%;
+		height:25px;
+		
+		}
+		
+	.weftGridRowThree {
+		position:absolute;
+		margin-left:6px;
+		top:20%;
+ 		left:0;
+		width:70%;
+		height:25px;
+		
+		}
+		
+	.weftGridRowFour {
+		position:absolute;
+		margin-left:6px;
+		top:30%;
+ 		left:0;
+		width:70%;
+		height:25px;
+		
+		}
+	.weftGridRowFive {
+		position:absolute;
+		margin-left:6px;
+		top:40%;
+ 		left:0;
+		width:70%;
+		height:25px;
+		
+		}
+	.weftGridRowSix {
+		position:absolute;
+		margin-left:6px;
+		top:50%;
+ 		left:0;
+		width:70%;
+		height:25px;
+		
+		}
+	.weftGridRowSeven {
+		position:absolute;
+		margin-left:6px;
+		top:60%;
+ 		left:0;
+		width:70%;
+		height:25px;
+		
+		}
+	.weftGridRowEight {
+		position:absolute;
+		margin-left:6px;
+		top:70%;
+ 		left:0;
+		width:70%;
+		height:25px;
+		
+		}
+	.weftGridRowNine {
+		position:absolute;
+		margin-left:6px;
+		top:80%;
+ 		left:0;
+		width:70%;
+		height:25px;
+	
+		}
+	.weftGridRowTen {
+		position:absolute;
+		margin-left:6px;
+		top:90%;
+ 		left:0;
+		width:70%;
+		height:25px;
+	
+		}
+
+
+/* tie up columns */
+
+	.tieGridColOne {
+ 		position:absolute;
+ 		top:0;
+ 		left:0%;
+		width:25%;
+		height:100%;
+		}
+	.tieGridColTwo {
+ 		position:absolute;
+ 		top:0;
+ 		left:25%;;
+		width:25%;
+		height:100%;
+		}
+	.tieGridColThree {
+ 		position:absolute;
+ 		top:0;
+ 		left:50%;
+		width:25%;;
+		height:100%;
+		}
+	.tieGridColFour {
+ 		position:absolute;
+ 		top:0;
+ 		left:75%;
+		width:25%;
+		height:100%;
+		}
+
+/* tie up rows */
+
+	.tieGridRowOne {
+		position:absolute;
+		margin-left:6px;
+		top:0;
+ 		left:0;
+		width:70%;
+		height:25%;
+		
+		}
+		
+	.tieGridRowTwo {
+		margin-left:6px;
+		position:absolute;
+		top:25%;
+ 		left:0;
+		width:70%;
+		height:25%;
+	
+		}
+		
+	.tieGridRowThree {
+		position:absolute;
+		margin-left:6px;
+		top:50%;
+ 		left:0;
+		width:70%;
+		height:25%;
+		
+		}
+		
+	.tieGridRowFour {
+		position:absolute;
+		margin-left:6px;
+		top:75%;
+ 		left:0;
+		width:70%;
+		height:25%;
+		
+		}
+		
+
+/* pick warp colors */
 	
 .warpOneColor {
 	position:absolute;
@@ -34,7 +314,7 @@
 	top:0;
 	left:0%;
 	width:10%;
-	height:10px;
+	height:15px;
 }
 .warpTwoColor {
 	position:absolute;
@@ -42,7 +322,7 @@
 	top:0;
 	left:10%;
 	width:10%;
-	height:10px;
+	height:15px;
 }
 .warpThreeColor {
 	position:absolute;
@@ -50,7 +330,7 @@
 	top:0;
 	left:20%;
 	width:10%;
-	height:10px;
+	height:15px;
 }
 .warpFourColor {
 	position:absolute;
@@ -58,7 +338,7 @@
 	top:0;
 	left:30%;
 	width:10%;
-	height:10px;
+	height:15px;
 }
 .warpFiveColor {
 	position:absolute;
@@ -66,7 +346,7 @@
 	top:0;
 	left:40%;
 	width:10%;
-	height:10px;
+	height:15px;
 }
 .warpSixColor {
 	position:absolute;
@@ -74,7 +354,7 @@
 	top:0;
 	left:50%;
 	width:10%;
-	height:10px;
+	height:15px;
 }
 .warpSevenColor {
 	position:absolute;
@@ -82,7 +362,7 @@
 	top:0;
 	left:60%;
 	width:10%;
-	height:10px;
+	height:15px;
 }
 .warpEightColor {
 	position:absolute;
@@ -90,7 +370,7 @@
 	top:0;
 	left:70%;
 	width:10%;
-	height:10px;
+	height:15px;
 }
 .warpNineColor {
 	position:absolute;
@@ -98,7 +378,7 @@
 	top:0;
 	left:80%;
 	width:10%;
-	height:10px;
+	height:15px;
 }
 .warpTenColor {
 	position:absolute;
@@ -106,8 +386,92 @@
 	top:0;
 	left:90%;
 	width:10%;
-	height:10px;
+	height:15px;
 }
+
+/* pick weft colors */
+	
+.weftOneColor {
+	position:absolute;
+	border-style:outset;
+	left:0px;
+	top:0%;
+	width:15px;
+	height:25px;
+}
+.weftTwoColor {
+	position:absolute;
+	border-style:outset;
+	left:0;
+	top:10%;
+	width:15px;
+	height:25px;
+}
+.weftThreeColor {
+	position:absolute;
+	border-style:outset;
+	left:0;
+	top:20%;
+	width:15px;
+	height:25px;
+}
+.weftFourColor {
+	position:absolute;
+	border-style:outset;
+	left:0;
+	top:30%;
+	width:15px;
+	height:25px;
+}
+.weftFiveColor {
+	position:absolute;
+	border-style:outset;
+	left:0;
+	top:40%;
+	width:15px;
+	height:25px;
+}
+.weftSixColor {
+	position:absolute;
+	border-style:outset;
+	left:0;
+	top:50%;
+	width:15px;
+	height:25px;
+}
+.weftSevenColor {
+	position:absolute;
+	border-style:outset;
+	left:0;
+	top:60%;
+	width:15px;
+	height:25px;
+}
+.weftEightColor {
+	position:absolute;
+	border-style:outset;
+	left:0;
+	top:70%;
+	width:15px;
+	height:25px;
+}
+.weftNineColor {
+	position:absolute;
+	border-style:outset;
+	left:0;
+	top:80%;
+	width:15px;
+	height:25px;
+}
+.weftTenColor {
+	position:absolute;
+	border-style:outset;
+	left:0;
+	top:90%;
+	width:15px;
+	height:25px;
+}
+
  .hGridColOne {
  		position:absolute;
  		top:0;
@@ -189,11 +553,7 @@
  		left:0;
 		width:70%;
 		height:25%;
-
-
-		-webkit-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
-		-moz-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
-		box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+	
 		}
 		
 	.hGridRowTwo {
@@ -203,9 +563,7 @@
  		left:0;
 		width:70%;
 		height:25%;
-		-webkit-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
-		-moz-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
-		box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		
 		}
 		
 	.hGridRowThree {
@@ -215,9 +573,7 @@
  		left:0;
 		width:70%;
 		height:25%;
-		-webkit-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
-		-moz-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
-		box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		
 		}
 		
 	.hGridRowFour {
@@ -227,162 +583,179 @@
  		left:0;
 		width:70%;
 		height:25%;
-		-webkit-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
-		-moz-box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
-		box-shadow: -1px 2px 26px -2px rgba(0,0,0,0.75);
+		
 		}
 		
 	
- .weaveBox {
- padding: 0px;
- margin-bottom:0px;
- margin-top:0px;
- 	position:relative;
- 	top:80px;
-	width:400px;
-	height:400px;
-	background-color: #CCFFFF
-	}
-	
+
 	.weftOne {
+		background:#232E36;
+		opacity: 0.9;
+    	filter: alpha(opacity=40);
 		position:absolute;
 		top:0%;
-		background-color:blue;
 		height:10%;
 		width:100%;
 		}
 	.weftTwo {
+		background:#232E36;
+		opacity: 0.9;
+    	filter: alpha(opacity=40);
 		position:absolute;
 		top:10%;
-		background-color:blue;
 		height:10%;
 		width:100%;
 		}
 	.weftThree {
+		background:#232E36;
+		opacity: 0.9;
+    	filter: alpha(opacity=40);
 		position:absolute;
 		top:20%;
-		background-color:blue;
 		height:10%;
 		width:100%;
 		}
 	.weftFour {
 		position:absolute;
+		background:#232E36;
+		opacity: 0.9;
+    	filter: alpha(opacity=40);
 		top:30%;
-		background-color:blue;
 		height:10%;
 		width:100%;
 		}
 	.weftFive {
 		position:absolute;
+		background:#232E36;
+		opacity: 0.9;
+    	filter: alpha(opacity=40);
 		top:40%;
-		background-color:blue;
 		height:10%;
 		width:100%;
 		}
 	.weftSix {
 		position:absolute;
+		background:#232E36;
+		opacity: 0.9;
+    	filter: alpha(opacity=40);
 		top:50%;
-		background-color:blue;
 		height:10%;
 		width:100%;
 		}
 	.weftSeven {
 		position:absolute;
+		background:#232E36;
+		opacity: 0.9;
+    	filter: alpha(opacity=40);
 		top:60%;
-		background-color:blue;
 		height:10%;
 		width:100%;
 		}
 	.weftEight {
 		position:absolute;
+		background:#232E36;
+		opacity: 0.9;
+    	filter: alpha(opacity=40);
 		top:70%;
-		background-color:blue;
 		height:10%;
 		width:100%;
 		}
 	.weftNine {
 		position:absolute;
+		background:#232E36;
+		opacity: 0.9;
+    	filter: alpha(opacity=40);
 		top:80%;
-		background-color:blue;
 		height:10%;
 		width:100%;
 		}
 	.weftTen {
-	z-index:10;
 		position:absolute;
+		background:#232E36;
+		opacity: 0.9;
+    	filter: alpha(opacity=40);
 		top:90%;
-		background-color:blue;
-		height:10%
+		height:10%;
 		width:100%;
 		}
 		
-	#above {
+	.above {
 		z-index:2;
 		}
 	
-	#below {
+	.below {
 		z-index:0;
 		}
 	
-	#base {
+	.base {
 		z-index:1;
 		}
 	
 	.warpOne {
+	background:#fff;
 	position:absolute;
 	left:0%;
 	width:10%;
 	height:10%;
 	}
 	.warpTwo {
+	background:#fff;
 	position:absolute;
 	left:10%;
 	width:10%;
 	height:10%;
 	}
 	.warpThree {
+	background:#fff;
 	position:absolute;
 	left:20%;
 	width:10%;
 	height:10%;
 	}
 	.warpFour {
+	background:#fff;
 	position:absolute;
 	left:30%;
 	width:10%;
 	height:10%;
 	}
 	.warpFive {
+	background:#fff;
 	position:absolute;
 	left:40%;
 	width:10%;
 	height:10%;
 	}
 	.warpSix {
+	background:#fff;
 	position:absolute;
 	left:50%;
 	width:10%;
 	height:10%;
 	}
 	.warpSeven {
+	background:#fff;
 	position:absolute;
 	left:60%;
 	width:10%;
 	height:10%;
 	}
 	.warpEight {
+	background:#fff;
 	position:absolute;
 	left:70%;
 	width:10%;
 	height:10%;
 	}
 	.warpNine {
+	background:#fff;
 	position:absolute;
 	left:80%;
 	width:10%;
 	height:10%;
 	}
 	.warpTen {
+	background:#fff;
 	position:absolute;
 	left:90%;
 	width:10%;
