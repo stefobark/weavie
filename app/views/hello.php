@@ -15,10 +15,12 @@
     </head>
     <body>
     <div class="container">
-    <div class="row-md-12">
-    <h1 class="title">Weaver</h1>
+    <div class="row">
+    <div class="col-md-12">
+   
    
     	<div class="weaveContainer">
+    		 <h1 class="title">Weavie</h1>
 			<div class="warpColorPick">
 				<div class="warpOneColor"></div>
 				<div class="warpTwoColor"></div>

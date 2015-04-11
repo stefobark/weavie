@@ -1,9 +1,9 @@
 /* the overall box that everything weave related is happening in, and it will
 	also get envoloped by a bootstrap container */
  .weaveContainer {
- 
+ margin-top:-80px;
  position:relative;
- height: 500px;
+ height: 1000px;
  width: 800px;
  }
 
