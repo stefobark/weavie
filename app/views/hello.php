@@ -22,6 +22,16 @@
     	<div class="weaveContainer">
     		 <h1 class="title">Weavie</h1>
     		 <p class="help-block description">Weave Draft Designer</p>
+    		 <p class="help-block" id="stepOne">Step One</p>
+    		<div><span class="glyphicon glyphicon-question-sign" id="hGridPopOver" data-toggle="popover" data-placement="left" title="Harness Grid" data-content="Attaching warps to the Harness is the first step. Use this Harness Grid to string your threads through the heddles. In other words, selecting a row in this grid will connect the corresponding warp to the corresponding harness. If you change this grid after setting the other grids, you will have to reset them in order to see the changes."></span></div>
+			<p class="help-block" id="stepTwo">Step Two</p>
+    		<div><span class="glyphicon glyphicon-question-sign" id="warpColorGridPopOver" data-toggle="popover" data-placement="left" title="Warp Color Grid" data-content="Set the color of each warp. Click a button and a field will appear that allows you to enter in the color code for that warp. If you don't know the codes, that's fine. Click the input field and a color map will be displayed."></span></div>
+			<p class="help-block" id="stepThree">Step Three</p>
+    		<div><span class="glyphicon glyphicon-question-sign" id="tieGridPopOver" data-toggle="popover" data-placement="right" title="Tie-up Grid" data-content="This is the Tie-Up Grid. It represents tying harnesses to treadles. So, in other words, it will connect the grid on the left (which represents tying warps to harnesses) to the grid below (which represents pressing a treadle, which lifts the warps as you pass the weft through)."></span></div>
+			<p class="help-block" id="stepFour">Step Four</p>
+    		<div><span class="glyphicon glyphicon-question-sign" id="weftGridPopOver" data-toggle="popover" data-placement="right" title="Weft Grid" data-content="These columns represent the four treadles. Clicking a row represents lifting that treadle for that pass of the shuttle (the shuttle is the thing carrying the weft)."></span></div>
+			<p class="help-block" id="stepFive">Step Five</p>
+    		<div><span class="glyphicon glyphicon-question-sign" id="weftColorPopOver" data-toggle="popover" data-placement="right" title="Weft Color Grid" data-content="Set the color of each weft. This works the same as the warp color picker."></span></div>
 			<div class="warpColorPick">
 				<div class="warpOneColor"></div>
 				<div class="warpTwoColor"></div>

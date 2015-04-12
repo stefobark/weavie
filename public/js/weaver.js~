@@ -213,6 +213,87 @@ $(".warpTenColor").click(function() {
 	
 	$("#pickWarpTenColor").addClass("display");
 	});
+
+/*pick weft colors */
+	
+$(".weftOneColor").click(function() {
+	$("#pickWeftOneColor").removeClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").addClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").removeClass("display");
+	$("#pickWeftOneColor").addClass("display");
+	});
+
+$(".weftTwoColor").click(function() {
+	$("#pickWeftTwoColor").removeClass("hide");
+	$("#pickWeftOneColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").addClass("hide");
+	$("#pickWeftOneColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").removeClass("display");
+	$("#pickWeftTwoColor").addClass("display");
+	});
+
+$(".weftThreeColor").click(function() {
+	$("#pickWeftThreeColor").removeClass("hide");
+	$("#pickWeftTwoColor, #pickWeftOneColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").addClass("hide");
+	$("#pickWeftTwoColor, #pickWeftOneColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").removeClass("display");
+	$("#pickWeftThreeColor").addClass("display");
+	});
+	
+$(".weftFourColor").click(function() {
+	$("#pickWeftFourColor").removeClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftOneColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").addClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftOneColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").removeClass("display");
+	
+	$("#pickWeftFourColor").addClass("display");
+	});
+
+$(".weftFiveColor").click(function() {
+	$("#pickWeftFiveColor").removeClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftOneColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").addClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftOneColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").removeClass("display");
+	
+	$("#pickWeftFiveColor").addClass("display");
+	});
+	
+$(".weftSixColor").click(function() {
+	$("#pickWeftSixColor").removeClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftOneColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").addClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftOneColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").removeClass("display");
+	
+	$("#pickWeftSixColor").addClass("display");
+	});
+	
+$(".weftSevenColor").click(function() {
+	$("#pickWeftSevenColor").removeClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftOneColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").addClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftOneColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftTenColor").removeClass("display");
+	
+	$("#pickWeftSevenColor").addClass("display");
+	});
+	
+$(".weftEightColor").click(function() {
+	$("#pickWeftEightColor").removeClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftOneColor, #pickWeftNineColor, #pickWeftTenColor").addClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftOneColor, #pickWeftNineColor, #pickWeftTenColor").removeClass("display");
+	
+	$("#pickWeftEightColor").addClass("display");
+	});
+	
+$(".weftNineColor").click(function() {
+	$("#pickWeftNineColor").removeClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftOneColor, #pickWeftTenColor").addClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftOneColor, #pickWeftTenColor").removeClass("display");
+	
+	$("#pickWeftNineColor").addClass("display");
+	});
+	
+$(".weftTenColor").click(function() {
+	$("#pickWeftTenColor").removeClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftOneColor").addClass("hide");
+	$("#pickWeftTwoColor, #pickWeftThreeColor, #pickWeftFourColor, #pickWeftFiveColor, #pickWeftSixColor, #pickWeftSevenColor, #pickWeftEightColor, #pickWeftNineColor, #pickWeftOneColor").removeClass("display");
+	
+	$("#pickWeftTenColor").addClass("display");
+	});
+
+
 /*
 the problem here is that there is a bunch of repetition...
 i guess i could pump this out with a "for loop".

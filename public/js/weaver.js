@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+$('[data-toggle="popover"]').popover();   
+
 //manage the tie-up grid
 
 //column one

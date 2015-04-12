@@ -13,12 +13,74 @@
  }
 .description {
  position:absolute;
- left:120px;
- top:119px;
+ left:140px;
+ top:112px;
  }
 
+#hGridPopOver {
+position:absolute;
+font-size:40px;
+ left:-60px;
+ top:160px;
+ }
+ 
+ #stepOne {
+ position:absolute;
+ left:-130px;
+ top:165px;
+ }
+ 
+ #warpColorGridPopOver {
+position:absolute;
+font-size:40px;
+ left:-60px;
+ top:245px;
+ }
+ 
+ #stepTwo {
+ position:absolute;
+ left:-130px;
+ top:250px;
+ }
+ 
+  #tieGridPopOver {
+position:absolute;
+font-size:40px;
+ left:600px;
+ top:160px;
+ }
+ 
+ #stepThree {
+ position:absolute;
+ left:645px;
+ top:165px;
+ }
 
-
+#weftGridPopOver {
+position:absolute;
+font-size:40px;
+ left:600px;
+ top:460px;
+ }
+ 
+ #stepFour {
+ position:absolute;
+ left:645px;
+ top:465px;
+ }
+ 
+#weftColorPopOver {
+position:absolute;
+font-size:40px;
+ left:400px;
+ top:700px;
+ }
+ 
+ #stepFive {
+ position:absolute;
+ left:440px;
+ top:710px;
+ } 
 /* for hiding and displaying things */
 
  .hide {
