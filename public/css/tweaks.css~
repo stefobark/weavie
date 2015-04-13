@@ -78,8 +78,8 @@ font-size:40px;
  
  #stepFive {
  position:absolute;
- left:440px;
- top:710px;
+ left:445px;
+ top:705px;
  } 
 /* for hiding and displaying things */
 
@@ -170,6 +170,7 @@ font-size:40px;
 	width:150px;
 	height:400px;
 	}
+ 
  
 /* weft columns */
 

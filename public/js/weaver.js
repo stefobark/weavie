@@ -1,6 +1,12 @@
-$(document).ready(function() {
 
 $('[data-toggle="popover"]').popover();   
+var numWarps = 100;
+var numWefts = 100;
+
+var widthPercent = numWarps / 100;
+var heightPercent = numWefts / 100;
+
+
 
 //manage the tie-up grid
 
