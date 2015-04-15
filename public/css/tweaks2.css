@@ -1,3 +1,9 @@
+.above {
+	z-index:2;
+	}
+.pass0 {
+background:black;
+}
 .tryBox {
 	position:relative;
 	height:1000px;
@@ -5,67 +11,83 @@
 	top:20px;
 	left:50px;
 	}
-	
+.warpColorGrid {
+	position:absolute;
+	overflow:auto;
+	top:21%;
+	left:0;
+	height:30px;
+	width:78%;
+}
+
+.weftColorGrid {
+	position:absolute;
+	overflow:auto;
+	top:25%;
+	right:17%;
+	height:78%;
+	width:35px;
+}
+
+
 .weaveBox {
 	position:absolute;
-	top:20%;
+	overflow:auto;
+	top:25%;
 	left:0;
 	height:80%;
-	width:80%;
-	background:grey;
+	width:78%;
 	}
 
 .treadleGrid {
 	position:absolute;
-	top:20%;
+	overflow:auto;
+	top:25%;
 	right:0;
 	height:80%;
-	width:20%;
+	width:17%;
 	background:grey;
 	}
 .treadleGridCol1 {
 position:absolute;
 top:0;
 left:0%;
-border-style:solid; 
+
 width:25%; 
 height:100%; 
-border-color: rgb(160,160,255);
+
 }
 .treadleGridCol2 {
 position:absolute;
 top:0;
 left:25%;
-border-style:solid; 
 width:25%; 
 height:100%; 
-border-color: rgb(160,160,255);
+
 }
 .treadleGridCol3 {
 position:absolute;
 top:0;
 left:50%;
-border-style:solid; 
+
 width:25%; 
 height:100%; 
-border-color: rgb(160,160,255);
 }
 .treadleGridCol4 {
 position:absolute;
 top:0;
 left:75%;
-border-style:solid; 
 width:25%; 
 height:100%; 
-border-color: rgb(160,160,255);
 }
 
 .hGrid {
+	overflow:auto;
  position:absolute;
  top:0;
  left:0;
  height:20%;
- width:80%;
+ width:78%;
 }
 
 .tieUp {
@@ -73,16 +95,13 @@ border-color: rgb(160,160,255);
  top:0;
  right:0;
  height:20%;
- width:20%;
+ width:17%;
  background:grey;
 }
 
 .hGridRow1 {
 	position:absolute;
 	background-color:#999;
-	border-style:solid;
-	border-color: rgb(160,160,255);
-	top:0%;
 	left:0;
 	width:100%;
 	height:25%;
@@ -90,8 +109,6 @@ border-color: rgb(160,160,255);
 .hGridRow2 {
 	position:absolute;
 	background-color:#999;
-	border-style:solid;
-	border-color: rgb(160,160,255);
 	top:25%;
 	left:0;
 	width:100%;
@@ -100,8 +117,6 @@ border-color: rgb(160,160,255);
 .hGridRow3 {
 	position:absolute;
 	background-color:#999;
-border-style:solid;
-	border-color: rgb(160,160,255);
 	top:50%;
 	left:0;
 	width:100%;
@@ -110,8 +125,6 @@ border-style:solid;
 .hGridRow4 {
 	position:absolute;
 	background-color:#999;
-border-style:solid;
-	border-color: rgb(160,160,255);
 	top:75%;
 	left:0;
 	width:100%;
@@ -154,8 +167,6 @@ border-style:solid;
 .tieGridRowOne {
 	position:absolute;
 	background-color:#999;
-	border-style:solid;
-	border-color: rgb(160,160,255);
 	top:0%;
 	left:0;
 	width:100%;
@@ -163,8 +174,6 @@ border-style:solid;
 	}
 .tieGridRowTwo {
 	position:absolute;
-	border-style:solid;
-	border-color: rgb(160,160,255);
 	background-color:#999;
 	
 	left:0;
@@ -175,8 +184,6 @@ border-style:solid;
 .tieGridRowThree {
 	position:absolute;
 	background-color:#999;
-border-style:solid;
-	border-color: rgb(160,160,255);
 	top:50%;
 	left:0;
 	width:100%;
@@ -185,14 +192,24 @@ border-style:solid;
 .tieGridRowFour {
 	position:absolute;
 	background-color:#999;
-border-style:solid;
-	border-color: rgb(160,160,255);
 	top:75%;
 	left:0%;
 	width:100%;
 	height:25%;
 	}
-	
+
+.hGridRow1	{
+	width:10px;
+	}
+.hGridRow4	{
+	width:10px;
+	}
+.hGridRow5	{
+	width:10px;
+	}
+.hGridRow6	{
+	width:10px;
+	}
 		
 .activeButton {
 	background:yellow;

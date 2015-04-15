@@ -18,25 +18,25 @@
     <div class="col-md-8">
     	<div class="tryBox">
 			<div class="tieUp">
-				<div id="tieGridColOne" >
+				<div class="tieGridColOne" >
 					<div class="tieGridRowOne"></div>
 					<div class="tieGridRowTwo"></div>
 					<div class="tieGridRowThree"></div>
 					<div class="tieGridRowFour"></div>
 				</div>
-				<div id="tieGridColTwo">
+				<div class="tieGridColTwo">
 					<div class="tieGridRowOne"></div>
 					<div class="tieGridRowTwo"></div>
 					<div class="tieGridRowThree"></div>
 					<div class="tieGridRowFour"></div>
 				</div>	
-				<div id="tieGridColThree">
+				<div class="tieGridColThree">
 					<div class="tieGridRowOne"></div>
 					<div class="tieGridRowTwo"></div>
 					<div class="tieGridRowThree"></div>
 					<div class="tieGridRowFour"></div>
 				</div>	
-				<div id="tieGridColFour" >
+				<div class="tieGridColFour" >
 					<div class="tieGridRowOne"></div>
 					<div class="tieGridRowTwo"></div>
 					<div class="tieGridRowThree"></div>

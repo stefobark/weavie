@@ -19,28 +19,28 @@
     	<div class="tryBox">
 			<div class="tieUp">
 				<div class="tieGridColOne" >
-					<div class="tieGridRowOne"></div>
-					<div class="tieGridRowTwo"></div>
-					<div class="tieGridRowThree"></div>
-					<div class="tieGridRowFour"></div>
+					<button class="tieGridRowOne"></button>
+					<button class="tieGridRowTwo"></button>
+					<button class="tieGridRowThree"></button>
+					<button class="tieGridRowFour"></button>
 				</div>
 				<div class="tieGridColTwo">
-					<div class="tieGridRowOne"></div>
-					<div class="tieGridRowTwo"></div>
-					<div class="tieGridRowThree"></div>
-					<div class="tieGridRowFour"></div>
+					<button class="tieGridRowOne"></button>
+					<button class="tieGridRowTwo"></button>
+					<button class="tieGridRowThree"></button>
+					<button class="tieGridRowFour"></button>
 				</div>	
 				<div class="tieGridColThree">
-					<div class="tieGridRowOne"></div>
-					<div class="tieGridRowTwo"></div>
-					<div class="tieGridRowThree"></div>
-					<div class="tieGridRowFour"></div>
+					<button class="tieGridRowOne"></button>
+					<button class="tieGridRowTwo"></button>
+					<button class="tieGridRowThree"></button>
+					<button class="tieGridRowFour"></button>
 				</div>	
 				<div class="tieGridColFour" >
-					<div class="tieGridRowOne"></div>
-					<div class="tieGridRowTwo"></div>
-					<div class="tieGridRowThree"></div>
-					<div class="tieGridRowFour"></div>
+					<button class="tieGridRowOne"></button>
+					<button class="tieGridRowTwo"></button>
+					<button class="tieGridRowThree"></button>
+					<button class="tieGridRowFour"></button>
 				</div>
 			</div>
 		</div>
