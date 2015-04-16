@@ -1,39 +1,50 @@
 .above {
 	z-index:2;
 	}
-.pass0 {
-background:black;
-}
+.base {
+	z-index:1;
+	}
 .tryBox {
 	position:relative;
-	height:1000px;
-	width:1000px;
+	height:100%;
+	width:100%;
 	top:20px;
-	left:50px;
+	left:0px;
 	}
 .warpColorGrid {
 	position:absolute;
 	overflow:auto;
-	top:21%;
+	top:26%;
 	left:0;
 	height:30px;
 	width:78%;
 }
 
+.setWarpsAndWefts {
+	margin-top:10px;
+	height:20px;
+	width:40px;
+	}
+
 .weftColorGrid {
 	position:absolute;
 	overflow:auto;
-	top:25%;
-	right:18%;
+	top:30%;
+	right:17%;
 	height:78%;
 	width:35px;
 }
 
+.setNumbers {
+	position:fixed;
+	top:20px;
+	left:20px;
+	}
 
 .weaveBox {
 	position:absolute;
 	overflow:auto;
-	top:25%;
+	top:30%;
 	left:0;
 	height:80%;
 	width:78%;
@@ -42,11 +53,10 @@ background:black;
 .treadleGrid {
 	position:absolute;
 	overflow:auto;
-	top:25%;
+	top:30%;
 	right:0;
 	height:80%;
 	width:17%;
-	background:grey;
 	}
 .treadleGridCol1 {
 position:absolute;
@@ -73,6 +83,14 @@ left:50%;
 width:25%; 
 height:100%; 
 }
+.hide {
+	display:none;
+	}
+.display {
+	display:block;
+	}
+
+
 .treadleGridCol4 {
 position:absolute;
 top:0;
@@ -199,18 +217,22 @@ height:100%;
 	}
 
 .hGridRow1	{
+	background-color:#999;
+	width:10px;
+	}
+.hGridRow2	{
+	background-color:#999;
+	width:10px;
+	}
+.hGridRow3	{
+	background-color:#999;
 	width:10px;
 	}
 .hGridRow4	{
-	width:10px;
-	}
-.hGridRow5	{
-	width:10px;
-	}
-.hGridRow6	{
+	background-color:#999;
 	width:10px;
 	}
 		
 .activeButton {
-	background:yellow;
+	background:#444;
 	}
