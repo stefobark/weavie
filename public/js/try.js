@@ -1,8 +1,8 @@
 
 $(document).ready(function() {
 
-		var numWarps = 50
-		var numWefts = 50
+		var numWarps = 70
+		var numWefts = 70
 		
 	//hGrid maker 
 

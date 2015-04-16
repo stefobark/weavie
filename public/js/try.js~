@@ -1,9 +1,6 @@
 
 $(document).ready(function() {
 
-		var warpPercent = numWarps/100;
-		var weftPercent = numWefts/100;
-		
 		var numWarps = 50
 		var numWefts = 50
 		
