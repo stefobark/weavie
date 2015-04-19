@@ -1,8 +1,50 @@
+var numWarps;
+var numWefts; 
 
 $(document).ready(function() {
 
-		var numWarps = 70
-		var numWefts = 70
+			
+	
+	$(".submit").click(function() {
+		numWarps = $(".warpNum").val();
+		numWefts = $(".weftNum").val();
+		alert(numWarps + ' ' + numWefts);
+		
+		everything(numWarps, numWefts);
+	});
+});
+
+
+		
+
+function everything(numWarps, numWefts) {		
+
+	$(".choose").remove();
+	
+	$(".col-md-12").append('<div class="tryBox"></div>');
+	
+	//tieUp
+	$(".tryBox").append('<div class="tieUp"></div>');
+	
+	var tieNum = 4;
+	var colNum = 4;
+	var tieLeft = 0;
+	var tieTop = 0;
+	
+	for(i = 0; i < tieNum; i++) { 
+		if(i > 0){
+			tieLeft = tieLeft + 25;
+			}
+		$(".tieUp").append('<div class="tie' + i +'" style="position: absolute; left:' + tieLeft + 'px; width:25px;"></div>');
+		tieTop = 0;
+		for(c = 0; c < colNum; c++) {
+			if(c > 0){
+			tieTop = tieTop + 25;
+			}
+			$('.tie' + i).append('<button id="tRow' + c +'" class="tieButton" style="position: absolute; top:' + tieTop + 'px; width:25px; height:30px;"></button>');
+			}
+		}
+			
 		
 	//hGrid maker 
 
@@ -11,21 +53,21 @@ $(document).ready(function() {
 		for (i = 0; i < numWarps; i++) { 
 	
 			//if this is not the first iteration of the loop, add 15.. we want our buttons 15 px wide, 
-			//so we need to space them 15px apart... we use this to set the left property
+			//35so we need to space them 15px apart... we use this to set the left property
 			if(i > 0){
 				left = left + 15
 			} 
-			$(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0; left:' + left + 'px; height:100%; width:15px;" ><button class="hGridRow1"></button><button class="hGridRow2"></button><button class="hGridRow3"></button><button class="hGridRow4"></button></button>');			
+			$(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0; right:' + left + 'px; height:100%; width:15px;" ><button class="hGridRow1"></button><button class="hGridRow2"></button><button class="hGridRow3"></button><button class="hGridRow4"></button></button>');			
 		}
 	
 		$(".tryBox").append('</div>');
-	
+		
 	//treadle push grid maker 
 
 		$(".tryBox").append('<div class="treadleGrid">');
 
 		var top = 0
-		for (i = 0; i < numWarps; i++) { 
+		for (i = 0; i < numWefts; i++) { 
 			if(i > 0){
 				top = top + 15
 			} 
@@ -42,7 +84,7 @@ $(document).ready(function() {
 			$('#' + parent).children().removeClass('activeButton');
 			$('#' + parent + ' > .hGridRow1').addClass("activeButton");
 			$('.warp' + parent).alterClass("harness*");
-			$('.warp' + parent).addClass("harnessOne");
+			$('.warp' + parent).addClass("harness0");
 		});
 	
 		$(".hGridRow2").click(function(){
@@ -51,7 +93,7 @@ $(document).ready(function() {
 			$('#' + parent).children().removeClass('activeButton');
 			$('#' + parent + ' > .hGridRow2').addClass("activeButton");
 			$('.warp' + parent).alterClass("harness*'");
-			$('.warp' + parent).addClass('harnessTwo');
+			$('.warp' + parent).addClass('harness1');
 		});
 	
 		$(".hGridRow3").click(function(){
@@ -60,7 +102,7 @@ $(document).ready(function() {
 			$('#' + parent).children().removeClass('activeButton');
 			$('#' + parent + ' > .hGridRow3').addClass("activeButton");
 			$('.warp' + parent).alterClass("harness*");
-			$('.warp' + parent).addClass('harnessThree');
+			$('.warp' + parent).addClass('harness2');
 		});
 	
 		$(".hGridRow4").click(function(){
@@ -69,7 +111,7 @@ $(document).ready(function() {
 			$('#' + parent).children().removeClass('activeButton');
 			$('#' + parent + ' > .hGridRow4').addClass("activeButton");
 			$('.warp' + parent).alterClass("harness*");
-			$('.warp' + parent).addClass('harnessFour');
+			$('.warp' + parent).addClass('harness3');
 		});
 	
 	//for pumping out the weaveBox
@@ -79,6 +121,7 @@ $(document).ready(function() {
 		//pump out wefts
 		$(".tryBox").append('<div class="weftColorGrid"></div>');
 		$(".tryBox").append('<div class="pickWeftColorsDisplay" style="position:absolute; top:20%; background:white;  z-index:3; left:40%; height:30px; width:78%;"></div>');
+		$(".tryBox").append('<div class="weftColorChoose">Click to set weft color: <input type="text" class="weftBasic"/>');
 		weaveBoxTop = 0;
 		for (i = 0; i < numWefts; i++) {
 		
@@ -87,12 +130,26 @@ $(document).ready(function() {
 			}
 		
 			$(".weaveBox").append('<div class="weft' + i + ' base" style="position:absolute; width:100%; height: 15px; top:' + weaveBoxTop + 'px;"></div>');
-			$(".weftColorGrid").append('<button class="pickWeft' + i + 'Color" style="position:absolute;  top:' + weaveBoxTop + 'px; width:15px; height:15px;" onclick=\'$(".pickWeftColorsDisplay div").css("display", "none"); $(".weft' + i + 'Color").css("display", "block");\' ></button>');
-			$(".pickWeftColorsDisplay").append('<div class="weft' + i + 'Color" style="display:none;">Click to set warp '+  i + ': <input class="color weftColorInput" onchange="$(\'.weft'+i+', pickWeft' + i + 'Color\').css(\'background\',\'#\'+this.color);"></input></div>');
-		}
+			$(".weftColorGrid").append('<button id="'+ i + '" class="weftColorButton" style="position:absolute;  top:' + weaveBoxTop + 'px; width:15px; height:15px;"></button>');
 
-		$(".tryBox").append('<div class="warpColorGrid"></div>');
-			$(".tryBox").append('<div class="pickWarpColorsDisplay" style="position:absolute; top:20%; background:white; left:0; height:30px; width:78%;"></div>');
+		}
+		
+		//color picking wefts
+		$(".weftBasic").spectrum({
+   		 color: "#f00",
+    		change: function(color) {
+    			var weftColorChosen = color.toHexString();
+				setWeftColor(weftColorChosen);
+			 }
+		});
+		
+		function setWeftColor(weftColorChosen) {
+		$(".weftColorButton").click(function(){
+				var weftID = ($(this).attr('id'));
+				 $('.weft' + weftID).css("background", weftColorChosen);
+				 });
+		}
+		
 		warpPassTop = 0
 	
 		//pump out warps, each pass on new line 15px down
@@ -110,18 +167,38 @@ $(document).ready(function() {
 				}
 		}
 		warpLeft = 0
-	
+		
+		
+		//for getting the chosen color for easier clicking and choosing
 		//warp color picker stuff
+		
+		$(".tryBox").append('<div class="warpColorGrid"></div>');
+		$(".tryBox").append('<div class="warpColorChoose">Click to set warp color: <input type="text" class="basic"/>');
+		
+		
 		for (i = 0; i < numWarps; i++) { 
 		if(i > 0){
 					warpLeft = warpLeft + 15
 				}
-			$(".warpColorGrid").append('<button class="pickWarp' + i + 'Color" style="position:absolute; left:' + warpLeft + 'px; width:15px; height:15px;" onclick=\'$(".pickWarpColorsDisplay div").css("display", "none"); $(".warp' + i + 'Color").css("display", "block");\' ></button>');
-			$(".pickWarpColorsDisplay").append('<div class="warp' + i + 'Color" style="display:none;">Click to set warp '+  i + ': <input class="color warpColorInput" onchange="$(\'.warp'+i+'\').css(\'background\',\'#\'+this.color);"></input></div>');
+			$(".warpColorGrid").append('<button id=' + i + ' class="warpColorButton" style="position:absolute; left:' + warpLeft + 'px; width:15px; height:15px;"></button>');
+			
 		}	
-	
-	
-	
+		
+		
+		$(".basic").spectrum({
+   		 color: "#f00",
+    		change: function(color) {
+    			var warpColorChosen = color.toHexString();
+				setWarpColor(warpColorChosen);
+			 }
+		});
+		
+		function setWarpColor(warpColorChosen) {
+		$(".warpColorButton").click(function(){
+				var warpID = ($(this).attr('id'));
+				 $('.warp' + warpID).css("background", warpColorChosen);
+				 });
+		}
 		$(".tryBox").append('</div>');
 	
 	
@@ -130,139 +207,22 @@ $(document).ready(function() {
 
 
 		//manage the tie-up grid
-
-		//column one
-		$(".tieGridColOne > .tieGridRowOne").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessFour").addClass("treadleOne");
-		}, function() {
+		
+		$(".tieButton").funcToggle('click', function() {
+			var findTreadle = 'treadle' + $(this).parent().attr('class').substr(3);		
+			var findHarness = 'harness' + $(this).attr('id').substr(4);
+			alert(findTreadle + ' ' + findHarness);
+				$('.' + findHarness).addClass(findTreadle);
+				$(this).css('background', 'grey');
+				
+			}, function() {
+			var findTreadle = 'treadle' + $(this).parent().attr('class').substr(3);		
+			var findHarness = 'harness' + $(this).attr('id').substr(4);
+			alert(findTreadle + ' ' + findHarness);
 			 $(this).css('background', '');
-			 $(".harnessFour").removeClass("treadleOne");
-		});
-
-		$(".tieGridColOne > .tieGridRowTwo").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessThree").addClass("treadleOne");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessThree").removeClass("treadleOne");
-		});
-
-		$(".tieGridColOne > .tieGridRowThree").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessTwo").addClass("treadleOne");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessTwo").removeClass("treadleOne");
-		});
-
-		$(".tieGridColOne > .tieGridRowFour").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessOne").addClass("treadleOne");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessOne").removeClass("treadleOne");
-		});
-
-		//column two
-		$(".tieGridColTwo > .tieGridRowOne").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessFour").addClass("treadleTwo");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessFour").removeClass("treadleTwo");
-		});
-
-		$(".tieGridColTwo > .tieGridRowTwo").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessThree").addClass("treadleTwo");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessThree").removeClass("treadleTwo");
-		});
-
-		$(".tieGridColTwo > .tieGridRowThree").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessTwo").addClass("treadleTwo");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessTwo").removeClass("treadleTwo");
-		});
-
-		$(".tieGridColTwo > .tieGridRowFour").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessOne").addClass("treadleTwo");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessOne").removeClass("treadleTwo");
-		});
-
-		//column three
-		$(".tieGridColThree > .tieGridRowOne").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessFour").addClass("treadleThree");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessFour").removeClass("treadleThree");
-		});
-
-		$(".tieGridColThree > .tieGridRowTwo").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessThree").addClass("treadleThree");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessThree").removeClass("treadleThree");
-		});
-
-		$(".tieGridColThree > .tieGridRowThree").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessTwo").addClass("treadleThree");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessTwo").removeClass("treadleThree");
-		});
-
-		$(".tieGridColThree > .tieGridRowFour").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessOne").addClass("treadleThree");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessOne").removeClass("treadleThree");
-		});
-
-		//column four
-		$(".tieGridColFour > .tieGridRowOne").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessFour").addClass("treadleFour");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessFour").removeClass("treadleFour");
-		});
-
-		$(".tieGridColFour > .tieGridRowTwo").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessThree").addClass("treadleFour");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessThree").removeClass("treadleFour");
-		});
-
-		$(".tieGridColFour > .tieGridRowThree").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessTwo").addClass("treadleFour");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessTwo").removeClass("treadleFour");
-		});
-
-		$(".tieGridColFour > .tieGridRowFour").funcToggle('click', function() {
-			 $(this).css('background', 'grey');
-			 $(".harnessOne").addClass("treadleFour");
-		}, function() {
-			 $(this).css('background', '');
-			 $(".harnessOne").removeClass("treadleFour");
-		});
-
+			 $('.' + findHarness).removeClass(findTreadle);
+			});
+	
 	//mangage the treadling
 
 		$(".treadleGridCol1").click(function(){
@@ -300,4 +260,4 @@ $(document).ready(function() {
 			$(this).addClass("activeButton");
 			$('.pass' + findWarp + '.treadleFour').addClass("above");
 		});
-	});
+	}
