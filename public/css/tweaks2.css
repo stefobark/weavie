@@ -5,35 +5,49 @@
 .warpColorChoose {
 	
 	position:absolute;
-	top:20%;
-	left:0px;
+	top:0px;
+	right:10px;
 	}
 
 .weftColorChoose {
 	
 	position:absolute;
-	top:20%;
-	left:250px;
+	top:30px;
+	right:10px;
 	}
 
 
 .base {
 	z-index:1;
 	}
+.borderTryBox {
+	margin-top:75px;
+	overflow:auto;
+	position:fixed;
+	padding: 20px;
+	top:80px;
+	bottom:80px;
+	right:180px;
+	left:180px;
+	border-style:outset;
+	border-radius:20px;
+	-webkit-box-shadow: 10px 10px 24px 0px rgba(143,136,143,0.63);
+	-moz-box-shadow: 10px 10px 24px 0px rgba(143,136,143,0.63);
+	box-shadow: 10px 10px 24px 0px rgba(143,136,143,0.63);
+	}
+	
 .tryBox {
 	position:relative;
 	height:100%;
 	width:100%;
-	top:20px;
-	left:0px;
 	}
 .warpColorGrid {
 	position:absolute;
 	overflow:auto;
-	top:25%;
-	left:0;
+	top:92px;
+	right:285px;
+	left:0px;
 	height:30px;
-	width:78%;
 }
 
 .setWarpsAndWefts {
@@ -45,8 +59,8 @@
 .weftColorGrid {
 	position:absolute;
 	overflow:auto;
-	top:30%;
-	right:17%;
+	top:117px;
+	right:240px;
 	height:78%;
 	width:35px;
 }
@@ -59,11 +73,12 @@
 
 .weaveBox {
 	position:absolute;
-	overflow:auto;
-	top:30%;
-	left:0;
-	height:80%;
-	width:78%;
+	border-radius:20px;
+	-webkit-box-shadow: inset 10px 10px 24px 0px rgba(143,136,143,0.63);
+	-moz-box-shadow: inset 10px 10px 24px 0px rgba(143,136,143,0.63);
+	box-shadow: inset 10px 10px 24px 0px rgba(143,136,143,0.63);
+	top:117px;
+	right:285px;
 	}
 
 .treadleGrid {
@@ -74,58 +89,21 @@
 	height:80%;
 	width:17%;
 	}
-.treadleGridCol1 {
-position:absolute;
-top:0;
-left:0%;
-
-width:25%; 
-height:100%; 
-
-}
-.treadleGridCol2 {
-position:absolute;
-top:0;
-left:25%;
-width:25%; 
-height:100%; 
-
-}
-.treadleGridCol3 {
-position:absolute;
-top:0;
-left:50%;
-
-width:25%; 
-height:100%; 
-}
-.hide {
-	display:none;
-	}
-.display {
-	display:block;
-	}
-
-
-.treadleGridCol4 {
-position:absolute;
-top:0;
-left:75%;
-width:25%; 
-height:100%; 
-}
 
 .choose {
 	margin-top:20px;
 	}
-
+.hGridScrollWrap {
+	display:inline-block
+	
+}
 .hGrid {
-	overflow:auto;
+
  position:absolute;
- top:0;
- left:0;
- height:20%;
- width:78%;
+ top:0px;
+ left:0px;
+ right:285px;
+ height:77px;
 }
 
 .tieUp {
@@ -134,17 +112,16 @@ height:100%;
  right:0;
  height:20%;
  width:17%;
- background:grey;
 }
 
-.hGridRow1 {
+.hGridRow0 {
 	position:absolute;
 	background-color:#999;
 	left:0;
 	width:100%;
 	height:25%;
 	}
-.hGridRow2 {
+.hGridRow1 {
 	position:absolute;
 	background-color:#999;
 	top:25%;
@@ -152,7 +129,7 @@ height:100%;
 	width:100%;
 	height:25%;
 	}
-.hGridRow3 {
+.hGridRow2 {
 	position:absolute;
 	background-color:#999;
 	top:50%;
@@ -160,7 +137,7 @@ height:100%;
 	width:100%;
 	height:25%;
 	}
-.hGridRow4 {
+.hGridRow3 {
 	position:absolute;
 	background-color:#999;
 	top:75%;
@@ -168,39 +145,6 @@ height:100%;
 	width:100%;
 	height:25%;
 	}
-
-.tieGridCol0 {
-	position:absolute; 
-	top:0; 
-	left:0%; 
-	height:100%; 
-	width:25%;
-	}
-
-.tieGridCol1 {
-	position:absolute; 
-	top:0; 
-	left:25%; 
-	height:100%; 
-	width:25%;
-	}
-	
-.tieGridCol2 {
-	position:absolute; 
-	top:0; 
-	left:50%; 
-	height:100%; 
-	width:25%;
-	}
-	
-.tieGridCol3 {
-	position:absolute; 
-	top:0; 
-	left:75%;  
-	height:100%; 
-	width:25%;
-	}
-	
 
 .tieGridRow0 {
 	position:absolute;

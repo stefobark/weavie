@@ -14,12 +14,14 @@
 
     </head>
     <body>
-   
+   <div style="position:fixed; top:10px; left:150px;">
+   	<img src="/img/logo.png" style="width:200px">
+   </div>
    
     <div class="container">
     <div class="row">
     <div class="col-md-12">
-		<div class="choose">
+		<div class="choose" style="position: fixed; top: 40px; left: 280px;">
 			<p class="help-block">Numbers of Warps:
 			</p>
 				<input type="text" class="warpNum"><br>

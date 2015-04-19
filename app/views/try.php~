@@ -14,17 +14,19 @@
 
     </head>
     <body>
-   
+   <div style="position:fixed; top:10px; left:150px;">
+   	<img src="/img/logo.png" style="width:200px">
+   </div>
    
     <div class="container">
     <div class="row">
     <div class="col-md-12">
-		<div class="choose">
+		<div class="choose" style="position: fixed; top: 60px; left: 280px;">
 			<p class="help-block">Numbers of Warps:
 			</p>
 				<input type="text" class="warpNum"><br>
 			<p class="help-block">Number of Wefts:</p>
-				<input type="text" class="weftNum" style="margin-left:1px"><br>
+				<input type="text" class="weftNum" style="margin-left:1px"><br><br>
 
 			<button class="submit">Go</button>
 
