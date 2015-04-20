@@ -33,7 +33,7 @@ function everything(numWarps, numWefts, numTreadles) {
 
 	$(".choose").remove();
 	
-	$(".col-md-12").append('<div class="borderTryBox"><div class="tryBox"></div></div>');
+	$(".col-md-12").append('<div class="borderTryBox"><div class="tryBox"</div></div>');
 	
 	//tieUp
 	$(".tryBox").append('<div class="tieUp" style="position:absolute; overflow:auto; right: 60px; top:0px; height:'+tieUpHeight+'px; width:'+tieUpWidth+'px;"></div>');
@@ -55,13 +55,9 @@ function everything(numWarps, numWefts, numTreadles) {
 			
 		
 	//hGrid maker 
-		if (numWefts < 50){
-			
+		
 			$(".tryBox").append('<div class="hGrid"></div>');
-			} 
-		if (numWefts > 50){
-			$(".tryBox").append('<div class="hGrid" style="overflow:auto; direction: rtl; "></div>');
-		}
+		
 		var left = 0 
 		for (i = 0; i < numWarps; i++) { 
 			var top = 0;
@@ -75,7 +71,7 @@ function everything(numWarps, numWefts, numTreadles) {
 				top = top + 15
 			} 
 			
-			$(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; height:100%; width:15px;"><button class="hGridRow0" style="position:absolute; top:' + top + 'px; height:15px"></button><button class="hGridRow1" style="position:absolute; top:' + top + 'px; height:15px"></button><button class="hGridRow2" style="position:absolute; top:' + top + 'px; height:15px"></button><button class="hGridRow3" style="position:absolute; top:' + top + 'px; height:15px"></button></div>');			
+			$(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; height:100%; width:15px;"><button class="hGridRow0" style="position:absolute; height:15px"></button><button class="hGridRow1" style="position:absolute; height:15px"></button><button class="hGridRow2" style="position:absolute; height:15px"></button><button class="hGridRow3" style="position:absolute; height:15px"></button></div>');			
 			}
 		}
 	

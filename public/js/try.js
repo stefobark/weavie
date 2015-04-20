@@ -33,7 +33,7 @@ function everything(numWarps, numWefts, numTreadles) {
 
 	$(".choose").remove();
 	
-	$(".col-md-12").append('<div class="borderTryBox"><div class="tryBox"></div></div>');
+	$(".col-md-12").append('<div class="borderTryBox"><div class="tryBox"</div></div>');
 	
 	//tieUp
 	$(".tryBox").append('<div class="tieUp" style="position:absolute; overflow:auto; right: 60px; top:0px; height:'+tieUpHeight+'px; width:'+tieUpWidth+'px;"></div>');
@@ -55,13 +55,9 @@ function everything(numWarps, numWefts, numTreadles) {
 			
 		
 	//hGrid maker 
-		if (numWefts < 50){
-			
+		
 			$(".tryBox").append('<div class="hGrid"></div>');
-			} 
-		if (numWefts > 50){
-			$(".tryBox").append('<div class="hGrid" style="overflow:auto; direction: rtl; "></div>');
-		}
+		
 		var left = 0 
 		for (i = 0; i < numWarps; i++) { 
 			var top = 0;
@@ -157,7 +153,7 @@ function everything(numWarps, numWefts, numTreadles) {
 	
 	//for pumping out the weaveBox
 	
-		$(".tryBox").append('<div class="weaveBox" style="height:'+boxHeight+'; '+boxWidth+';"></div>');
+		$(".tryBox").append('<div class="weaveBoxBorder"><div class="weaveBox" style="height:'+boxHeight+'; width: '+boxWidth+';"></div></div>');
 	
 		//pump out wefts
 		$(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight +'px;"></div>');
