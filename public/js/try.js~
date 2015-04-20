@@ -19,17 +19,21 @@ $(document).ready(function() {
 
 function everything(numWarps, numWefts) {		
 
-	$(".choose").remove();
-	
-	$(".col-md-12").append('<div class="borderTryBox"><div class="tryBox"></div></div>');
-	
-	//tieUp
-	$(".tryBox").append('<div class="tieUp"></div>');
 	
 	var tieNum = 4;
 	var colNum = 4;
 	var tieLeft = 0;
 	var tieTop = 0;
+	var boxHeight = numWefts * 15;
+	var boxWidth = numWarps * 15;
+
+	$(".choose").remove();
+	
+	$(".col-md-12").append('<div class="borderTryBox"><div class="tryBox"></div></div>');
+	
+	//tieUp
+	$(".tryBox").append('<div class="tieUp" style="position:absolute; right: 270px; top:0px; height:'+boxHeight+';"></div>');
+	
 	
 	for(i = 0; i < tieNum; i++) { 
 		if(i > 0){
@@ -41,7 +45,7 @@ function everything(numWarps, numWefts) {
 			if(c > 0){
 			tieTop = tieTop + 25;
 			}
-			$('.tie' + i).append('<button id="tRow' + c +'" class="tieButton" style="position: absolute; top:' + tieTop + '%; width:100%; height:25%;"></button>');
+			$('.tie' + i).append('<button id="tRow' + c +'" class="tieButton" style="position: absolute; top:' + tieTop + 'px; width:100%; height:25px;"></button>');
 			}
 		}
 			
@@ -56,13 +60,19 @@ function everything(numWarps, numWefts) {
 		}
 		var left = 0 
 		for (i = 0; i < numWarps; i++) { 
-	
+			var top = 0;
 			//if this is not the first iteration of the loop, add 15.. we want our buttons 15 px wide, 
 			//35so we need to space them 15px apart... we use this to set the left property
 			if(i > 0){
 				left = left + 15
 			} 
-			$(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0; right:' + left + 'px; height:100%; width:15px;" ><button class="hGridRow0"></button><button class="hGridRow1"></button><button class="hGridRow2"></button><button class="hGridRow3"></button></button>');			
+			for (x = 0; x < tieNum; x++) { 
+				if(i > 0){
+				top = top + 15
+			} 
+			
+			$(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; height:100%; width:15px;"><button class="hGridRow0" style="position:absolute; top:' + top + 'px; height:15px"></button><button class="hGridRow1" style="position:absolute; top:' + top + 'px; height:15px"></button><button class="hGridRow2" style="position:absolute; top:' + top + 'px; height:15px"></button><button class="hGridRow3" style="position:absolute; top:' + top + 'px; height:15px"></button></div>');			
+			}
 		}
 	
 		$(".tryBox").append('</div>');
@@ -142,8 +152,7 @@ function everything(numWarps, numWefts) {
 		});
 	
 	//for pumping out the weaveBox
-	var boxHeight = numWefts * 15;
-var boxWidth = numWarps * 15;
+	
 		$(".tryBox").append('<div class="weaveBox" style="height:' + boxHeight +'px; width:'+ boxWidth +'"></div>');
 	
 		//pump out wefts
