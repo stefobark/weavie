@@ -79,7 +79,7 @@ function everything(numWarps, numWefts, numTreadles) {
 		
 	//treadle push grid maker 
 
-		$(".tryBox").append('<div class="treadleGrid" style="position:absolute; overflow:auto; top:30%; right:60px; height:'+boxHeight+'px; width:'+tieUpWidth+'px;"></div>');
+		$(".tryBox").append('<div class="treadleGrid" style="position:absolute; overflow:auto; 	top:117px; right:60px; height:'+boxHeight+'px; width:'+tieUpWidth+'px;"></div>');
 		
 		
 		var top = 0

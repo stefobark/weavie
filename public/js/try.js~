@@ -153,7 +153,7 @@ function everything(numWarps, numWefts, numTreadles) {
 	
 	//for pumping out the weaveBox
 	
-		$(".tryBox").append('<div class="weaveBox" style="height:'+boxHeight+'; '+boxWidth+';"></div>');
+		$(".tryBox").append('<div class="weaveBoxBorder"><div class="weaveBox" style="height:'+boxHeight+'; width: '+boxWidth+';"></div></div>');
 	
 		//pump out wefts
 		$(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight +'px;"></div>');
