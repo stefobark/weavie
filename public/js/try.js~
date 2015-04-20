@@ -1,5 +1,6 @@
 var numWarps;
 var numWefts; 
+var numTreadles;
 
 $(document).ready(function() {
 
@@ -8,20 +9,23 @@ $(document).ready(function() {
 	$(".submit").click(function() {
 		numWarps = $(".warpNum").val();
 		numWefts = $(".weftNum").val();
+		numTreadles = $(".treadleNum").val();
 
 		
-		everything(numWarps, numWefts);
+		everything(numWarps, numWefts, numTreadles);
 	});
 });
 
 
 		
 
-function everything(numWarps, numWefts) {		
+function everything(numWarps, numWefts, numTreadles) {		
 
 	
 	var tieNum = 4;
-	var colNum = 4;
+	var colNum = numTreadles;
+	var tieUpHeight = tieNum * 15;
+	var tieUpWidth = colNum * 15;
 	var tieLeft = 0;
 	var tieTop = 0;
 	var boxHeight = numWefts * 15;
@@ -32,20 +36,20 @@ function everything(numWarps, numWefts) {
 	$(".col-md-12").append('<div class="borderTryBox"><div class="tryBox"></div></div>');
 	
 	//tieUp
-	$(".tryBox").append('<div class="tieUp" style="position:absolute; right: 270px; top:0px; height:'+boxHeight+';"></div>');
+	$(".tryBox").append('<div class="tieUp" style="position:absolute; overflow:auto; right: 60px; top:0px; height:'+tieUpHeight+'px; width:'+tieUpWidth+'px;"></div>');
 	
 	
-	for(i = 0; i < tieNum; i++) { 
+	for(i = 0; i < colNum; i++) { 
 		if(i > 0){
-			tieLeft = tieLeft + 25;
+			tieLeft = tieLeft + 15;
 			}
-		$(".tieUp").append('<div class="tie' + i +'" style="position: absolute; left:' + tieLeft + 'px; width:25px; height:100%"></div>');
+		$(".tieUp").append('<div class="tie' + i +'" style="position: absolute; left:' + tieLeft + 'px; width:15px; height:'+boxHeight+'"></div>');
 		tieTop = 0;
-		for(c = 0; c < colNum; c++) {
+		for(c = 0; c < tieNum; c++) {
 			if(c > 0){
-			tieTop = tieTop + 25;
+			tieTop = tieTop + 15;
 			}
-			$('.tie' + i).append('<button id="tRow' + c +'" class="tieButton" style="position: absolute; top:' + tieTop + 'px; width:100%; height:25px;"></button>');
+			$('.tie' + i).append('<button id="tRow' + c +'" class="tieButton" style="position: absolute; top:' + tieTop + 'px; width:15px; height:15px;"></button>');
 			}
 		}
 			
@@ -56,7 +60,7 @@ function everything(numWarps, numWefts) {
 			$(".tryBox").append('<div class="hGrid"></div>');
 			} 
 		if (numWefts > 50){
-			$(".hGridScrollWrap").append('<div class="hGrid" style="overflow:auto; direction: rtl; "></div>');
+			$(".tryBox").append('<div class="hGrid" style="overflow:auto; direction: rtl; "></div>');
 		}
 		var left = 0 
 		for (i = 0; i < numWarps; i++) { 
@@ -67,7 +71,7 @@ function everything(numWarps, numWefts) {
 				left = left + 15
 			} 
 			for (x = 0; x < tieNum; x++) { 
-				if(i > 0){
+				if(x > 0){
 				top = top + 15
 			} 
 			
@@ -79,7 +83,7 @@ function everything(numWarps, numWefts) {
 		
 	//treadle push grid maker 
 
-		$(".tryBox").append('<div class="treadleGrid"></div>');
+		$(".tryBox").append('<div class="treadleGrid" style="position:absolute; overflow:auto; top:30%; right:60px; height:'+boxHeight+'px; width:'+tieUpWidth+'px;"></div>');
 		
 		
 		var top = 0
@@ -93,10 +97,10 @@ function everything(numWarps, numWefts) {
 			var treadleGridLeft = 0;
 			for(col = 0; col < colNum; col++){
 				if(col > 0){
-					 treadleGridLeft = treadleGridLeft + 25
+					 treadleGridLeft = treadleGridLeft + 15
 				}
 				var addTreadle = '.t'+i
-				$(addTreadle).append('<button class="treadlePush treadleGridCol' + col +'" style="position:absolute; top:0; left:' + treadleGridLeft+'; width:25px; height:100%;" ></button>');	
+				$(addTreadle).append('<button class="treadlePush treadleGridCol' + col +'" style="position:absolute; top:0; left:' + treadleGridLeft+'; width:15px; height:100%;" ></button>');	
 			}		
 		}
 		
@@ -153,10 +157,10 @@ function everything(numWarps, numWefts) {
 	
 	//for pumping out the weaveBox
 	
-		$(".tryBox").append('<div class="weaveBox" style="height:' + boxHeight +'px; width:'+ boxWidth +'"></div>');
+		$(".tryBox").append('<div class="weaveBox" style="height:'+boxHeight+'; '+boxWidth+';"></div>');
 	
 		//pump out wefts
-		$(".tryBox").append('<div class="weftColorGrid"></div>');
+		$(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight +'px;"></div>');
 
 		$(".tryBox").append('<div class="weftColorChoose">Weft color: <input type="text" class="weftBasic"/>');
 		weaveBoxTop = 0;
