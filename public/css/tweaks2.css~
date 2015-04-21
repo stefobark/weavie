@@ -5,15 +5,15 @@
 .warpColorChoose {
 	
 	position:absolute;
-	top:80px;
-	right:60px;
+	top:88px;
+	right:145px;
 	}
 
 .weftColorChoose {
 	
 	position:absolute;
-	top:112px;
-	right:60px;
+	top:88px;
+	right:50px;
 	}
 
 
