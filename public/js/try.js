@@ -36,7 +36,7 @@ function everything(numWarps, numWefts, numTreadles) {
 	$(".col-md-12").append('<div class="borderTryBox"><div class="tryBox"</div></div>');
 	
 	//tieUp
-	$(".tryBox").append('<div class="tieUp" style="position:absolute; overflow:auto; right: 60px; top:0px; height:'+tieUpHeight+'px; width:'+tieUpWidth+'px;"></div>');
+	$(".tryBox").append('<div class="tieUp" style="position:absolute; overflow:auto; right: 60px; top:0px; height:77px; width:'+tieUpWidth+'px;"></div>');
 	
 	
 	for(i = 0; i < colNum; i++) { 
@@ -71,7 +71,7 @@ function everything(numWarps, numWefts, numTreadles) {
 				top = top + 15
 			} 
 			
-			$(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; height:100%; width:15px;"><button class="hGridRow0" style="position:absolute; height:15px"></button><button class="hGridRow1" style="position:absolute; height:15px"></button><button class="hGridRow2" style="position:absolute; height:15px"></button><button class="hGridRow3" style="position:absolute; height:15px"></button></div>');			
+			$(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; height:100%; width:15px;"><button class="hGridRow0"></button><button class="hGridRow1"></button><button class="hGridRow2" ></button><button class="hGridRow3"></button></div>');			
 			}
 		}
 	
@@ -79,7 +79,7 @@ function everything(numWarps, numWefts, numTreadles) {
 		
 	//treadle push grid maker 
 
-		$(".tryBox").append('<div class="treadleGrid" style="position:absolute; overflow:auto; 	top:117px; right:60px; height:'+boxHeight+'px; width:'+tieUpWidth+'px;"></div>');
+		$(".tryBox").append('<div class="treadleGrid" style="position:absolute; overflow:auto; 	top:145px; right:60px; height:'+boxHeight+'px; width:'+tieUpWidth+'px;"></div>');
 		
 		
 		var top = 0
@@ -167,7 +167,7 @@ function everything(numWarps, numWefts, numTreadles) {
 				var weaveBoxTop = weaveBoxTop + 15;
 			}
 		
-			$(".weaveBox").append('<div class="weft' + i + ' base" style="position:absolute; width:' + boxHeight + 'px; height: 15px; top:' + weaveBoxTop + 'px; right:0;"></div>');
+			$(".weaveBox").append('<div class="weft' + i + ' base" style="position:absolute; width:' + boxWidth + 'px; height: 15px; top:' + weaveBoxTop + 'px; right:0;"></div>');
 			$(".weftColorGrid").append('<button id="'+ i + '" class="weftColorButton" style="position:absolute;  top:' + weaveBoxTop + 'px; width:15px; height:15px;"></button>');
 
 		}
