@@ -78,6 +78,9 @@ function everything(numWarps, numWefts, numTreadles) {
         if (i > 0) {
             left = left + 15
         }
+        if (i == 0) {
+            left = 1;
+            }
         for (x = 0; x < tieNum; x++) {
             if (x > 0) {
                 top = top + 15
@@ -118,7 +121,6 @@ function everything(numWarps, numWefts, numTreadles) {
 
     //pump out wefts
     $(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight + 'px;"></div>');
-
     $(".tryBox").append('<div class="weftColorChoose">Weft: <input type="text" class="weftBasic"/></div>');
     weaveBoxTop = 0;
 
@@ -150,6 +152,8 @@ function everything(numWarps, numWefts, numTreadles) {
         }
     }
     
+    $(".tryBox").append('<div class="warpColorGrid"></div>');
+    $(".tryBox").append('<div class="warpColorChoose">Warp: <input type="text" class="basic"/></div>');
 /*
 	BELOW THIS 
 	IS ALL THE CLICK MANAGEMENT STUFF
@@ -158,8 +162,7 @@ function everything(numWarps, numWefts, numTreadles) {
 
     //warp color picker stuff
 
-    $(".tryBox").append('<div class="warpColorGrid"></div>');
-    $(".tryBox").append('<div class="warpColorChoose">Warp: <input type="text" class="basic"/></div>');
+    
 
     warpLeft = 0
     for (i = 0; i < numWarps; i++) {
