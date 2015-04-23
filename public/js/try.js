@@ -350,23 +350,34 @@ function everything(numWarps, numWefts, numTreadles) {
     $(".weftBasic").spectrum({
         color: "#f00",
         change: function(color) {
-            var weftColorChosen = color.toHexString();
-            setWeftColor(weftColorChosen);
-            var rgbColor =  tinycolor(weftColorChosen).toRgbString().replace(/[^0-9$.,]/g, '');
-
-            console.log(rgbColor);
+            weftColorChosen = color.toHexString();
+            rgbColor =  color.toRgbString().replace(/[^0-9$.,]/g, '');
             setWeftColor(weftColorChosen, rgbColor);
         }
     });
-
+    
 
     function setWeftColor(weftColorChosen, rgbColor) {
         $(".weftColorButton").click(function() {
+
             var weftID = ($(this).attr('id'));
             $('.weft' + weftID).css("background", weftColorChosen);
-            	WIF["COLOR TABLE"].push(rgbColor);
-            	console.log(rgbColor);
-         
+            //if we haven't already set the color for this weft
+           colorTableIndex = $.inArray(rgbColor, WIF["COLOR TABLE"]);
+            if(colorTableIndex == -1){
+            	
+           		WIF["COLOR TABLE"].push(rgbColor);
+           		weftColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);
+           		WIF["WEFT COLORS"][weftID] = weftColorIndex;
+           		console.log(WIF)
+           } else {
+           warpColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);
+           WIF["WEFT COLORS"][weftID] = weftColorIndex;
+           console.log(WIF);
+           
+console.log(WIF["COLOR TABLE"]);
+
+         }
             	
         });
     }
@@ -375,14 +386,33 @@ function everything(numWarps, numWefts, numTreadles) {
         color: "#f00",
         change: function(color) {
             var warpColorChosen = color.toHexString();
-            setWarpColor(warpColorChosen);
+           var rgbColor =  color.toRgbString().replace(/[^0-9$.,]/g, '');
+            setWarpColor(warpColorChosen, rgbColor);
         }
     });
 
-    function setWarpColor(warpColorChosen) {
+    function setWarpColor(warpColorChosen, rgbColor) {
         $(".warpColorButton").click(function() {
+            
             var warpID = ($(this).attr('id'));
             $('.warp' + warpID).css("background", warpColorChosen);
+            //if we haven't already set the color in the table, add it to the table
+           colorTableIndex = $.inArray(rgbColor, WIF["COLOR TABLE"]);
+            if(colorTableIndex == -1){
+            	
+           		WIF["COLOR TABLE"].push(rgbColor);
+           		warpColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);
+           		WIF["WARP COLORS"][warpID] = warpColorIndex;
+           		console.log(WIF)
+           } else {
+           warpColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);
+           WIF["WARP COLORS"][warpID] = warpColorIndex;
+           console.log(WIF);
+           		}
+           
+console.log(WIF["COLOR TABLE"]);
+
+         ;
         });
     }
 }
