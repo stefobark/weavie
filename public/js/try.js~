@@ -2,6 +2,58 @@ var numWarps;
 var numWefts;
 var numTreadles;
 
+var WIF = {
+    "WIF": {
+        "Version": "1.1",
+        "Date": "9/11/2014",
+        "Developers": "wif@handweaving.net",
+        "Source Program": "Handweaving.net Draft Library",
+        "Source Version": "3.0"
+    },
+    "CONTENTS": {
+        "COLOR PALETTE": "yes",
+        "WEAVING": "yes",
+        "WARP": "yes",
+        "WEFT": "yes",
+        "TIEUP": "yes",
+        "COLOR TABLE": "yes",
+        "THREADING": "yes",
+        "WARP COLORS": "yes",
+        "TREADLING": "yes",
+        "WEFT COLORS": "yes"
+    },
+    "WEAVING": {
+        "Shafts": "12",
+        "Treadles": "",
+        "Rising Shed": "yes",
+        "Profile": "no"
+    },
+    "COLOR PALETTE": {
+        "Entries": "",
+        "Form": "RGB",
+        "Range": "0,255"
+    },
+    "COLOR TABLE": [],
+    "WARP": {
+        "Threads": "",
+        "Units": "Centimeters",
+        "Spacing": "0.0185",
+        "Thickness": "0.0213"
+    },
+    "WEFT": {
+        "Threads": "",
+        "Units": "Centimeters",
+        "Spacing": "0.0185",
+        "Thickness": "0.0213"
+    },
+    "TIEUP": {},
+    "THREADING": {},
+    "TREADLING": { 
+        },
+    "WARP COLORS": {},
+    "WEFT COLORS": {}
+};
+
 $(document).ready(function() {
 
 
@@ -21,34 +73,47 @@ $(document).ready(function() {
 
 function everything(numWarps, numWefts, numTreadles) {
 
+ //lets start building our WIF
+ WIF.WEAVING.Treadles = numTreadles;
+ 
+ //add up warps and wefts so we could potentially have a unique color for each thread
+ colorEntry = Number(numWarps) + Number(numWefts);
+ WIF["COLOR PALETTE"].Entries = colorEntry;
+ 
+ WIF.WARP.Threads = numWarps;
+ WIF.WEFT.Threads = numWefts;
+ 
     if (numTreadles > 14) {
-        alert("You don't need that many treadles. 14 is the maximum number of possible combinations");
+        alert("You don't need that many treadles. You only have 4 harnesses... 14 is the maximum number of possible combinations.");
         numTreadles = 14;
     }
     
     var tieNum = 4;
     var colNum = numTreadles;
     var tieUpHeight = tieNum * 15;
-    var tieUpWidth = 211;
+    var tieUpWidth = numTreadles * 15 + 20;
     var tieLeft = 0;
     var tieTop = 0;
     var boxHeight = numWefts * 15;
     var boxWidth = numWarps * 15;
+    var tryBoxSize = boxWidth + 300;
+    var weftTop = 0;
 
 	//get rid of the warp/weft/treadle setting inputs and display the draft
 	
     $(".choose").remove();
 
 /*
-	THIS IS THE HTML OUTPUT SECTION
+	THIS IS THE HTML OUTPUT SECTION.. BECAUSE THE PAGE STARTS BLANK
+	AND WE JUST APPEND EVERYTHING
 	IT'S GENERATED BASED ON USER INPUT FOR
 	WARP/WEFT/TREADLE NUMBERS
 */
 
-    $(".col-md-12").append('<div class="borderTryBox"><div class="tryBox"</div></div>');
+    $(".col-md-12").append('<div class="borderTryBox"><div class="tryBox" style="width:'+tryBoxSize+'px;"></div></div>');
 
     //tieUp
-    $(".tryBox").append('<div class="tieUp" style="position:absolute; overflow:auto; right: 20px; top:0px; height:77px; width:' + tieUpWidth + 'px;"></div>');
+    $(".tryBox").append('<div class="tieUp" style="position:absolute; right: 0px; top:0px; height:77px; width:' + tieUpWidth + 'px;"></div>');
 
 
     for (i = 0; i < colNum; i++) {
@@ -66,55 +131,33 @@ function everything(numWarps, numWefts, numTreadles) {
     }
 
 
-    //hGrid maker 
-
-    $(".tryBox").append('<div class="hGrid"></div>');
-
-    var left = 0
-    for (i = 0; i < numWarps; i++) {
-        var top = 0;
-        //if this is not the first iteration of the loop, add 15.. we want our buttons 15 px wide, 
-        //35so we need to space them 15px apart... we use this to set the left property
-        if (i > 0) {
-            left = left + 15
-        }
-        for (x = 0; x < tieNum; x++) {
-            if (x > 0) {
-                top = top + 15
-            }
-
-            $(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; height:100%; width:15px;"><button class="hGridRow0"></button><button class="hGridRow1"></button><button class="hGridRow2" ></button><button class="hGridRow3"></button></div>');
-        }
-    }
-
-    $(".tryBox").append('</div>');
-
+    
     //treadle push grid maker 
 
-    $(".tryBox").append('<div class="treadleGrid" style="position:absolute; overflow:auto; 	top:145px; right: 20px; height:' + boxHeight + 'px; width:' + tieUpWidth + 'px;"></div>');
+    $(".tryBox").append('<div class="treadleGrid" style="position:absolute; top:120px; right: 20px; height:' + boxHeight + 'px; width:' + tieUpWidth + 'px;"></div>');
 
+	
+    var weavetop = 0
 
-    var top = 0
-
-    for (i = 0; i < numWefts; i++) {
-        if (i > 0) {
-            top = top + 15
+    for (w = 0; w < numWefts; w++) {
+        if (w > 0) {
+            weftTop = weftTop + 15
         }
-        $(".treadleGrid").append('<div class="t' + i + '" style="position:absolute; right:0; top:' + top + 'px; width:100%; height:15px;"></div>');
+        $(".treadleGrid").append('<div class="t' + w + '" style="position:absolute; right:0; top:' + weftTop + 'px; width:100%; height:15px;"></div>');
 
         var treadleGridLeft = 0;
         for (col = 0; col < colNum; col++) {
             if (col > 0) {
                 treadleGridLeft = treadleGridLeft + 15
             }
-            var addTreadle = '.t' + i
+            var addTreadle = '.t' + w
             $(addTreadle).append('<button class="treadlePush treadleGridCol' + col + '" style="position:absolute; top:0; left:' + treadleGridLeft + '; width:15px; height:100%;" ></button>');
         }
     }
 
     //for pumping out the weaveBox
 
-    $(".tryBox").append('<div class="weaveBoxBorder"><div class="weaveBox" style="height:' + boxHeight + '; width: ' + boxWidth + ';"></div></div>');
+    $(".tryBox").append('<div class="weaveBoxBorder" style="width:'+boxWidth+'px;"><div class="weaveBox" ></div></div>');
 
     //pump out wefts
     $(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight + 'px;"></div>');
@@ -131,6 +174,33 @@ function everything(numWarps, numWefts, numTreadles) {
         $(".weftColorGrid").append('<button id="' + i + '" class="weftColorButton" style="position:absolute;  top:' + weaveBoxTop + 'px; width:15px; height:15px;"></button>');
 
     }
+
+//hGrid maker 
+
+    $(".weaveBoxBorder").append('<div class="hGrid" style="width:' + boxWidth +'px;"></div>');
+
+    var left = 0
+    for (i = 0; i < numWarps; i++) {
+        var top = 0;
+        //if this is not the first iteration of the loop, add 15.. we want our buttons 15 px wide, 
+        //35so we need to space them 15px apart... we use this to set the left property
+        if (i > 0) {
+            left = left + 15
+        }
+        if (i == 0) {
+            left = 1;
+            }
+        for (x = 0; x < tieNum; x++) {
+            if (x > 0) {
+                top = top + 15
+            }
+
+            $(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; height:100%; width:15px;"><button class="hGridRow0"></button><button class="hGridRow1"></button><button class="hGridRow2" ></button><button class="hGridRow3"></button></div>');
+        }
+    }
+
+    $(".tryBox").append('</div>');
+
 
     warpPassTop = 0
 
@@ -149,13 +219,8 @@ function everything(numWarps, numWefts, numTreadles) {
         }
     }
     
-    $(".tryBox").append('<div class="warpColorGrid"></div>');
+    $(".weaveBoxBorder").append('<div class="warpColorGrid" style="z-index:4;"></div>');
     $(".tryBox").append('<div class="warpColorChoose">Warp: <input type="text" class="basic"/></div>');
-/*
-	BELOW THIS 
-	IS ALL THE CLICK MANAGEMENT STUFF
-	NO MORE APPENDING HTML
-*/
 
     //warp color picker stuff
 
@@ -169,6 +234,12 @@ function everything(numWarps, numWefts, numTreadles) {
         $(".warpColorGrid").append('<button id=' + i + ' class="warpColorButton" style="position:absolute; right:' + warpLeft + 'px; width:15px; height:15px;"></button>');
 
     }
+    
+/*
+	BELOW THIS 
+	IS ALL THE CLICK MANAGEMENT STUFF
+	...NO MORE APPENDING HTML
+*/
 
     //make the treadle grid pusher work
     $(".treadlePush").click(function() {
@@ -180,64 +251,93 @@ function everything(numWarps, numWefts, numTreadles) {
         $('.pass' + findPass).removeClass("above");
         var findThis = '.treadle' + findTreadle + '.pass' + findPass;
         $(findThis).addClass("above");
-
+        WIF.TREADLING[findPass] = findTreadle;
+ console.log(WIF.TREADLING);
     });
 
     //for clicking on the harness grid.
 
     $(".hGridRow0").click(function() {
-        var parent = $(this).parent().attr('id');
-
+        var thread = $(this).parent().attr('id');
+        var shaft = 3;
         $(this).siblings().removeClass('activeButton');
         $(this).addClass("activeButton");
-        $('.warp' + parent).alterClass("harness*");
-        $('.warp' + parent).addClass("harness3");
+        $('.warp' + thread).alterClass("harness*");
+        $('.warp' + thread).addClass("harness3");
+        WIF.THREADING[thread] = shaft;
+        console.log(WIF.THREADING);
     });
 
     $(".hGridRow1").click(function() {
-        var parent = $(this).parent().attr('id');
-
+        var thread = $(this).parent().attr('id');
+        var shaft = 2;
         $(this).siblings().removeClass('activeButton');
         $(this).addClass("activeButton");
-        $('.warp' + parent).alterClass("harness*'");
-        $('.warp' + parent).addClass('harness2');
+        $('.warp' + thread).alterClass("harness*'");
+        $('.warp' + thread).addClass('harness2');
+        WIF.THREADING[thread] = shaft;
+        console.log(WIF.THREADING);
     });
 
     $(".hGridRow2").click(function() {
-        var parent = $(this).parent().attr('id');
-
+        var thread = $(this).parent().attr('id');
+        var shaft = 1;
         $(this).siblings().removeClass('activeButton');
         $(this).addClass("activeButton");
-        $('.warp' + parent).alterClass("harness*");
-        $('.warp' + parent).addClass('harness1');
+        $('.warp' + thread).alterClass("harness*'");
+        $('.warp' + thread).addClass('harness1');
+        WIF.THREADING[thread] = shaft;
+        console.log(WIF.THREADING);
     });
 
     $(".hGridRow3").click(function() {
-        var parent = $(this).parent().attr('id');
-
+        var thread = $(this).parent().attr('id');
+        var shaft = 3;
         $(this).siblings().removeClass('activeButton');
         $(this).addClass("activeButton");
-        $('.warp' + parent).alterClass("harness*");
-        $('.warp' + parent).addClass('harness0');
+        $('.warp' + thread).alterClass("harness*'");
+        $('.warp' + thread).addClass('harness0');
+        WIF.THREADING[thread] = shaft;
+        console.log(WIF.THREADING);
     });
 
     //manage the tie-up grid
 
     $(".tieButton").funcToggle('click', function() {
         var findTreadle = 'treadle' + $(this).parent().attr('class').replace(/\D/g, '');
-        var findHarness = 'harness' + $(this).attr('id').replace(/\D/g, '');;
-
+        var findHarness = 'harness' + $(this).attr('id').replace(/\D/g, '');
+        var treadle = $(this).parent().attr('class').replace(/\D/g, '');
+        var harness = $(this).attr('id').replace(/\D/g, '');
+        
+        //if we haven't set up this treadle yet...
+        if( WIF.TIEUP[treadle] == null ){
+             WIF.TIEUP[treadle]= [harness];
+        } 
+        //if we've already added some harnesses to this treadle
+        else {
+             WIF.TIEUP[treadle].push(harness);
+             }
+       
         $('.' + findHarness).addClass(findTreadle);
         $(this).css('background', 'grey');
+         console.log(WIF.TIEUP);
 
     }, function() {
-        var findTreadle = 'treadle' + $(this).parent().attr('class').replace(/\D/g, '');;
-        var findHarness = 'harness' + $(this).attr('id').replace(/\D/g, '');;
-
+        var findTreadle = 'treadle' + $(this).parent().attr('class').replace(/\D/g, '');
+        var findHarness = 'harness' + $(this).attr('id').replace(/\D/g, '');
+		  var treadle = $(this).parent().attr('class').replace(/\D/g, '');
+        var harness = $(this).attr('id').replace(/\D/g, '');
+		  
+		  //find that harness number in the array contained within the object, and get rid of it.
+		  var index = WIF.TIEUP[treadle].indexOf(harness);
+		  
+		  if (index > -1) {
+   		 WIF.TIEUP[treadle].splice(index, 1);
+			}
+			console.log(WIF);
         $(this).css('background', '');
         $('.' + findHarness).removeClass(findTreadle);
     });
-
 
     //color picking
     
@@ -245,21 +345,29 @@ function everything(numWarps, numWefts, numTreadles) {
     var warpColorChosen = "#777";
     var weftColorChosen = "#333";
     
-    setWarpColor(warpColorChosen);
-    setWeftColor(weftColorChosen);
+    
     
     $(".weftBasic").spectrum({
         color: "#f00",
         change: function(color) {
             var weftColorChosen = color.toHexString();
             setWeftColor(weftColorChosen);
+            var rgbColor =  tinycolor(weftColorChosen).toRgbString().replace(/[^0-9$.,]/g, '');
+
+            console.log(rgbColor);
+            setWeftColor(weftColorChosen, rgbColor);
         }
     });
 
-    function setWeftColor(weftColorChosen) {
+
+    function setWeftColor(weftColorChosen, rgbColor) {
         $(".weftColorButton").click(function() {
             var weftID = ($(this).attr('id'));
             $('.weft' + weftID).css("background", weftColorChosen);
+            	WIF["COLOR TABLE"].push(rgbColor);
+            	console.log(rgbColor);
+         
+            	
         });
     }
 

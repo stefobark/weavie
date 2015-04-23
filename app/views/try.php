@@ -7,6 +7,7 @@
       <script src='/js/spectrum.js'></script>
       <link rel='stylesheet' href='/css/spectrum.css' />
       <script type="text/javascript" src="/js/jquery.func_toggle.js"></script>
+      <script type='text/javascript' src='/js/tinycolor.js'></script>
       <script src="/js/try.js"></script>
    </head>
    <body>
