@@ -75,8 +75,7 @@ $(".tieButton").funcToggle('click', function() {
         $(findHarness).addClass(findTreadle);
        //turn this button grey.. when it get's clicked again, the grey will be removed
         $(this).css('background', 'grey');
-        //print it to the console so we can be sure our object is actually there
-        console.log(WIF.TIEUP);
+       
 
     }, function() {
     	//same thing as above
@@ -92,8 +91,7 @@ $(".tieButton").funcToggle('click', function() {
 	if (index > -1) {
    		WIF.TIEUP[treadle].splice(index, 1);
 	}
-	//do things make sense? looking at the whole object will let us know.
-	console.log(WIF);
+
 	//remove the grey background of the button
         $(this).css('background', '');
         //remove this treadle from this harness
@@ -126,9 +124,8 @@ $(".treadlePush").click(function() {
         //now, we look for elements with the right treadle number on the right 'pass' and we add the above class which sets the z-index above the weft's z-index (which is 1, so the above class sets the z-index to 2)
         var findThis = '.treadle' + findTreadle + '.pass' + findPass;
         $(findThis).addClass("above");
-        //and finally, add this selection to our object and log it to the console.
+        //and finally, add this selection to our object.
         WIF.TREADLING[findPass] = findTreadle;
- 	console.log(WIF.TREADLING);
     });
 ```
 ####5. Colors####
@@ -165,8 +162,7 @@ The code looks like this (this is for wefts, but warps are the same):
            		weftColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);
            		//add this color to the weft colors section
            		WIF["WEFT COLORS"][weftID] = weftColorIndex;
-           		//print to console to make sure things make sense
-           		console.log(WIF)
+           	
            	} 
            //if it's already there
         	else {
@@ -174,8 +170,7 @@ The code looks like this (this is for wefts, but warps are the same):
            		warpColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);
            		//and add it to the weft colors table
         		WIF["WEFT COLORS"][weftID] = weftColorIndex;
-        		//log to console!
-           		console.log(WIF);
+        		;
 		}
         });
 }
