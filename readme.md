@@ -1,16 +1,17 @@
 ##Weavie##
-####What is a Weave Drafter?####
+####What's a weave draft?####
 A "Weave Draft" is a system of grids, a special kind of notation, that describes how to set up a loom. [This page describes it well](http://www.weaverscraft.com/hints.html).
-
-####The Basic Idea:####
-1. The grid on the top-left tells the weaver to attach the warps to harnesses.
-2. The grid on the top-right tells the weaver to attach the harnesses to treadles. In other words, this grid describes the various combinations of harnesses that will be lifted throughout the weave.
+#####The layout#####
+1. The grid on the top-left of a weave draft tells the weaver to attach warp threads to harnesses. 
+2. The grid on the top-right tells the weaver to attach the harnesses to treadles. It describes the various combinations of harnesses that will be lifted throughout the weave.
 3. The grid on the right tells the weaver when to use which treadle. It describes which warps should be lifted at each pass of the shuttle.
+###Weavie: what is it and how does it work###
+Weavie is a weave draft maker. It is split into three grids (`.hGrid`, `.tieUp`, and  `.treadleGrid`) and a `.weaveBox` that displays the pattern described by the selection of buttons on the three grids. The three important files at this point are `/public/js/try.js`, `tweaks2.css` and `.try.php`. Weavie is a Laravel project. In the future, I'll add the ability to save patterns and maybe a user system.. so there will be more database interactions and.. I like Laravel. But, right now, there's no big reason for Laravel.
 
-###Weavie: how it works###
-Weavie mimics the actual process of threading a loom. It is split into 4 boxes-- three grids and a `.weaveBox`. 
+###Let's walk through it###
 
 ####`.hGrid`: attach warps to harnesses####
+
 Clicking the top right grid (`.hGrid`), which is read from right to left, will add the corresponding `.harness***`  class (for now, there are only 4 harnesses, but this will soon change) to all elements with the corresponding `warp***` class (i.e., 'warp1', 'warp2', etc) within the `.weaveBox`. For example, clicking the bottom button (`.hGridRow3`) on the far right column (`.hGridCol1`) of `.hGrid` will add the `.harness0` class to elements within `.weaveBox` with the `.warp1` class.
 
 ```javascript
