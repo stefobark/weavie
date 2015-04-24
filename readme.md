@@ -1,5 +1,5 @@
 ##Weavie##
-visualize the weave draft.
+Visualizing the weave draft.
 
 ####What's a weave draft?####
 A "Weave Draft" is a system of grids that describes how to set up a loom. [This page describes it well](http://www.weaverscraft.com/hints.html).
@@ -22,13 +22,18 @@ Instead of trying to blurt everything out at once, let's just walk through what 
 
 Clicking the top right grid (`.hGrid`), which is read from right to left, will add the corresponding `.harness***` class to all elements with the corresponding `warp***` class (i.e., `.warp1`, `.warp2`, etc..) within the `.weaveBox`. For example, clicking the bottom button (`.hGridRow3`) on the far right column (`.hGridCol1`) of `.hGrid` will add the `.harness0` class to the divs within `.weaveBox` that have the `.warp1` class.
 
+For example, here's what happens when you click a button within the `.hGrid`.
 ```javascript
   $(".hGridRow3").click(function(){
+    			//because there are as many .hGrid columns as there are .warp*s, by getting the id of 'this' button's parent, we find the corresponding warp that clicking this button relates to.
 			var parent = $(this).parent().attr('id');
-		
+			//remove the dark grey from previously selected buttons
 			$(this).siblings().removeClass('activeButton');
+			//make the button grey
 			$(this).addClass("activeButton");
+			//use parent's ID to remove all previously selected harnesses
 			$('.warp' + parent).alterClass("harness*");
+			//use parent's ID to attach the harness to the thread
 			$('.warp' + parent).addClass('harness0');
 		});
 ```
@@ -69,8 +74,5 @@ Except for:
 $(this).css("background", "grey");
 $(this).siblings().css("background", "");
 ```
-* And, we're using Laravel. So, in the future, it will be easy to expand the project (save patterns, create a user system, etc...)
-
-###To do###
-* As the user clicks sets up their draft, populate an object that we can use to fill in the details of a .WIF file, which we can use to export the pattern into other weave drafting programs! 
+* And, like I mentioned.. we're using Laravel. So, in the future, it will be easy to expand the project (save patterns, create a user system, etc...)
 
