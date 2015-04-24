@@ -16,9 +16,7 @@ Weavie is a weave draft maker. It, like a weave draft, is split into three grids
 
 The three important files at this point are `/public/js/try.js`, `/public/css/tweaks2.css` and `/app/views/try.php`. Weavie is a Laravel project. In the future, I'll add the ability to save patterns and maybe a user management system.. so there will be more database interactions and Laravel will help. But, right now, there's no big reason for it.
 
-And, when users interact with the grids we'll be adding and taking away elements of an object. Soon, I'll make a button to let users download a .wif file.
-
-Instead of trying to blurt everything out at once, let's just walk through what happens when users make weave patterns with Weavie. And, it's even easier to understand my rambling if you take a look at Weavie in action [here](http://weavie.techgno.com).
+...instead of trying to blurt everything out at once, let's just walk through what happens when users make weave patterns with Weavie. And, it's even easier to understand my rambling if you take a look at Weavie in action [here](http://weavie.techgno.com).
 
 ####1. Start building a WIF file####
 The first important thing Weavie does is to define a bunch of properties of a `WIF` object. We'll use this to collect information that we need to create a `WIF` file. We could have just printed straight into a `txt` file, but I figured that things would be easier to add/takeaway, everything would be more manageable, if we built a `WIF` object.
