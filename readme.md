@@ -1,18 +1,26 @@
 ##Weavie##
+visualize the weave draft.
+
 ####What's a weave draft?####
-A "Weave Draft" is a system of grids, a special kind of notation, that describes how to set up a loom. [This page describes it well](http://www.weaverscraft.com/hints.html).
+A "Weave Draft" is a system of grids that describes how to set up a loom. [This page describes it well](http://www.weaverscraft.com/hints.html).
+
 #####The layout#####
+There are three grids on a weave draft.
+
 1. The grid on the top-left of a weave draft tells the weaver to attach warp threads to harnesses. 
 2. The grid on the top-right tells the weaver to attach the harnesses to treadles. It describes the various combinations of harnesses that will be lifted throughout the weave.
 3. The grid on the right tells the weaver when to use which treadle. It describes which warps should be lifted at each pass of the shuttle.
-###Weavie: what is it and how does it work###
-Weavie is a weave draft maker. It is split into three grids (`.hGrid`, `.tieUp`, and  `.treadleGrid`) and a `.weaveBox` that displays the pattern described by the selection of buttons on the three grids. The three important files at this point are `/public/js/try.js`, `tweaks2.css` and `.try.php`. Weavie is a Laravel project. In the future, I'll add the ability to save patterns and maybe a user system.. so there will be more database interactions and.. I like Laravel. But, right now, there's no big reason for Laravel.
 
-###Let's walk through it###
+###Weavie: what is it and how does it work?###
+Weavie is a weave draft maker. It, like a weave draft, is split into three grids (`.hGrid`, `.tieUp`, and  `.treadleGrid`). Then Weavie has a `.weaveBox` that displays the pattern described by the selection of buttons on the three grids. 
+
+The three important files at this point are `/public/js/try.js`, `/public/css/tweaks2.css` and `/app/views/try.php`. Weavie is a Laravel project. In the future, I'll add the ability to save patterns and maybe a user management system.. so there will be more database interactions and Laravel will help. But, right now, there's no big reason for it.
+
+Instead of trying to blurt everything out at once, let's just walk through what happens when users make weave patterns with Weavie. And, it's even easier to understand my rambling if you take a look at Weavie in action [here](http://weavie.techgno.com).
 
 ####`.hGrid`: attach warps to harnesses####
 
-Clicking the top right grid (`.hGrid`), which is read from right to left, will add the corresponding `.harness***`  class (for now, there are only 4 harnesses, but this will soon change) to all elements with the corresponding `warp***` class (i.e., 'warp1', 'warp2', etc) within the `.weaveBox`. For example, clicking the bottom button (`.hGridRow3`) on the far right column (`.hGridCol1`) of `.hGrid` will add the `.harness0` class to elements within `.weaveBox` with the `.warp1` class.
+Clicking the top right grid (`.hGrid`), which is read from right to left, will add the corresponding `.harness***` class to all elements with the corresponding `warp***` class (i.e., `.warp1`, `.warp2`, etc..) within the `.weaveBox`. For example, clicking the bottom button (`.hGridRow3`) on the far right column (`.hGridCol1`) of `.hGrid` will add the `.harness0` class to the divs within `.weaveBox` that have the `.warp1` class.
 
 ```javascript
   $(".hGridRow3").click(function(){
@@ -27,7 +35,7 @@ Clicking the top right grid (`.hGrid`), which is read from right to left, will a
 		
 ####`.tieUp`: attach harnesses to treadles####
 
-The same kind of thing happens within the `.tieUp` box, except that when you click a button, the corresponding `.treadle***` class is added to all elements within the `.weaveBox` that have the corresponding `.harness***` class. For example, clicking the bottom left button (`.tie0 > .tRow3`) will add `.treadle0` to all elements within `.weaveBox` with `.harness0`.
+The Tie Up Grid is the next step in the weave drafting process. With Weavie's `.tieUp` box, when you click a button, the corresponding `.treadle***` class is added to all elements within the `.weaveBox` that have the corresponding `.harness***` class. For example, clicking the bottom left button (`.tie0 > .tRow3`) will add `.treadle0` to all elements within `.weaveBox` with `.harness0`.
 
 ```javascript
 $(".tieButton").funcToggle('click', function() {
