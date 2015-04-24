@@ -20,7 +20,14 @@ And, when users interact with the grids we'll be adding and taking away elements
 
 Instead of trying to blurt everything out at once, let's just walk through what happens when users make weave patterns with Weavie. And, it's even easier to understand my rambling if you take a look at Weavie in action [here](http://weavie.techgno.com).
 
-####`.hGrid`: attach warps to harnesses####
+####1. Start building a WIF file####
+The first important thing Weavie does is to define a bunch of properties of a `WIF` object. We'll use this to collect information that we need to create a `WIF` file. We could have just printed straight into a `txt` file, but I figured that things would be easier to add/takeaway, everything would be more manageable, if we built a `WIF` object.
+
+#####What's a WIF file?#####
+Go [here](http://www.mhsoft.com/wif/wif1-1.txt) to learn a bunch of useful stuff about WIFs. But, the short story (from the specification) is this: 
+>"Prior to WIF each weaving program used its own format for storing weave information.  Each format is especially suited to the individual program, but does not lend itself to translation across programs.  In addition, files are machine readable only. WIF is designed to [address these problems and] bridge the gap between programs."
+
+####2. `.hGrid`: attach warps to harnesses####
 
 Clicking the top right grid (`.hGrid`), which is read from right to left, will add the corresponding `.harness***` class to all elements with the corresponding `warp***` class (i.e., `.warp1`, `.warp2`, etc..) within the `.weaveBox`. For example, clicking the bottom button (`.hGridRow3`) on the far right column (`.hGridCol1`) of `.hGrid` will add the `.harness0` class to the divs within `.weaveBox` that have the `.warp1` class.
 
@@ -44,7 +51,7 @@ For example, here's what happens when you click a button within the `.hGrid`.
 		});
 ```
 		
-####`.tieUp`: attach harnesses to treadles####
+####3. `.tieUp`: attach harnesses to treadles####
 
 The Tie Up Grid is the next step in the weave drafting process. With Weavie's `.tieUp` box, when you click a button, the corresponding `.treadle***` class is added to all elements within the `.weaveBox` that have the corresponding `.harness***` class. For example, clicking the bottom left button (`.tie0 > .tRow3`) will add `.treadle0` to all elements within `.weaveBox` with `.harness0`.
 
@@ -97,7 +104,7 @@ $(".tieButton").funcToggle('click', function() {
 ```
 We use the parent of the tie button, which is the row, to find the corresponding treadle. So, for example: clicking the `.tie0 > .tRow3` button will take the parent `.tie0` and get rid of all non-numeric characters, leaving us with '0'. Then, we can just add that to the end of 'treadle' and we're ready to add the appropriate treadle class to all elements with the appropriate harness class. The same kind of thing happens when we go to find the appropriate harness, except we just use `this` because the row number of whatever button that was clicked will correspond to the harness number. 
 
-####`.treadleGrid`: activate pattern / push treadle####
+####4. `.treadleGrid`: activate pattern / push treadle####
 
 And, the pattern repeats... When we click a button within the `.treadleGrid` (the grid to the right of the `.weaveBox`), all of which have the `.treadlePush` class, we get the classes of `this` element and split them by ' ' (space), then we take the second class (`findTreadle[1]`) and remove all non-numeric characters. Now we know which treadle to add (because the columns in this grid correspond to the treadles that were added in the `.tieUp` grid). 
 
@@ -126,7 +133,7 @@ $(".treadlePush").click(function() {
  	console.log(WIF.TREADLING);
     });
 ```
-###Colors###
+####5. Colors####
 
 We're using [spectrum](https://bgrins.github.io/spectrum/) to handle the color picking. It's sweet.
 
