@@ -226,7 +226,7 @@ function everything(numWarps, numWefts, numTreadles) {
     }
     
     $(".weaveBoxBorder").append('<div class="warpColorGrid" style="z-index:4; display:none;"></div>');
-    $(".tryBox").append('<div class="warpColorChoose">Warp: <input type="text" class="basic"/></div>');
+    $(".tryBox").append('<div class="warpColorChoose">Warp:<input type="text" class="basic"/></div>');
 
     //warp color picker stuff
 
@@ -334,6 +334,7 @@ function everything(numWarps, numWefts, numTreadles) {
         var treadle = $(this).parent().attr('class').replace(/\D/g, '');
         var harness = $(this).attr('id').replace(/\D/g, '');
         $('.treadleGridCol'+treadle).css('background', '');
+        $('.treadle'+treadle+'.harness'+harness).removeClass('above');
        
         //if we haven't set up this treadle yet...
         if( WIF.TIEUP[treadle] == null ){
@@ -354,6 +355,7 @@ function everything(numWarps, numWefts, numTreadles) {
 		  var treadle = $(this).parent().attr('class').replace(/\D/g, '');
         var harness = $(this).attr('id').replace(/\D/g, '');
 		  $('.treadleGridCol'+treadle).css('background', '');
+		  $('.treadle'+treadle).removeClass('above');
 		  //find that harness number in the array contained within the object, and get rid of it.
 		  var index = WIF.TIEUP[treadle].indexOf(harness);
 		  
