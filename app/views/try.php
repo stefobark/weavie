@@ -8,11 +8,15 @@
       <link rel='stylesheet' href='/css/spectrum.css' />
       <script type="text/javascript" src="/js/jquery.func_toggle.js"></script>
       <script type='text/javascript' src='/js/tinycolor.js'></script>
+      <script src="/js/prettyJSON.js"></script>
+    
       <script src="/js/try.js"></script>
    </head>
    <body>
       <div style="position:fixed; top:10px; left:150px;">
          <img src="/img/logo.png" style="width:200px">
+      </div>
+      <div id="wifDiv" style="position:fixed; top:10px; right:150px;">
       </div>
       <div class="container">
       <div class="row">

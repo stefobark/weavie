@@ -178,3 +178,4 @@ The code looks like this (this is for wefts, but warps are the same):
 By the time the user is done clicking, we'll have a nice object that we could easily print into a .WIF file, or pass JSON along to some other program.
 
 Thanks for looking at Weavie.
+

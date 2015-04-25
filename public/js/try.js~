@@ -73,6 +73,7 @@ $(document).ready(function() {
 
 function everything(numWarps, numWefts, numTreadles) {
 
+
  //lets start building our WIF
  WIF.WEAVING.Treadles = numTreadles;
  
@@ -82,6 +83,8 @@ function everything(numWarps, numWefts, numTreadles) {
  
  WIF.WARP.Threads = numWarps;
  WIF.WEFT.Threads = numWefts;
+ 
+ 
  
     if (numTreadles > 14) {
         alert("You don't need that many treadles. You only have 4 harnesses... 14 is the maximum number of possible combinations.");
@@ -98,6 +101,7 @@ function everything(numWarps, numWefts, numTreadles) {
     var boxWidth = numWarps * 15;
     var tryBoxSize = boxWidth + 300;
     var weftTop = 0;
+    var harnessNumber = 4;
 
 	//get rid of the warp/weft/treadle setting inputs and display the draft
 	
@@ -112,8 +116,11 @@ function everything(numWarps, numWefts, numTreadles) {
 
     $(".col-md-12").append('<div class="borderTryBox"><div class="tryBox" style="width:'+tryBoxSize+'px;"></div></div>');
 
+	//let the people see the wif
+	 $("#wifDiv").append('<img src="/img/viewWif.png" style=" height:20px; position:fixed; top:20px; right:200px;"><br><span class="wif glyphicon glyphicon-eye-open" style="font-size: 20px; height:20px; position:fixed; top:20px; right:150px;"></span>');
+
     //tieUp
-    $(".tryBox").append('<div class="tieUp" style="position:absolute; right: 0px; top:0px; height:77px; width:' + tieUpWidth + 'px;"></div>');
+    $(".tryBox").append('<div class="tieUp" style="position:absolute; right: 20px; top:0px; height:77px; width:' + tieUpWidth + 'px;"></div>');
 
 
     for (i = 0; i < colNum; i++) {
@@ -160,7 +167,7 @@ function everything(numWarps, numWefts, numTreadles) {
     $(".tryBox").append('<div class="weaveBoxBorder" style="width:'+boxWidth+'px;"><div class="weaveBox" ></div></div>');
 
     //pump out wefts
-    $(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight + 'px;"></div>');
+    $(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight + 'px; display:none;"></div>');
     $(".tryBox").append('<div class="weftColorChoose">Weft: <input type="text" class="weftBasic"/></div>');
     weaveBoxTop = 0;
 
@@ -190,14 +197,13 @@ function everything(numWarps, numWefts, numTreadles) {
         if (i == 0) {
             left = 1;
             }
-        for (x = 0; x < tieNum; x++) {
-            if (x > 0) {
-                top = top + 15
-            }
+        
 
-            $(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; height:100%; width:15px;"><button class="hGridRow0"></button><button class="hGridRow1"></button><button class="hGridRow2" ></button><button class="hGridRow3"></button></div>');
-        }
-    }
+            $(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; height:100%; width:15px;"></div>');
+            for (h = 0; h < harnessNumber; h++){
+            	$('#'+i).append('<button class="harnessButton hGridRow'+h+'"></button>');
+		     }
+		 }
 
     $(".tryBox").append('</div>');
 
@@ -219,7 +225,7 @@ function everything(numWarps, numWefts, numTreadles) {
         }
     }
     
-    $(".weaveBoxBorder").append('<div class="warpColorGrid" style="z-index:4;"></div>');
+    $(".weaveBoxBorder").append('<div class="warpColorGrid" style="z-index:4; display:none;"></div>');
     $(".tryBox").append('<div class="warpColorChoose">Warp: <input type="text" class="basic"/></div>');
 
     //warp color picker stuff
@@ -240,7 +246,44 @@ function everything(numWarps, numWefts, numTreadles) {
 	IS ALL THE CLICK MANAGEMENT STUFF
 	...NO MORE APPENDING HTML
 */
+	//for displaying the WIF object
+	$('body').append('<div id="json" style="display:none; padding:10px; z-index:-2; position:fixed; background:#FEF; -webkit-box-shadow: -2px 15px 43px -17px rgba(0,0,0,0.86); -moz-box-shadow: -2px 15px 43px -17px rgba(0,0,0,0.86); box-shadow: -2px 15px 43px -17px rgba(0,0,0,0.86);border-radius:5px; top:50px; right:80px; width:800px; height:300px; overflow:scroll;"></div>');
 
+	
+	
+	var wifDisplay = JSON.stringify(WIF);
+	
+	function viewWifFunc(){
+		
+
+			$("#wifDiv").html('<img src="/img/viewWif.png" style="height:20px; position:fixed; top:20px; right:200px;"><span id="remove" class="glyphicon glyphicon-remove-circle" style=" font-size: 20px;  height:20px; position:fixed; top:20px; right:150px;"></span>');
+			$("#json").css("z-index", "2");
+			$("#json").css("display", "block");
+		 	$("#json").JSONView(wifDisplay);
+		  	// with options
+		  	$("#json").JSONView(wifDisplay, { collapsed: true });
+		  	
+		  	//now that the image has an id of remove, tell it what to do when clicked
+		  	$('#remove').click(function(){
+		 		$('#wifDiv').html('<img src="/img/viewWif.png" style="height:20px; position:fixed; top:20px; right:200px;"><br><span class="wif glyphicon glyphicon-eye-open" style="font-size: 20px;  height:20px; position:fixed; top:20px; right:150px;"></span>');
+				$("#json").css("z-index", "0");
+				$("#json").css("display", "none");
+				// and, yet again, we shall tell .wif what to do when clicked
+				$('.wif').click(function(){
+					viewWifFunc();
+		});
+			
+		});
+	  	
+	  };
+	  
+	  $('.wif').click(function(){
+			viewWifFunc();
+		});
+	  
+	 	
+
+	
     //make the treadle grid pusher work
     $(".treadlePush").click(function() {
         var findTreadle = $(this).attr('class').split(" ");
@@ -257,50 +300,32 @@ function everything(numWarps, numWefts, numTreadles) {
 
     //for clicking on the harness grid.
 
-    $(".hGridRow0").click(function() {
+    $(".harnessButton").click(function() {
         var thread = $(this).parent().attr('id');
-        var shaft = 3;
+        var shaft = $(this).attr('class').split(" ");
+        var shaft = shaft[1].replace(/\D/g, '');
+        
+        //manage hgrid buttons
         $(this).siblings().removeClass('activeButton');
         $(this).addClass("activeButton");
+        
+        //unselect tieup buttons, cause our harnesses changed
+        
+        for(col = 0; col < colNum; col++){
+        		
+		     	for(t = 0; t < harnessNumber; t++){
+				  if(t == shaft){
+				 		 $('.tie'+col+' #tRow'+shaft).css('background', '');
+				 	}
+		    	}
+		   }
         $('.warp' + thread).alterClass("harness*");
-        $('.warp' + thread).addClass("harness3");
+        $('.warp' + thread).alterClass("treadle*");
+        $('.warp' + thread).addClass('harness'+shaft);
         WIF.THREADING[thread] = shaft;
         console.log(WIF.THREADING);
     });
-
-    $(".hGridRow1").click(function() {
-        var thread = $(this).parent().attr('id');
-        var shaft = 2;
-        $(this).siblings().removeClass('activeButton');
-        $(this).addClass("activeButton");
-        $('.warp' + thread).alterClass("harness*'");
-        $('.warp' + thread).addClass('harness2');
-        WIF.THREADING[thread] = shaft;
-        console.log(WIF.THREADING);
-    });
-
-    $(".hGridRow2").click(function() {
-        var thread = $(this).parent().attr('id');
-        var shaft = 1;
-        $(this).siblings().removeClass('activeButton');
-        $(this).addClass("activeButton");
-        $('.warp' + thread).alterClass("harness*'");
-        $('.warp' + thread).addClass('harness1');
-        WIF.THREADING[thread] = shaft;
-        console.log(WIF.THREADING);
-    });
-
-    $(".hGridRow3").click(function() {
-        var thread = $(this).parent().attr('id');
-        var shaft = 3;
-        $(this).siblings().removeClass('activeButton');
-        $(this).addClass("activeButton");
-        $('.warp' + thread).alterClass("harness*'");
-        $('.warp' + thread).addClass('harness0');
-        WIF.THREADING[thread] = shaft;
-        console.log(WIF.THREADING);
-    });
-
+    
     //manage the tie-up grid
 
     $(".tieButton").funcToggle('click', function() {
@@ -308,7 +333,8 @@ function everything(numWarps, numWefts, numTreadles) {
         var findHarness = 'harness' + $(this).attr('id').replace(/\D/g, '');
         var treadle = $(this).parent().attr('class').replace(/\D/g, '');
         var harness = $(this).attr('id').replace(/\D/g, '');
-        
+        $('.treadleGridCol'+treadle).css('background', '');
+       
         //if we haven't set up this treadle yet...
         if( WIF.TIEUP[treadle] == null ){
              WIF.TIEUP[treadle]= [harness];
@@ -317,7 +343,7 @@ function everything(numWarps, numWefts, numTreadles) {
         else {
              WIF.TIEUP[treadle].push(harness);
              }
-       
+        
         $('.' + findHarness).addClass(findTreadle);
         $(this).css('background', 'grey');
          console.log(WIF.TIEUP);
@@ -327,7 +353,7 @@ function everything(numWarps, numWefts, numTreadles) {
         var findHarness = 'harness' + $(this).attr('id').replace(/\D/g, '');
 		  var treadle = $(this).parent().attr('class').replace(/\D/g, '');
         var harness = $(this).attr('id').replace(/\D/g, '');
-		  
+		  $('.treadleGridCol'+treadle).css('background', '');
 		  //find that harness number in the array contained within the object, and get rid of it.
 		  var index = WIF.TIEUP[treadle].indexOf(harness);
 		  
@@ -342,31 +368,40 @@ function everything(numWarps, numWefts, numTreadles) {
     //color picking
     
     //for default colors.. so users can just click buttons and give color to warps and wefts
-    var warpColorChosen = "#777";
-    var weftColorChosen = "#333";
-    
+  
     
     
     $(".weftBasic").spectrum({
         color: "#f00",
         change: function(color) {
-            var weftColorChosen = color.toHexString();
-            setWeftColor(weftColorChosen);
-            var rgbColor =  tinycolor(weftColorChosen).toRgbString().replace(/[^0-9$.,]/g, '');
-
-            console.log(rgbColor);
+            weftColorChosen = color.toHexString();
+            rgbColor =  color.toRgbString().replace(/[^0-9$.,]/g, '');
             setWeftColor(weftColorChosen, rgbColor);
+            $(".weftColorGrid").css("display","block");
         }
     });
-
+    
 
     function setWeftColor(weftColorChosen, rgbColor) {
         $(".weftColorButton").click(function() {
+				
             var weftID = ($(this).attr('id'));
             $('.weft' + weftID).css("background", weftColorChosen);
-            	WIF["COLOR TABLE"].push(rgbColor);
-            	console.log(rgbColor);
-         
+            //if we haven't already set the color for this weft
+           colorTableIndex = $.inArray(rgbColor, WIF["COLOR TABLE"]);
+            if(colorTableIndex == -1){
+            	
+           		WIF["COLOR TABLE"].push(rgbColor);
+           		weftColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);
+           		WIF["WEFT COLORS"][weftID] = weftColorIndex;
+           		console.log(WIF)
+           } else {
+           warpColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);
+           WIF["WEFT COLORS"][weftID] = weftColorIndex;
+          
+           
+
+         }
             	
         });
     }
@@ -375,14 +410,38 @@ function everything(numWarps, numWefts, numTreadles) {
         color: "#f00",
         change: function(color) {
             var warpColorChosen = color.toHexString();
-            setWarpColor(warpColorChosen);
+           var rgbColor =  color.toRgbString().replace(/[^0-9$.,]/g, '');
+            setWarpColor(warpColorChosen, rgbColor);
+            $(".warpColorGrid").css("display","block");
+				
+            
         }
     });
-
-    function setWarpColor(warpColorChosen) {
+    
+ 
+    function setWarpColor(warpColorChosen, rgbColor) {
         $(".warpColorButton").click(function() {
+         
+					
             var warpID = ($(this).attr('id'));
             $('.warp' + warpID).css("background", warpColorChosen);
+            //if we haven't already set the color in the table, add it to the table
+            
+           colorTableIndex = $.inArray(rgbColor, WIF["COLOR TABLE"]);
+            if(colorTableIndex == -1){
+            	
+           		WIF["COLOR TABLE"].push(rgbColor);
+           		warpColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);
+           		WIF["WARP COLORS"][warpID] = warpColorIndex;
+           		
+           } else {
+           warpColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);
+           WIF["WARP COLORS"][warpID] = warpColorIndex;
+           
+           		}
+           
+
+         ;
         });
     }
 }
