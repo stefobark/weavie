@@ -42,7 +42,7 @@ pre {
     margin-top: 50px;
     position: fixed;
     padding: 20px;
-    top: 40px;
+    top: 30px;
     overflow: auto;
     direction:rtl;
     bottom: 0px;

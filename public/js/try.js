@@ -117,7 +117,7 @@ function everything(numWarps, numWefts, numTreadles) {
     $(".col-md-12").append('<div class="borderTryBox"><div class="tryBox" style="width:'+tryBoxSize+'px;"></div></div>');
 
 	//let the people see the wif
-	 $("#wifDiv").append('<img src="/img/viewWif.png" style=" height:20px; position:fixed; top:20px; right:200px;"><br><span class="wif glyphicon glyphicon-eye-open" style="font-size: 20px; color:rgb(100, 193, 230); height:20px; position:fixed; top:20px; right:150px;"></span>');
+	 $("#wifDiv").append('<img src="/img/viewWif.png" style=" height:20px; position:fixed; top:30px; right:200px;"><br><span class="wif glyphicon glyphicon-eye-open" style="font-size: 20px; color:rgb(100, 193, 230); height:20px; position:fixed; top:30px; right:150px;"></span>');
 
     //tieUp
     $(".tryBox").append('<div class="tieUp" style="position:absolute; right: 20px; top:0px; height:77px; width:' + tieUpWidth + 'px;"></div>');
@@ -256,7 +256,7 @@ function everything(numWarps, numWefts, numTreadles) {
 	function viewWifFunc(){
 			var wifDisplay = JSON.stringify(WIF);
 
-			$("#wifDiv").html('<img src="/img/viewWif.png" style="height:20px; position:fixed; top:20px; right:200px;"><span id="remove" class="glyphicon glyphicon-remove-circle" style="color:red; font-size: 20px;  height:20px; position:fixed; top:20px; right:150px;"></span>');
+			$("#wifDiv").html('<img src="/img/viewWif.png" style="height:20px; position:fixed; top:30px; right:200px;"><span id="remove" class="glyphicon glyphicon-remove-circle" style="color:rgb(221, 99, 99); font-size: 20px;  height:20px; position:fixed; top:30px; right:150px;"></span>');
 			$("#json").css("z-index", "2");
 			$("#json").css("display", "block");
 		 	$("#json").JSONView(wifDisplay);
@@ -265,7 +265,7 @@ function everything(numWarps, numWefts, numTreadles) {
 		  	
 		  	//now that the image has an id of remove, tell it what to do when clicked
 		  	$('#remove').click(function(){
-		 		$('#wifDiv').html('<img src="/img/viewWif.png" style="height:20px; position:fixed; top:20px; right:200px;"><br><span class="wif glyphicon glyphicon-eye-open" style="font-size: 20px; color:rgb(100, 193, 230); height:20px; position:fixed; top:20px; right:150px;"></span>');
+		 		$('#wifDiv').html('<img src="/img/viewWif.png" style="height:20px; position:fixed; top:30px; right:200px;"><br><span class="wif glyphicon glyphicon-eye-open" style="font-size: 20px; color:rgb(100, 193, 230); height:20px; position:fixed; top:30px; right:150px;"></span>');
 				$("#json").css("z-index", "0");
 				$("#json").css("display", "none");
 				// and, yet again, we shall tell .wif what to do when clicked
@@ -295,7 +295,7 @@ function everything(numWarps, numWefts, numTreadles) {
         var findThis = '.treadle' + findTreadle + '.pass' + findPass;
         $(findThis).addClass("above");
         WIF.TREADLING[findPass] = findTreadle;
- console.log(WIF.TREADLING);
+
     });
 
     //for clicking on the harness grid.
@@ -316,14 +316,15 @@ function everything(numWarps, numWefts, numTreadles) {
 		     	for(t = 0; t < harnessNumber; t++){
 				  if(t == shaft){
 				 		 $('.tie'+col+' #tRow'+shaft).css('background', '');
+				 		 
 				 	}
 		    	}
 		   }
         $('.warp' + thread).alterClass("harness*");
+        $('.warp' + thread).removeClass("above");
         $('.warp' + thread).alterClass("treadle*");
         $('.warp' + thread).addClass('harness'+shaft);
         WIF.THREADING[thread] = shaft;
-        console.log(WIF.THREADING);
     });
     
     //manage the tie-up grid
@@ -334,7 +335,7 @@ function everything(numWarps, numWefts, numTreadles) {
         var treadle = $(this).parent().attr('class').replace(/\D/g, '');
         var harness = $(this).attr('id').replace(/\D/g, '');
         $('.treadleGridCol'+treadle).css('background', '');
-        $('.treadle'+treadle+'.harness'+harness).removeClass('above');
+        $('.harness'+harness).removeClass('.treadle'+treadle);
        
         //if we haven't set up this treadle yet...
         if( WIF.TIEUP[treadle] == null ){
@@ -347,7 +348,6 @@ function everything(numWarps, numWefts, numTreadles) {
         
         $('.' + findHarness).addClass(findTreadle);
         $(this).css('background', 'grey');
-         console.log(WIF.TIEUP);
 
     }, function() {
         var findTreadle = 'treadle' + $(this).parent().attr('class').replace(/\D/g, '');
@@ -355,14 +355,13 @@ function everything(numWarps, numWefts, numTreadles) {
 		  var treadle = $(this).parent().attr('class').replace(/\D/g, '');
         var harness = $(this).attr('id').replace(/\D/g, '');
 		  $('.treadleGridCol'+treadle).css('background', '');
-        $('.treadle'+treadle+'.harness'+harness).removeClass('above');
+		   $('.harness'+harness).removeClass('.treadle'+treadle);
 		  //find that harness number in the array contained within the object, and get rid of it.
 		  var index = WIF.TIEUP[treadle].indexOf(harness);
 		  
 		  if (index > -1) {
    		 WIF.TIEUP[treadle].splice(index, 1);
 			}
-			console.log(WIF);
         $(this).css('background', '');
         $('.' + findHarness).removeClass(findTreadle);
     });
@@ -398,7 +397,6 @@ function everything(numWarps, numWefts, numTreadles) {
            		WIF["COLOR TABLE"].push(rgbColor);
            		weftColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);
            		WIF["WEFT COLORS"][weftID] = weftColorIndex;
-           		console.log(WIF)
            } else {
            warpColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);;
            WIF["WEFT COLORS"][weftID] = weftColorIndex;
