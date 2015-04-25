@@ -78,8 +78,8 @@ function everything(numWarps, numWefts, numTreadles) {
  WIF.WEAVING.Treadles = numTreadles;
  
  //add up warps and wefts so we could potentially have a unique color for each thread
- colorEntry = Number(numWarps) + Number(numWefts);
- WIF["COLOR PALETTE"].Entries = colorEntry;
+ var  colorEntry =  0;
+ WIF["COLOR PALETTE"].Entries = ""+colorEntry+"";
  
  WIF.WARP.Threads = numWarps;
  WIF.WEFT.Threads = numWefts;
@@ -117,7 +117,7 @@ function everything(numWarps, numWefts, numTreadles) {
     $(".col-md-12").append('<div class="borderTryBox"><div class="tryBox" style="width:'+tryBoxSize+'px;"></div></div>');
 
 	//let the people see the wif
-	 $("#wifDiv").append('<img src="/img/viewWif.png" style=" height:20px; position:fixed; top:20px; right:200px;"><br><span class="wif glyphicon glyphicon-eye-open" style="font-size: 20px; height:20px; position:fixed; top:20px; right:150px;"></span>');
+	 $("#wifDiv").append('<img src="/img/viewWif.png" style=" height:20px; position:fixed; top:20px; right:200px;"><br><span class="wif glyphicon glyphicon-eye-open" style="font-size: 20px; color:rgb(100, 193, 230); height:20px; position:fixed; top:20px; right:150px;"></span>');
 
     //tieUp
     $(".tryBox").append('<div class="tieUp" style="position:absolute; right: 20px; top:0px; height:77px; width:' + tieUpWidth + 'px;"></div>');
@@ -168,7 +168,7 @@ function everything(numWarps, numWefts, numTreadles) {
 
     //pump out wefts
     $(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight + 'px; display:none;"></div>');
-    $(".tryBox").append('<div class="weftColorChoose">Weft: <input type="text" class="weftBasic"/></div>');
+    $(".tryBox").append('<div class="weftColorChoose"><div style="text-align:center;">:Weft</div><input type="text" class="weftBasic"/></div>');
     weaveBoxTop = 0;
 
     for (i = 0; i < numWefts; i++) {
@@ -226,7 +226,7 @@ function everything(numWarps, numWefts, numTreadles) {
     }
     
     $(".weaveBoxBorder").append('<div class="warpColorGrid" style="z-index:4; display:none;"></div>');
-    $(".tryBox").append('<div class="warpColorChoose">Warp:<input type="text" class="basic"/></div>');
+    $(".tryBox").append('<div class="warpColorChoose"><div style="text-align:center;">:Warp</div><input type="text" class="basic"/></div>');
 
     //warp color picker stuff
 
@@ -247,16 +247,16 @@ function everything(numWarps, numWefts, numTreadles) {
 	...NO MORE APPENDING HTML
 */
 	//for displaying the WIF object
-	$('body').append('<div id="json" style="display:none; padding:10px; z-index:-2; position:fixed; background:#FEF; -webkit-box-shadow: -2px 15px 43px -17px rgba(0,0,0,0.86); -moz-box-shadow: -2px 15px 43px -17px rgba(0,0,0,0.86); box-shadow: -2px 15px 43px -17px rgba(0,0,0,0.86);border-radius:5px; top:50px; right:80px; width:800px; height:300px; overflow:scroll;"></div>');
+	$('body').append('<div id="json" style="display:none; padding:10px; z-index:-2; position:fixed; background:#FAFFFF; opacity: .8; -webkit-box-shadow: -2px 15px 43px -17px rgba(0,0,0,0.86); -moz-box-shadow: -2px 15px 43px -17px rgba(0,0,0,0.86); box-shadow: -2px 15px 43px -17px rgba(0,0,0,0.86);border-radius:5px; top:50px; right:80px; width:800px; height:300px; overflow:scroll;"></div>');
 
 	
 	
-	var wifDisplay = JSON.stringify(WIF);
+
 	
 	function viewWifFunc(){
-		
+			var wifDisplay = JSON.stringify(WIF);
 
-			$("#wifDiv").html('<img src="/img/viewWif.png" style="height:20px; position:fixed; top:20px; right:200px;"><span id="remove" class="glyphicon glyphicon-remove-circle" style=" font-size: 20px;  height:20px; position:fixed; top:20px; right:150px;"></span>');
+			$("#wifDiv").html('<img src="/img/viewWif.png" style="height:20px; position:fixed; top:20px; right:200px;"><span id="remove" class="glyphicon glyphicon-remove-circle" style="color:red; font-size: 20px;  height:20px; position:fixed; top:20px; right:150px;"></span>');
 			$("#json").css("z-index", "2");
 			$("#json").css("display", "block");
 		 	$("#json").JSONView(wifDisplay);
@@ -265,7 +265,7 @@ function everything(numWarps, numWefts, numTreadles) {
 		  	
 		  	//now that the image has an id of remove, tell it what to do when clicked
 		  	$('#remove').click(function(){
-		 		$('#wifDiv').html('<img src="/img/viewWif.png" style="height:20px; position:fixed; top:20px; right:200px;"><br><span class="wif glyphicon glyphicon-eye-open" style="font-size: 20px;  height:20px; position:fixed; top:20px; right:150px;"></span>');
+		 		$('#wifDiv').html('<img src="/img/viewWif.png" style="height:20px; position:fixed; top:20px; right:200px;"><br><span class="wif glyphicon glyphicon-eye-open" style="font-size: 20px; color:rgb(100, 193, 230); height:20px; position:fixed; top:20px; right:150px;"></span>');
 				$("#json").css("z-index", "0");
 				$("#json").css("display", "none");
 				// and, yet again, we shall tell .wif what to do when clicked
@@ -374,9 +374,11 @@ function everything(numWarps, numWefts, numTreadles) {
     
     
     $(".weftBasic").spectrum({
-        color: "#f00",
+        color: "#fff ",
         change: function(color) {
             weftColorChosen = color.toHexString();
+            colorEntry++;
+             WIF["COLOR PALETTE"].Entries = ""+colorEntry+"";
             rgbColor =  color.toRgbString().replace(/[^0-9$.,]/g, '');
             setWeftColor(weftColorChosen, rgbColor);
             $(".weftColorGrid").css("display","block");
@@ -398,7 +400,7 @@ function everything(numWarps, numWefts, numTreadles) {
            		WIF["WEFT COLORS"][weftID] = weftColorIndex;
            		console.log(WIF)
            } else {
-           warpColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);
+           warpColorIndex = WIF["COLOR TABLE"].indexOf(rgbColor);;
            WIF["WEFT COLORS"][weftID] = weftColorIndex;
           
            
@@ -409,8 +411,10 @@ function everything(numWarps, numWefts, numTreadles) {
     }
 
     $(".basic").spectrum({
-        color: "#f00",
+        color: "#fff ",
         change: function(color) {
+        colorEntry++;
+         WIF["COLOR PALETTE"].Entries = ""+colorEntry+"";
             var warpColorChosen = color.toHexString();
            var rgbColor =  color.toRgbString().replace(/[^0-9$.,]/g, '');
             setWarpColor(warpColorChosen, rgbColor);

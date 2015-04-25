@@ -27,13 +27,13 @@ pre {
 
 .warpColorChoose {
     position: absolute;
-    top: 75px;
-    right: 130px;
+    top: 63px;
+    right: 135px;
 }
 .weftColorChoose {
     position: absolute;
-    top: 75px;
-    right: 35px;
+    top: 63px;
+    right: 70px;
 }
 .base {
     z-index: 1;
@@ -42,13 +42,12 @@ pre {
     margin-top: 50px;
     position: fixed;
     padding: 20px;
-    top: 80px;
+    top: 40px;
     overflow: auto;
     direction:rtl;
-    bottom: 80px;
-    right: 20px;
-    left: 20px;
-    border-style: outset;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
     -webkit-box-shadow: 10px 10px 24px 0px rgba(143, 136, 143, 0.63);
     -moz-box-shadow: 10px 10px 24px 0px rgba(143, 136, 143, 0.63);
     box-shadow: 10px 10px 24px 0px rgba(143, 136, 143, 0.63);
