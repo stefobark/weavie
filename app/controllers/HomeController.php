@@ -36,7 +36,7 @@ class HomeController extends BaseController {
 		foreach($images as $image){
 		$image = preg_replace("/[^0-9,.]/", "", $image);
 			$imagename = $image + 1;
-			print $image;
+			
 			} 
 		
 		//if($i[0] == 0){
