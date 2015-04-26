@@ -55,7 +55,8 @@ class HomeController extends BaseController {
 public function downloadPNG()
 	{
 	$filePath = $_GET['filePath'];
-	return Response::download($filePath);
+	echo $filePath;
+	//return Response::download($filePath);
 	}
 
 }

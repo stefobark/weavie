@@ -7,7 +7,9 @@
 	top:25px;
 	right:150px;
 	}
-
+body {
+background:white;
+}
 pre {
    background-color: ghostwhite;
    border: 1px solid silver;
@@ -41,6 +43,7 @@ pre {
 .borderTryBox {
     margin-top: 50px;
     position: fixed;
+    background:white;
     text-align:center;
     padding: 20px;
     top: 30px;

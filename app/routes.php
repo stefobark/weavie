@@ -16,3 +16,6 @@ Route::get('/', function()
 	return View::make('try');
 });
 
+Route::post('/save', 'HomeController@displayPNG');
+Route::get('/download', 'HomeController@downloadPNG');
+

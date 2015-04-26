@@ -22,20 +22,13 @@
       <div style="position:fixed; top:10px; left:150px;">
          <img src="/img/logo.png" style="width:200px">
       </div>
+      
       <div id="wifDiv" style="position:fixed; top:10px; right:150px;">
       </div>
       <div class="container">
       <div class="row">
       <div class="col-md-12">
-      <div class="choose" style="position: fixed; top: 40px; left: 280px;">
-         <p class="help-block">Numbers of Warps:
-         </p>
-         <input type="text" class="warpNum"><br>
-         <p class="help-block">Number of Wefts:</p>
-         <input type="text" class="weftNum" style="margin-left:1px"><br>
-         <p class="help-block">Number of Treadles:</p>
-         <input type="text" class="treadleNum" style="margin-left:1px"><br><br>
-         <button class="submit">Go</button>
-         <script></script>
+     	<img id="image" style="margin-top:50px;" src="{{$PNG}}"/>
+     	      <a style="position:fixed; top: 40px; left: 400px;" href="{{$PNG}}" download>Download file</a>
       </div>
    </body>

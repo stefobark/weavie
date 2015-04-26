@@ -2,6 +2,17 @@ var numWarps;
 var numWefts;
 var numTreadles;
 
+    function capture() {
+    $('.tryBox').html2canvas({
+        onrendered: function (canvas) {
+            //Set hidden field's value to image data (base-64 string)
+            $('#img_val').val(canvas.toDataURL("image/png"));
+            //Submit the form manually
+            document.getElementById("myForm").submit();
+		     }
+		 });
+		}	
+		
 var WIF = {
     "WIF": {
         "Version": "1.1",
@@ -442,6 +453,7 @@ function everything(numWarps, numWefts, numTreadles) {
            	
         });
     }
-    
+
+		    $('body').append('<input id="disableIt" type="submit" value="Save Pattern Image" onclick="capture();" /><form method="POST" enctype="multipart/form-data" action="/save" id="myForm"><input type="hidden" name="img_val" id="img_val" value="" />');
 
 }

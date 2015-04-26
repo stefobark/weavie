@@ -2,6 +2,17 @@ var numWarps;
 var numWefts;
 var numTreadles;
 
+    function capture() {
+    $('.tryBox').html2canvas({
+        onrendered: function (canvas) {
+            //Set hidden field's value to image data (base-64 string)
+            $('#img_val').val(canvas.toDataURL());
+            //Submit the form manually
+            document.getElementById("myForm").submit();
+		     }
+		 });
+		}	
+		
 var WIF = {
     "WIF": {
         "Version": "1.1",
@@ -240,7 +251,7 @@ function everything(numWarps, numWefts, numTreadles) {
         $(".warpColorGrid").append('<button id=' + i + ' class="warpColorButton" style="position:absolute; right:' + warpLeft + 'px; width:15px; height:15px;"></button>');
 
     }
-    $('body').append('<div id="btnSave" style="position:fixed; top: 20px; right 400px; background:grey; border-radius:50%; width:20px; height:20px;"></div>');
+
 /*
 	BELOW THIS 
 	IS ALL THE CLICK MANAGEMENT STUFF
@@ -443,5 +454,9 @@ function everything(numWarps, numWefts, numTreadles) {
         });
     }
     
+$("#disableIt").submit(function(e) {
+    e.preventDefault();
+});
+		    $('body').append('<input id="disableIt" type="submit" value="Save Pattern Image" onclick="capture();" /><form method="POST" enctype="multipart/form-data" action="/save" id="myForm"><input type="hidden" name="img_val" id="img_val" value="" />');
 
 }
