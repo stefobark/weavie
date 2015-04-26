@@ -164,7 +164,7 @@ function everything(numWarps, numWefts, numTreadles) {
 
     //for pumping out the weaveBox
 
-    $(".tryBox").append('<div class="weaveBoxBorder" style="width:'+boxWidth+'px;"><div class="weaveBox" ></div></div>');
+    $(".tryBox").append('<div class="weaveBoxBorder" style="width:'+boxWidth+'px;"><div id="weaveBox" ></div></div>');
 
     //pump out wefts
     $(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight + 'px; display:none;"></div>');
@@ -177,7 +177,7 @@ function everything(numWarps, numWefts, numTreadles) {
             var weaveBoxTop = weaveBoxTop + 15;
         }
 
-        $(".weaveBox").append('<div class="weft' + i + ' base" style="position:absolute; width:' + boxWidth + 'px; height: 15px; top:' + weaveBoxTop + 'px; right:0;"></div>');
+        $("#weaveBox").append('<div class="weft' + i + ' base" style="position:absolute; width:' + boxWidth + 'px; height: 15px; top:' + weaveBoxTop + 'px; right:0;"></div>');
         $(".weftColorGrid").append('<button id="' + i + '" class="weftColorButton" style="position:absolute;  top:' + weaveBoxTop + 'px; width:15px; height:15px;"></button>');
 
     }
@@ -221,7 +221,7 @@ function everything(numWarps, numWefts, numTreadles) {
             if (i > 0) {
                 warpPassLeft = warpPassLeft + 15
             }
-            $(".weaveBox").append('<div class="warp' + i + ' ' + pass + '" style="position:absolute; top:' + warpPassTop + '; right:' + warpPassLeft + 'px; height:15px; width:15px;" ></div>');
+            $("#weaveBox").append('<div class="warp' + i + ' ' + pass + '" style="position:absolute; top:' + warpPassTop + '; right:' + warpPassLeft + 'px; height:15px; width:15px;" ></div>');
         }
     }
     
@@ -240,7 +240,7 @@ function everything(numWarps, numWefts, numTreadles) {
         $(".warpColorGrid").append('<button id=' + i + ' class="warpColorButton" style="position:absolute; right:' + warpLeft + 'px; width:15px; height:15px;"></button>');
 
     }
-    
+
 /*
 	BELOW THIS 
 	IS ALL THE CLICK MANAGEMENT STUFF
@@ -368,10 +368,6 @@ function everything(numWarps, numWefts, numTreadles) {
 
     //color picking
     
-    //for default colors.. so users can just click buttons and give color to warps and wefts
-  
-    
-    
     $(".weftBasic").spectrum({
         color: "#fff ",
         change: function(color) {
@@ -443,9 +439,9 @@ function everything(numWarps, numWefts, numTreadles) {
            WIF["WARP COLORS"][warpID] = warpColorIndex;
            
            		}
-           
-
-         ;
+           	
         });
     }
+    
+
 }

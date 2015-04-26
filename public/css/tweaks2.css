@@ -41,6 +41,7 @@ pre {
 .borderTryBox {
     margin-top: 50px;
     position: fixed;
+    text-align:center;
     padding: 20px;
     top: 30px;
     overflow: auto;
@@ -54,7 +55,7 @@ pre {
 }
 .tryBox {
     position: relative;
-    
+    display:inline-block;
    height:100%;
 }
 .warpColorGrid {
@@ -88,7 +89,7 @@ pre {
     top:0px;
     right: 285px;
 }
-.weaveBox {
+#weaveBox {
     position: absolute;
     top: 120px;
     height:100%;

@@ -8,7 +8,11 @@
       <link rel='stylesheet' href='/css/spectrum.css' />
       <script type="text/javascript" src="/js/jquery.func_toggle.js"></script>
       <script type='text/javascript' src='/js/tinycolor.js'></script>
+      <script type='text/javascript' src='/js/htmlToCanvas.js'></script>
+      <script type="text/javascript" src="/js/jquery.plugin.html2canvas.js"></script>
       <script src="/js/prettyJSON.js"></script>
+
+
     
       <script src="/js/try.js"></script>
    </head>
