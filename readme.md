@@ -19,7 +19,7 @@ The three important files at this point are `/public/js/try.js`, `/public/css/tw
 ...instead of trying to blurt everything out at once, let's just walk through what happens when users make weave patterns with Weavie. And, it's even easier to understand my rambling if you take a look at Weavie in action [here](http://weavie.techgno.com).
 
 ####1. Start building a WIF file####
-The first important thing Weavie does is to define a bunch of properties of a `WIF` object. We'll use this to collect information that we need to create a `WIF` file. We could have just printed straight into a `txt` file, but I figured that things would be easier to add/takeaway, everything would be more manageable, if we built a `WIF` object.
+The first important thing Weavie does is to define a bunch of properties of a `WIF` object. We'll use this to collect information that we need to create a `WIF` file. We could have just printed straight into a `txt` file, but I figured that things would be easier to add/takeaway, everything would be more manageable, if we built a `WIF` object while the user is interacting with the grids.
 
 #####What's a WIF file?#####
 Go [here](http://www.mhsoft.com/wif/wif1-1.txt) to learn a bunch of useful stuff about WIFs. But, the short story (from the specification) is this: 
@@ -27,75 +27,93 @@ Go [here](http://www.mhsoft.com/wif/wif1-1.txt) to learn a bunch of useful stuff
 
 ####2. `.hGrid`: attach warps to harnesses####
 
-Clicking the top right grid (`.hGrid`), which is read from right to left, will add the corresponding `.harness***` class to all elements with the corresponding `warp***` class (i.e., `.warp1`, `.warp2`, etc..) within the `.weaveBox`. For example, clicking the bottom button (`.hGridRow3`) on the far right column (`.hGridCol1`) of `.hGrid` will add the `.harness0` class to the divs within `.weaveBox` that have the `.warp1` class.
-
-For example, here's what happens when you click a button within the `.hGrid`.
+Let's take a look at what happens when the user attaches a warp thread to a harness:
 ```javascript
-  $(".hGridRow3").click(function(){
-    			//because there are as many .hGrid columns as there are .warp*s, by getting the id of 'this' button's parent, we find the corresponding warp that clicking this button relates to.
-			var thread = $(this).parent().attr('id');
-			//the harness we'll be attaching the thread to
-			var shaft = 0;
-			//remove the dark grey from previously selected buttons
-			$(this).siblings().removeClass('activeButton');
-			//make the clicked button grey
-			$(this).addClass("activeButton");
-			//use parent's ID to remove all previously selected harnesses
-			$('.warp' + thread).alterClass("harness*");
-			//use parent's ID to attach the harness to the thread
-			$('.warp' + thread).addClass('harness0');
-			//finally, add this thread to the WIF object we're building
-			WIF.THREADING[thread] = shaft;
-		});
+  //when users click a harnessButton...
+  $(".harnessButton").click(function() {
+  	//find out which thread this button corresponds with
+        var thread = $(this).parent().attr('id');
+        //find out which harness, or 'shaft', this button corresponds with
+        var shaft = $(this).attr('class').split(" ");
+        var shaft = shaft[1].replace(/\D/g, '');
+        
+        //manage hgrid buttons, activate and disactivate all siblings
+        $(this).siblings().removeClass('activeButton');
+        $(this).addClass("activeButton");
+        
+        //deselect tieup buttons, because our threading has changed we'll make the user reset the tie up grid
+        for(col = 0; col < colNum; col++){
+        		
+		     	for(t = 0; t < harnessNumber; t++){
+				  if(t == shaft){
+				 		 $('.tie'+col+' #tRow'+shaft).css('background', '');
+				 	}
+		    	}
+		   }
+	//then remove all harness and treadle classes from the warp thread associated with this button
+        $('.warp' + thread).alterClass("harness*");
+        $('.warp' + thread).alterClass("treadle*");
+        //and finally add the harness associated with the button to the associated thread
+        $('.warp' + thread).addClass('harness'+shaft);
+        //add the shaft to the thread in the WIF object
+        WIF.THREADING[thread] = shaft;
+    });
 ```
 		
 ####3. `.tieUp`: attach harnesses to treadles####
 
-The Tie Up Grid is the next step in the weave drafting process. With Weavie's `.tieUp` box, when you click a button, the corresponding `.treadle***` class is added to all elements within the `.weaveBox` that have the corresponding `.harness***` class. For example, clicking the bottom left button (`.tie0 > .tRow3`) will add `.treadle0` to all elements within `.weaveBox` with `.harness0`.
+The Tie Up Grid is the next step in the weave drafting process. With Weavie's `.tieUp` box, when you click a button, the corresponding `.treadle***` class is added to all elements within the `.weaveBox` that have the corresponding `.harness***` class. 
 
-Below, you can see that on the first click of `.tieButton` we're adding `.harness**` classes to elements that have this `.treadle**` class.
+Let's take a look at what that looks like:
 ```javascript
+ 	
+//when users click a tieUp button...
 $(".tieButton").funcToggle('click', function() {
-	//find the treadle and harness so we can make our harness combos
+	//find the treadle that's associated with the button
         var findTreadle = 'treadle' + $(this).parent().attr('class').replace(/\D/g, '');
-        var findHarness = '.harness' + $(this).attr('id').replace(/\D/g, '');
-        //I just needed the number attached to the end of these class names
+        //then find the harness associated with this button
+        var findHarness = 'harness' + $(this).attr('id').replace(/\D/g, '');
+        //these two do the exact same thing, except I don't add the string, i just keep the number.
         var treadle = $(this).parent().attr('class').replace(/\D/g, '');
         var harness = $(this).attr('id').replace(/\D/g, '');
-        
-        //if we haven't set up this treadle yet add the first harness to an array within this WIF.TIEUP object
+	//we gotta remove the active state of the treadling buttons so users will know that they have to reset the treadle grid... this is in case they have already set up treadling and they are coming back to change the tieUp patterns (tie up patterns means: which harnesses are attached to which treadles).
+        $('.treadleGridCol'+treadle).css('background', '');
+	//make this button active looking
+        $(this).css('background', 'grey');
+	
+        //if we haven't set up attached any harnesses to this treadle yet just go ahead and do it
         if( WIF.TIEUP[treadle] == null ){
              WIF.TIEUP[treadle]= [harness];
         } 
-        //or else, we've already added some harnesses to this treadle, push new elements to the array
+        //if we've already added a harness to this treadle, just push this harness into the array associated with the treadle
         else {
              WIF.TIEUP[treadle].push(harness);
              }
-       //actually add the harness class to the treadle elements
-        $(findHarness).addClass(findTreadle);
-       //turn this button grey.. when it get's clicked again, the grey will be removed
-        $(this).css('background', 'grey');
-       
+        //and then actually add the treadle to the warp elements that have been marked with the harness* class.
+        $('.' + findHarness).addClass(findTreadle);
+        
 
-    }, function() {
-    	//same thing as above
+    }, 
+    //this is the other side of the toggle. when they deselect the button by clicking it again
+    function() {
+    	//deactivate this button.
+    	$('.treadleGridCol'+treadle).css('background', '');
+    	//get the harness and treadle again
         var findTreadle = 'treadle' + $(this).parent().attr('class').replace(/\D/g, '');
         var findHarness = 'harness' + $(this).attr('id').replace(/\D/g, '');
 	var treadle = $(this).parent().attr('class').replace(/\D/g, '');
         var harness = $(this).attr('id').replace(/\D/g, '');
-		  
-	//find that harness number in the array contained within the object, so we can get rid of it.
-	var index = WIF.TIEUP[treadle].indexOf(harness);
 	
-	//now that we've found the harness in the array, splice will get rid of it
+	//find that harness number in the array contained within the object, and get rid of it.
+	var index = WIF.TIEUP[treadle].indexOf(harness);
+	//if we find it, kill it	  
 	if (index > -1) {
-   		WIF.TIEUP[treadle].splice(index, 1);
+   		IF.TIEUP[treadle].splice(index, 1);
 	}
-
-	//remove the grey background of the button
+	//deactivate this button
         $(this).css('background', '');
-        //remove this treadle from this harness
-        $(findHarness).removeClass(findTreadle);
+        //remove treadle from this harness
+        $('.' + findHarness).removeClass(findTreadle);
     });
 ```
 We use the parent of the tie button, which is the row, to find the corresponding treadle. So, for example: clicking the `.tie0 > .tRow3` button will take the parent `.tie0` and get rid of all non-numeric characters, leaving us with '0'. Then, we can just add that to the end of 'treadle' and we're ready to add the appropriate treadle class to all elements with the appropriate harness class. The same kind of thing happens when we go to find the appropriate harness, except we just use `this` because the row number of whatever button that was clicked will correspond to the harness number. 
@@ -178,4 +196,5 @@ The code looks like this (this is for wefts, but warps are the same):
 By the time the user is done clicking, we'll have a nice object that we could easily print into a .WIF file, or pass JSON along to some other program.
 
 Thanks for looking at Weavie.
+
 
