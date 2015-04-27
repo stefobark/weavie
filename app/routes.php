@@ -18,4 +18,6 @@ Route::get('/', function()
 
 Route::post('/save', 'HomeController@displayPNG');
 Route::get('/download', 'HomeController@downloadPNG');
+Route::post('/download/wif', 'HomeController@printWIF');
+
 

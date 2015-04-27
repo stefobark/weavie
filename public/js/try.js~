@@ -7,11 +7,15 @@ var numTreadles;
         onrendered: function (canvas) {
             //Set hidden field's value to image data (base-64 string)
             $('#img_val').val(canvas.toDataURL("image/png"));
-            //Submit the form manually
-            document.getElementById("myForm").submit();
 		     }
 		 });
 		}	
+		
+		function getWif() {
+		var wifDisplay = JSON.stringify(WIF);
+			$('#wif_val').val(wifDisplay);
+			}
+		
 		
 var WIF = {
     "WIF": {
@@ -128,7 +132,7 @@ function everything(numWarps, numWefts, numTreadles) {
     $(".col-md-12").append('<div class="borderTryBox"><div class="tryBox" style="width:'+tryBoxSize+'px;"></div></div>');
 
 	//let the people see the wif
-	 $("#wifDiv").append('<img src="/img/viewWif.png" style=" height:20px; position:fixed; top:30px; right:200px;"><br><span class="wif glyphicon glyphicon-eye-open" style="font-size: 20px; color:rgb(100, 193, 230); height:20px; position:fixed; top:30px; right:150px;"></span>');
+	 $("#wifDiv").append('<form method="POST" action="/download/wif"><input type="hidden" name="WIF" id="wif_val" value="" /><input class="btn btn-default" id="grabWif" type="submit" value="Save WIF" onclick="getWif();"  style="position:fixed; top:25px; right:300px;" /></form>');
 
     //tieUp
     $(".tryBox").append('<div class="tieUp" style="position:absolute; right: 20px; top:0px; height:77px; width:' + tieUpWidth + 'px;"></div>');
@@ -257,42 +261,6 @@ function everything(numWarps, numWefts, numTreadles) {
 	IS ALL THE CLICK MANAGEMENT STUFF
 	...NO MORE APPENDING HTML
 */
-	//for displaying the WIF object
-	$('body').append('<div id="json" style="display:none; padding:10px; z-index:-2; position:fixed; background:#FAFFFF; opacity: .8; -webkit-box-shadow: -2px 15px 43px -17px rgba(0,0,0,0.86); -moz-box-shadow: -2px 15px 43px -17px rgba(0,0,0,0.86); box-shadow: -2px 15px 43px -17px rgba(0,0,0,0.86);border-radius:5px; top:50px; right:80px; width:800px; height:300px; overflow:scroll;"></div>');
-
-	
-	
-
-	
-	function viewWifFunc(){
-			var wifDisplay = JSON.stringify(WIF);
-
-			$("#wifDiv").html('<img src="/img/viewWif.png" style="height:20px; position:fixed; top:30px; right:200px;"><span id="remove" class="glyphicon glyphicon-remove-circle" style="color:rgb(221, 99, 99); font-size: 20px;  height:20px; position:fixed; top:30px; right:150px;"></span>');
-			$("#json").css("z-index", "2");
-			$("#json").css("display", "block");
-		 	$("#json").JSONView(wifDisplay);
-		  	// with options
-		  	$("#json").JSONView(wifDisplay, { collapsed: true });
-		  	
-		  	//now that the image has an id of remove, tell it what to do when clicked
-		  	$('#remove').click(function(){
-		 		$('#wifDiv').html('<img src="/img/viewWif.png" style="height:20px; position:fixed; top:30px; right:200px;"><br><span class="wif glyphicon glyphicon-eye-open" style="font-size: 20px; color:rgb(100, 193, 230); height:20px; position:fixed; top:30px; right:150px;"></span>');
-				$("#json").css("z-index", "0");
-				$("#json").css("display", "none");
-				// and, yet again, we shall tell .wif what to do when clicked
-				$('.wif').click(function(){
-					viewWifFunc();
-		});
-			
-		});
-	  	
-	  };
-	  
-	  $('.wif').click(function(){
-			viewWifFunc();
-		});
-	  
-	 	
 
 	
     //make the treadle grid pusher work
@@ -454,6 +422,6 @@ function everything(numWarps, numWefts, numTreadles) {
         });
     }
 
-		    $('body').append('<input id="disableIt" type="submit" value="Save Pattern Image" onclick="capture();"  style="position:fixed; top:25px; right:400px;" /><form method="POST" enctype="multipart/form-data" action="/save" id="myForm"><input type="hidden" name="img_val" id="img_val" value="" />');
+		    $('body').append('<form method="POST" enctype="multipart/form-data" action="/save" id="myForm"><input class="btn btn-default" id="disableIt" type="submit" value="Save Pattern Image" onclick="capture();"  style="position:fixed; top:25px; right:400px;" /><input type="hidden" name="img_val" id="img_val" value="" /></form>');
 
 }

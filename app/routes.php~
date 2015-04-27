@@ -17,5 +17,7 @@ Route::get('/', function()
 });
 
 Route::post('/save', 'HomeController@displayPNG');
-Route::post('/download', 'HomeController@downloadPNG');
+Route::get('/download', 'HomeController@downloadPNG');
+Route::post('/wif', 'HomeController@printWIF');
+Route::get('/wif', 'HomeController@printWIF');
 

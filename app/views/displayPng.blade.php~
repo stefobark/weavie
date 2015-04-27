@@ -17,7 +17,7 @@
 		
 	</form>
       <div style="position:fixed; top:10px; left:150px;">
-         <img src="/img/logo.png" style="width:200px">
+         <a href="/"><img src="/img/logo.png" style="width:200px"></a>
       </div>
       <a style="position:fixed; top: 25px; right: 400px; z-index:5;" href="{{$PNG}}" download><button class="btn btn-default">Download file</button></a>
       <div class="container">

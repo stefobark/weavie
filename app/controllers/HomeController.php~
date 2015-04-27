@@ -20,9 +20,10 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 	
+
 	public function displayPNG()
 	{
-		/
+		
 		$name = getdate();
 		$imagename = $name["0"];
 		 
@@ -42,14 +43,95 @@ class HomeController extends BaseController {
 		//Save the image
 		file_put_contents($filePath, $unencodedData);
 	
-
-		return View::make('displayPng', array('PNG' => $filePath));
+ 		$headers = array('Content-Type'=>'application/png');
+		return Response::download($filePath,$imagename,$headers);
 		}
 
 public function downloadPNG()
 	{
 	$filePath = $_GET['filePath'];
-	return Response::download($filePath);
+	}
+	
+public function printWIF()
+	{
+	$wif = $_POST['WIF'];
+	$tempData = json_decode(str_replace("\\", "", $wif), true);
+	$name = getdate();
+	$file = './wif/'.$name["0"].'.wif';
+	
+	file_put_contents($file, "[WIF]\n", FILE_APPEND);
+	foreach ($tempData["WIF"] as $key => $value) {
+	$writeIt = '"'.$key.'":"'.$value.'"'."\n";
+	file_put_contents($file, $writeIt, FILE_APPEND);
+	}
+	
+	file_put_contents($file, "[CONTENTS]\n", FILE_APPEND);
+	foreach ($tempData["CONTENTS"] as $key => $value) {
+	$writeIt = '"'.$key.'":"'.$value.'"'."\n";
+	file_put_contents($file, $writeIt, FILE_APPEND);
+	}
+	
+	file_put_contents($file, "[WEAVING]\n", FILE_APPEND);
+	foreach ($tempData["WEAVING"] as $key => $value) {
+	$writeIt = '"'.$key.'":"'.$value.'"'."\n";
+	file_put_contents($file, $writeIt, FILE_APPEND);
+	}
+	
+	file_put_contents($file, "[COLOR PALETTE]\n", FILE_APPEND);
+	foreach ($tempData["COLOR PALETTE"] as $key => $value) {
+	$writeIt = '"'.$key.'":"'.$value.'"'."\n";
+	file_put_contents($file, $writeIt, FILE_APPEND);
+	}
+	
+	file_put_contents($file, "[COLOR TABLE]\n", FILE_APPEND);
+	foreach ($tempData["COLOR TABLE"] as $key => $value) {
+	$writeIt = '"'.$key.'":"'.$value.'"'."\n";
+	file_put_contents($file, $writeIt, FILE_APPEND);
+	}
+	
+	file_put_contents($file, "[WARP]\n", FILE_APPEND);
+	foreach ($tempData["WARP"] as $key => $value) {
+	$writeIt = '"'.$key.'":"'.$value.'"'."\n";
+	file_put_contents($file, $writeIt, FILE_APPEND);
+	}
+	
+	file_put_contents($file, "[WEFT]\n", FILE_APPEND);
+	foreach ($tempData["WEFT"] as $key => $value) {
+	$writeIt = '"'.$key.'":"'.$value.'"'."\n";
+	file_put_contents($file, $writeIt, FILE_APPEND);
+	}
+	
+	file_put_contents($file, "[TIEUP]\n", FILE_APPEND);
+	foreach ($tempData["TIEUP"] as $key => $value) {
+	$writeIt = '"'.$key.'":"'.$value.'"'."\n";
+	file_put_contents($file, $writeIt, FILE_APPEND);
+	}
+	
+	file_put_contents($file, "[THREADING]\n", FILE_APPEND);
+	foreach ($tempData["THREADING"] as $key => $value) {
+	$writeIt = '"'.$key.'":"'.$value.'"'."\n";
+	file_put_contents($file, $writeIt, FILE_APPEND);
+	}
+	
+	file_put_contents($file, "[TREADLING]\n", FILE_APPEND);
+	foreach ($tempData["TREADLING"] as $key => $value) {
+	$writeIt = '"'.$key.'":"'.$value.'"'."\n";
+	file_put_contents($file, $writeIt, FILE_APPEND);
+	}
+	
+	file_put_contents($file, "[WARP COLORS]\n", FILE_APPEND);
+	foreach ($tempData["WARP COLORS"] as $key => $value) {
+	$writeIt = '"'.$key.'":"'.$value.'"'."\n";
+	file_put_contents($file, $writeIt, FILE_APPEND);
+	}
+	
+	file_put_contents($file, "[WEFT COLORS]\n", FILE_APPEND);
+	foreach ($tempData["WEFT COLORS"] as $key => $value) {
+	$writeIt = '"'.$key.'":"'.$value.'"'."\n";
+	file_put_contents($file, $writeIt, FILE_APPEND);
+	}
+	
+		return Response::download($file);
 	}
 
 }
