@@ -11,24 +11,18 @@
       <script type='text/javascript' src='/js/htmlToCanvas.js'></script>
       <script type="text/javascript" src="/js/jquery.plugin.html2canvas.js"></script>
       <script src="/js/prettyJSON.js"></script>
-
-
-    
       <script src="/js/try.js"></script>
    </head>
    <body>
 		
 	</form>
       <div style="position:fixed; top:10px; left:150px;">
-         <img src="/img/logo.png" style="width:200px">
+         <a href="/"><img src="/img/logo.png" style="width:200px"></a>
       </div>
-      
-      <div id="wifDiv" style="position:fixed; top:10px; right:150px;">
-      </div>
+      <a style="position:fixed; top: 25px; right: 400px; z-index:5;" href="{{$PNG}}" download><button class="btn btn-default">Download file</button></a>
       <div class="container">
       <div class="row">
-      <div class="col-md-12">
-     	<img id="image" style="margin-top:50px;" src="{{$PNG}}"/>
-     	      <a style="position:fixed; top: 40px; left: 400px;" href="{{$PNG}}" download>Download file</a>
+      <div class="col-md-12 text-center">
+     	<img id="image" style="margin-top:80px;" src="{{$PNG}}" />
       </div>
    </body>

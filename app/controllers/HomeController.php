@@ -22,22 +22,16 @@ class HomeController extends BaseController {
 	
 	public function displayPNG()
 	{
-		//save.php code
-		 
+		
+		$name = getdate();
+		$imagename = $name["0"];
 		 
 		//Get the base-64 string from data
 		$filteredData=substr($_POST['img_val'], strpos($_POST['img_val'], ",")+1);
 		 
 		//Decode the string
 		$unencodedData=base64_decode($filteredData);
-	
-		$images = scandir('./img/patterns/');
-	
-		foreach($images as $image){
-		$image = preg_replace("/[^0-9,.]/", "", $image);
-			$imagename = $image + 1;
-			
-			} 
+
 		
 		//if($i[0] == 0){
 		//	$imagename = 0;

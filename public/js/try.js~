@@ -454,6 +454,6 @@ function everything(numWarps, numWefts, numTreadles) {
         });
     }
 
-		    $('body').append('<input id="disableIt" type="submit" value="Save Pattern Image" onclick="capture();"  style="position:fixed; top:20px; right:400px;" /><form method="POST" enctype="multipart/form-data" action="/save" id="myForm"><input type="hidden" name="img_val" id="img_val" value="" />');
+		    $('body').append('<input id="disableIt" type="submit" value="Save Pattern Image" onclick="capture();"  style="position:fixed; top:25px; right:400px;" /><form method="POST" enctype="multipart/form-data" action="/save" id="myForm"><input type="hidden" name="img_val" id="img_val" value="" />');
 
 }
