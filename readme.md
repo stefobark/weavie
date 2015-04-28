@@ -20,9 +20,10 @@ And, fyi: Weavie is a Laravel project. The important files at this point are `/p
 
 ####1. Get user input ####
 The first thing a Weavie user sees is a form asking for weave essentials. At this point, users can choose:
-	1. The number of warp threads
-	2. The number of weft threads
-	3. the number of treadles
+
+1. The number of warp threads
+2. The number of weft threads
+3. the number of treadles
 
 But, pretty soon, they'll also be able to define the number of harnesses and set "Ends Per Inch" (which, I'm thinking, we could use to define the size of columns width/row height of the weaveBox... but I'm not sure what to do yet).
 
