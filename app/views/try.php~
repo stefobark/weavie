@@ -17,9 +17,7 @@
       <script src="/js/try.js"></script>
    </head>
    <body>
-		<input type="submit" value="Save Pattern Image" onclick="capture();" />
-	<form method="POST" enctype="multipart/form-data" action="/save" id="myForm">
-		 <input type="hidden" name="img_val" id="img_val" value="" />
+		
 	</form>
       <div style="position:fixed; top:10px; left:150px;">
          <img src="/img/logo.png" style="width:200px">

@@ -2,15 +2,26 @@ var numWarps;
 var numWefts;
 var numTreadles;
 
-    function capture() {
-    $('.tryBox').html2canvas({
-        onrendered: function (canvas) {
-            //Set hidden field's value to image data (base-64 string)
-            $('#img_val').val(canvas.toDataURL("image/png"));
-		     }
-		 });
-		}	
+        
+ function capture() {
+ 
+		 $('.tryBox').html2canvas({
+				  onrendered: function (canvas) {
+				      //Set hidden field's value to image data (base-64 string)
+				     	var image = canvas.toDataURL();
+				      $.post( "/save", { img_val: image} ).done(function( data ) {
+				       window.location.assign(data);
+			  });;
+				     
+					  }
+				 });
 		
+		};
+	
+	
+  
+
+	   
 		function getWif() {
 		var wifDisplay = JSON.stringify(WIF);
 			$('#wif_val').val(wifDisplay);
@@ -158,7 +169,8 @@ function everything(numWarps, numWefts, numTreadles) {
 
     $(".tryBox").append('<div class="treadleGrid" style="position:absolute; top:120px; right: 20px; height:' + boxHeight + 'px; width:' + tieUpWidth + 'px;"></div>');
 
-	
+
+		
     var weavetop = 0
 
     for (w = 0; w < numWefts; w++) {
@@ -421,7 +433,12 @@ function everything(numWarps, numWefts, numTreadles) {
            	
         });
     }
-
-		    $('body').append('<form method="POST" enctype="multipart/form-data" action="/save" id="myForm"><input type="hidden" name="img_val" id="img_val" value="" /><input class="btn btn-default" id="disableIt" type="submit" value="Save Pattern Image" onclick="capture();"  style="position:fixed; top:25px; right:400px;" /></form>');
+    
+$('disableIt').submit(function(){
+    alert('I do something before the post');
+    return true;
+});
+		
+		    $('body').append('<button class="btn btn-default" onclick="capture();" style="position:fixed; top:25px; right:400px;">Download Image</button>');
 
 }

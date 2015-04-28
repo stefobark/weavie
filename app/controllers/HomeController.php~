@@ -43,8 +43,8 @@ class HomeController extends BaseController {
 		//Save the image
 		file_put_contents($filePath, $unencodedData);
 	
- 		$headers = array('Content-Type'=>'application/png');
-		return Response::download($filePath,$imagename,$headers);
+ 		$headers = array( 'Content-Type' => 'image/png' );
+		return  $filePath
 		}
 
 public function downloadPNG()
