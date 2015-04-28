@@ -1,0 +1,45 @@
+[WIF]
+Version1.1"
+Date9/11/2014"
+Developerswif@handweaving.net"
+Source ProgramHandweaving.net Draft Library"
+Source Version3.0"
+[CONTENTS]
+COLOR PALETTEyes"
+WEAVINGyes"
+WARPyes"
+WEFTyes"
+TIEUPyes"
+COLOR TABLEyes"
+THREADINGyes"
+WARP COLORSyes"
+TREADLINGyes"
+WEFT COLORSyes"
+[WEAVING]
+Shafts12"
+Treadles12"
+Rising Shedyes"
+Profileno"
+[COLOR PALETTE]
+Entries0"
+FormRGB"
+Range0,255"
+[COLOR TABLE]
+[WARP]
+Threads12"
+UnitsCentimeters"
+Spacing0.0185"
+Thickness0.0213"
+[WEFT]
+Threads12"
+UnitsCentimeters"
+Spacing0.0185"
+Thickness0.0213"
+[TIEUP]
+03, 2"
+12, 1"
+21, 0"
+[THREADING]
+[TREADLING]
+[WARP COLORS]
+[WEFT COLORS]

@@ -1,0 +1,42 @@
+[WIF]
+"Version":"1.1"
+"Date":"9/11/2014"
+"Developers":"wif@handweaving.net"
+"Source Program":"Handweaving.net Draft Library"
+"Source Version":"3.0"
+[CONTENTS]
+"COLOR PALETTE":"yes"
+"WEAVING":"yes"
+"WARP":"yes"
+"WEFT":"yes"
+"TIEUP":"yes"
+"COLOR TABLE":"yes"
+"THREADING":"yes"
+"WARP COLORS":"yes"
+"TREADLING":"yes"
+"WEFT COLORS":"yes"
+[WEAVING]
+"Shafts":"12"
+"Treadles":"12"
+"Rising Shed":"yes"
+"Profile":"no"
+[COLOR PALETTE]
+"Entries":"0"
+"Form":"RGB"
+"Range":"0,255"
+[COLOR TABLE]
+[WARP]
+"Threads":"12"
+"Units":"Centimeters"
+"Spacing":"0.0185"
+"Thickness":"0.0213"
+[WEFT]
+"Threads":"12"
+"Units":"Centimeters"
+"Spacing":"0.0185"
+"Thickness":"0.0213"
+[TIEUP]
+[THREADING]
+[TREADLING]
+[WARP COLORS]
+[WEFT COLORS]

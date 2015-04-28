@@ -10,7 +10,7 @@ var numTreadles;
 				      //Set hidden field's value to image data (base-64 string)
 				     	var image = canvas.toDataURL();
 				      $.post( "/save", { img_val: image} ).done(function( data ) {
-				       $.fileDownload(data);
+				      window.open(data, '_blank');
 			  });;
 				     
 					  }
