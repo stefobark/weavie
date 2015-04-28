@@ -264,6 +264,7 @@ public function displayPNG()
 		return  $filePath;
 		}
 ```
+Now the user has their picture!
 
 ####8. Save WIF####
 Now, we get to do something cool with that WIF object we've been building. Print it to a file and allow the user to download it!
