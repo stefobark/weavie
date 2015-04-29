@@ -12,9 +12,16 @@ There are three grids on a weave draft.
 3. The grid on the right tells the weaver when to use which treadle. It describes which warps should be lifted at each pass of the shuttle.
 
 ###Weavie: what is it and how does it work?###
-Weavie is a weave draft maker. It, like a weave draft, is split into three grids (`.hGrid`, `.tieUp`, and  `.treadleGrid`). Then Weavie has a `.weaveBox` that displays the pattern the user has described by selecting buttons on the three grids. At this point, users are forced to work from the top-right grid, to the top-left grid, and finally to the grid on the right. Otherwise, things get weird.
+Weavie is a weave draft maker. It, like a weave draft, is split into three grids (`.hGrid`, `.tieUp`, and  `.treadleGrid`). Then Weavie has a `.weaveBox` that displays the pattern the user has described by selecting buttons on the three grids. At this point, users are forced to work from the top-right grid, to the top-left grid, and finally to the grid on the right. Otherwise, things get weird. So, when users go backwards through the weave process (for example, if they reset threading after they've already begun their tie-up), the grids ahead in the process will get cleared.
 
-And, fyi: Weavie is a Laravel project. The important files at this point are `/public/js/try.js`, `/public/css/tweaks2.css`, `/app/controllers/HomeController.php`, `/app/routes.php` and `/app/views/try.php`.
+And, fyi: Weavie is a Laravel project. It's nice because I get to see what it's like to work with the MVC pattern. 
+
+The important files at this point are:
+* `/public/js/try.js` -- generates HTML and makes things happen when users click)
+* `/public/css/tweaks2.css` -- style stuff
+* `/app/controllers/HomeController.php` -- save image and wif to let users download
+* `/app/routes.php` -- route uri's to controller methods
+* and `/app/views/try.php` -- the basic view... try.js appends a bunch more html to this depending on what they user enters for number of warp/weft threads and treadles.
 
 ...instead of trying to blurt everything out at once, let's just walk through what happens when users make weave patterns with Weavie. And, it's even easier to understand my rambling if you take a look at Weavie in action [here](http://weavie.techgno.com).
 
