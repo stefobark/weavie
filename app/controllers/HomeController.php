@@ -46,12 +46,7 @@ class HomeController extends BaseController {
  		$headers = array( 'Content-Type' => 'image/png' );
 		return  $filePath;
 		}
-
-public function downloadPNG()
-	{
-	$filePath = $_GET['filePath'];
-	}
-	
+		
 public function printWIF()
 	{
 	$wif = $_POST['WIF'];
@@ -85,6 +80,7 @@ public function printWIF()
 	
 	file_put_contents($file, "[COLOR TABLE]\n", FILE_APPEND);
 	foreach ($tempData["COLOR TABLE"] as $key => $value) {
+	$key = $key + 1;
 	$writeIt = $key.'='.$value."\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
@@ -103,8 +99,12 @@ public function printWIF()
 	
 	file_put_contents($file, "[TIEUP]\n", FILE_APPEND);
 	foreach ($tempData["TIEUP"] as $key => $value) {
+	$key = intval($key);
+	
+	$key = $key + 1;
 		$writeIt = $key.'=';
 	for($i = 0; $i < count($value);){
+		$value[$i] = intval($value[$i]) + 1;
 		if($i == 0){
 			$writeIt .= $value[$i];
 		} else {
@@ -120,24 +120,40 @@ public function printWIF()
 	
 	file_put_contents($file, "[THREADING]\n", FILE_APPEND);
 	foreach ($tempData["THREADING"] as $key => $value) {
+	$key = intval($key);
+	$value = intval($value);
+	$key = $key + 1;
+	$value = $value + 1;
 	$writeIt = $key.'='.$value."\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
 	
 	file_put_contents($file, "[TREADLING]\n", FILE_APPEND);
 	foreach ($tempData["TREADLING"] as $key => $value) {
+	$key = intval($key);
+	$value = intval($value);
+	$key = $key + 1;
+	$value = $value + 1;
 	$writeIt = $key.'='.$value."\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
 	
 	file_put_contents($file, "[WARP COLORS]\n", FILE_APPEND);
 	foreach ($tempData["WARP COLORS"] as $key => $value) {
+	$key = intval($key);
+	$value = intval($value);
+	$key = $key + 1;
+	$value = $value + 1;
 	$writeIt = $key.'='.$value."\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
 	
 	file_put_contents($file, "[WEFT COLORS]\n", FILE_APPEND);
 	foreach ($tempData["WEFT COLORS"] as $key => $value) {
+	$key = intval($key);
+	$value = intval($value);
+	$key = $key + 1;
+	$value = $value + 1;
 	$writeIt = $key.'='.$value."\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}

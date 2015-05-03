@@ -31,21 +31,21 @@ var numTreadles;
 var WIF = {
     "WIF": {
         "Version": "1.1",
-        "Date": "9/11/2014",
-        "Developers": "wif@handweaving.net",
-        "Source Program": "Handweaving.net Draft Library",
-        "Source Version": "3.0"
+        "Date": "04/30/2015",
+        "Developers": "steve@weavie.com",
+        "Source Program": "Weavie",
+        "Source Version": "0.01"
     },
     "CONTENTS": {
-        "COLOR PALETTE": "yes",
         "WEAVING": "yes",
+        "COLOR PALETTE": "yes",
         "WARP": "yes",
         "WEFT": "yes",
         "TIEUP": "yes",
         "COLOR TABLE": "yes",
         "THREADING": "yes",
-        "WARP COLORS": "yes",
         "TREADLING": "yes",
+        "WARP COLORS": "yes",
         "WEFT COLORS": "yes"
     },
     "WEAVING": {
@@ -59,7 +59,6 @@ var WIF = {
         "Form": "RGB",
         "Range": "0,255"
     },
-    "COLOR TABLE": [],
     "WARP": {
         "Threads": "",
         "Units": "Centimeters",
@@ -73,9 +72,9 @@ var WIF = {
         "Thickness": "0.0213"
     },
     "TIEUP": {},
+    "COLOR TABLE": [],
     "THREADING": {},
-    "TREADLING": { 
-        },
+    "TREADLING": {},
     "WARP COLORS": {},
     "WEFT COLORS": {}
 };
@@ -285,6 +284,7 @@ function everything(numWarps, numWefts, numTreadles) {
         $('.pass' + findPass).removeClass("above");
         var findThis = '.treadle' + findTreadle + '.pass' + findPass;
         $(findThis).addClass("above");
+        
         WIF.TREADLING[findPass] = findTreadle;
 
     });
