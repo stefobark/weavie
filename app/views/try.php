@@ -15,7 +15,7 @@
 
 
     
-      <script src="/js/try.js"></script>
+      <script src="/js/generateHTML.js"></script>
    </head>
    <body>
 		

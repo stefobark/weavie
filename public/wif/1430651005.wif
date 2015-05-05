@@ -1,0 +1,58 @@
+[WIF]
+Version=1.1
+Date=March 3, 1996
+Developers=Ravi Nielsen, Bob Keates, Rob Sinkler
+Source Program=Weavie
+Source Version=0.01
+
+[CONTENTS]
+WEAVING=yes
+COLOR PALETTE=yes
+WARP=yes
+WEFT=yes
+TIEUP=yes
+COLOR TABLE=yes
+THREADING=yes
+TREADLING=yes
+WARP COLORS=yes
+WEFT COLORS=yes
+
+[WEAVING]
+Shafts=12
+Treadles=12
+Rising Shed=yes
+Profile=no
+
+[COLOR PALETTE]
+Entries=2
+Form=RGB
+Range=0,255
+
+[COLOR TABLE]
+
+[WARP]
+Threads=12
+Colors=
+Palette=yes
+Units=Decimeters
+Spacing=100
+Thickness=80
+
+[WEFT]
+Threads=12
+Colors=2
+Palette=yes
+Units=Decimeters
+Spacing=100
+Thickness=80
+
+[TIEUP]
+
+[THREADING]
+
+[TREADLING]
+
+[WARP COLORS]
+
+[WEFT COLORS]
+

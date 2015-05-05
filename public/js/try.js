@@ -5,34 +5,34 @@ var numTreadles;
         
  function capture() {
  
-		 $('.tryBox').html2canvas({
-				  onrendered: function (canvas) {
-				      //Set hidden field's value to image data (base-64 string)
-				     	var image = canvas.toDataURL();
-				      $.post( "/save", { img_val: image} ).done(function( data ) {
-				       window.location.assign(data);
-			  });;
-				     
-					  }
-				 });
-		
-		};
+	 $('.tryBox').html2canvas({
+			  onrendered: function (canvas) {
+			      //Set hidden field's value to image data (base-64 string)
+			     	var image = canvas.toDataURL();
+			      $.post( "/save", { img_val: image} ).done(function( data ) {
+			       window.location.assign(data);
+		  });;
+			     
+				  }
+			 });
 	
+	};
+
 	
   
 
 	   
-		function getWif() {
-		var wifDisplay = JSON.stringify(WIF);
-			$('#wif_val').val(wifDisplay);
-			}
-		
+function getWif() {
+	var wifDisplay = JSON.stringify(WIF);
+	$('#wif_val').val(wifDisplay);
+	}
+
 		
 var WIF = {
     "WIF": {
         "Version": "1.1",
-        "Date": "04/30/2015",
-        "Developers": "steve@weavie.com",
+        "Date": "March 3, 1996",
+        "Developers": "Ravi Nielsen, Bob Keates, Rob Sinkler",
         "Source Program": "Weavie",
         "Source Version": "0.01"
     },
@@ -61,15 +61,17 @@ var WIF = {
     },
     "WARP": {
         "Threads": "",
-        "Units": "Centimeters",
-        "Spacing": "0.0185",
-        "Thickness": "0.0213"
+        "Palette" : "yes", 
+        "Units": "Decimeters",
+        "Spacing": "100",
+        "Thickness": "80"
     },
     "WEFT": {
         "Threads": "",
-        "Units": "Centimeters",
-        "Spacing": "0.0185",
-        "Thickness": "0.0213"
+        "Palette" : "yes",
+        "Units": "Decimeters",
+        "Spacing": "100",
+        "Thickness": "80"
     },
     "TIEUP": {},
     "COLOR TABLE": [],

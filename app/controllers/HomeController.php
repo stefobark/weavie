@@ -54,50 +54,57 @@ public function printWIF()
 	$name = getdate();
 	$file = './wif/'.$name["0"].'.wif';
 	
-	file_put_contents($file, "[WIF]\n", FILE_APPEND);
+	file_put_contents($file, "[WIF]\r\n", FILE_APPEND);
 	foreach ($tempData["WIF"] as $key => $value) {
-	$writeIt = $key.'='.$value."\n";
+	$writeIt = $key.'='.$value."\r\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
+	file_put_contents($file, "\r\n", FILE_APPEND);
 	
-	file_put_contents($file, "[CONTENTS]\n", FILE_APPEND);
+	file_put_contents($file, "[CONTENTS]\r\n", FILE_APPEND);
 	foreach ($tempData["CONTENTS"] as $key => $value) {
-	$writeIt = $key.'='.$value."\n";
+	$writeIt = $key.'='.$value."\r\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
+	file_put_contents($file, "\r\n", FILE_APPEND);
 	
-	file_put_contents($file, "[WEAVING]\n", FILE_APPEND);
+	file_put_contents($file, "[WEAVING]\r\n", FILE_APPEND);
 	foreach ($tempData["WEAVING"] as $key => $value) {
-	$writeIt = $key.'='.$value."\n";
+	$writeIt = $key.'='.$value."\r\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
+	file_put_contents($file, "\r\n", FILE_APPEND);
 	
-	file_put_contents($file, "[COLOR PALETTE]\n", FILE_APPEND);
+	file_put_contents($file, "[COLOR PALETTE]\r\n", FILE_APPEND);
 	foreach ($tempData["COLOR PALETTE"] as $key => $value) {
-	$writeIt = $key.'='.$value."\n";
+	$writeIt = $key.'='.$value."\r\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
+	file_put_contents($file, "\r\n", FILE_APPEND);
 	
-	file_put_contents($file, "[COLOR TABLE]\n", FILE_APPEND);
+	file_put_contents($file, "[COLOR TABLE]\r\n", FILE_APPEND);
 	foreach ($tempData["COLOR TABLE"] as $key => $value) {
 	$key = $key + 1;
-	$writeIt = $key.'='.$value."\n";
+	$writeIt = $key.'='.$value."\r\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
+	file_put_contents($file, "\r\n", FILE_APPEND);
 	
-	file_put_contents($file, "[WARP]\n", FILE_APPEND);
+	file_put_contents($file, "[WARP]\r\n", FILE_APPEND);
 	foreach ($tempData["WARP"] as $key => $value) {
-	$writeIt = $key.'='.$value."\n";
+	$writeIt = $key.'='.$value."\r\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
+	file_put_contents($file, "\r\n", FILE_APPEND);
 	
-	file_put_contents($file, "[WEFT]\n", FILE_APPEND);
+	file_put_contents($file, "[WEFT]\r\n", FILE_APPEND);
 	foreach ($tempData["WEFT"] as $key => $value) {
-	$writeIt = $key.'='.$value."\n";
+	$writeIt = $key.'='.$value."\r\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
+	file_put_contents($file, "\r\n", FILE_APPEND);
 	
-	file_put_contents($file, "[TIEUP]\n", FILE_APPEND);
+	file_put_contents($file, "[TIEUP]\r\n", FILE_APPEND);
 	foreach ($tempData["TIEUP"] as $key => $value) {
 	$key = intval($key);
 	
@@ -112,51 +119,55 @@ public function printWIF()
 			}
 			$i++;
 		}	
-		$writeIt .= "\n";
+		$writeIt .= "\r\n";
 		
 	file_put_contents($file, $writeIt, FILE_APPEND);
-	
 	}
+	file_put_contents($file, "\r\n", FILE_APPEND);
 	
-	file_put_contents($file, "[THREADING]\n", FILE_APPEND);
+	file_put_contents($file, "[THREADING]\r\n", FILE_APPEND);
 	foreach ($tempData["THREADING"] as $key => $value) {
 	$key = intval($key);
 	$value = intval($value);
 	$key = $key + 1;
 	$value = $value + 1;
-	$writeIt = $key.'='.$value."\n";
+	$writeIt = $key.'='.$value."\r\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
+	file_put_contents($file, "\r\n", FILE_APPEND);
 	
-	file_put_contents($file, "[TREADLING]\n", FILE_APPEND);
+	file_put_contents($file, "[TREADLING]\r\n", FILE_APPEND);
 	foreach ($tempData["TREADLING"] as $key => $value) {
 	$key = intval($key);
 	$value = intval($value);
 	$key = $key + 1;
 	$value = $value + 1;
-	$writeIt = $key.'='.$value."\n";
+	$writeIt = $key.'='.$value."\r\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
+	file_put_contents($file, "\r\n", FILE_APPEND);
 	
-	file_put_contents($file, "[WARP COLORS]\n", FILE_APPEND);
+	file_put_contents($file, "[WARP COLORS]\r\n", FILE_APPEND);
 	foreach ($tempData["WARP COLORS"] as $key => $value) {
 	$key = intval($key);
 	$value = intval($value);
 	$key = $key + 1;
 	$value = $value + 1;
-	$writeIt = $key.'='.$value."\n";
+	$writeIt = $key.'='.$value."\r\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
+	file_put_contents($file, "\r\n", FILE_APPEND);
 	
-	file_put_contents($file, "[WEFT COLORS]\n", FILE_APPEND);
+	file_put_contents($file, "[WEFT COLORS]\r\n", FILE_APPEND);
 	foreach ($tempData["WEFT COLORS"] as $key => $value) {
 	$key = intval($key);
 	$value = intval($value);
 	$key = $key + 1;
 	$value = $value + 1;
-	$writeIt = $key.'='.$value."\n";
+	$writeIt = $key.'='.$value."\r\n";
 	file_put_contents($file, $writeIt, FILE_APPEND);
 	}
+	file_put_contents($file, "\r\n", FILE_APPEND);
 	
 		return Response::download($file);
 	}

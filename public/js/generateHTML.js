@@ -106,7 +106,7 @@ function everything(numWarps, numWefts, numTreadles) {
  //lets start building our WIF
  WIF.WEAVING.Treadles = numTreadles;
  
- //add up warps and wefts so we could potentially have a unique color for each thread
+ //use colorEntry to increment everytime a new color is chosen. also have to push this to the WARP and WEFT section
  var  colorEntry =  0;
  WIF["COLOR PALETTE"].Entries = ""+colorEntry+"";
  
@@ -363,12 +363,16 @@ function everything(numWarps, numWefts, numTreadles) {
 
     //color picking
     
+    var weftColors = 0;
+    
     $(".weftBasic").spectrum({
         color: "#fff ",
         change: function(color) {
             weftColorChosen = color.toHexString();
             colorEntry++;
+            weftColors++;
              WIF["COLOR PALETTE"].Entries = ""+colorEntry+"";
+             WIF["WEFT"].Colors = ""+weftColors+"";
             rgbColor =  color.toRgbString().replace(/[^0-9$.,]/g, '');
             setWeftColor(weftColorChosen, rgbColor);
             $(".weftColorGrid").css("display","block");
@@ -399,11 +403,14 @@ function everything(numWarps, numWefts, numTreadles) {
         });
     }
 
+	var warpColors = 0;	
+	
     $(".basic").spectrum({
         color: "#fff ",
         change: function(color) {
         colorEntry++;
          WIF["COLOR PALETTE"].Entries = ""+colorEntry+"";
+         WIF["WARP"].Colors = ""+warpColors+"";
             var warpColorChosen = color.toHexString();
            var rgbColor =  color.toRgbString().replace(/[^0-9$.,]/g, '');
             setWarpColor(warpColorChosen, rgbColor);
