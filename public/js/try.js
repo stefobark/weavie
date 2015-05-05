@@ -205,8 +205,8 @@ function everything(numWarps, numWefts, numTreadles) {
             var weaveBoxTop = weaveBoxTop + 15;
         }
 
-        $("#weaveBox").append('<div class="weft' + i + ' base" style="position:absolute; width:' + boxWidth + 'px; height: 15px; top:' + weaveBoxTop + 'px; right:0;"></div>');
-        $(".weftColorGrid").append('<button id="' + i + '" class="weftColorButton" style="position:absolute;  top:' + weaveBoxTop + 'px; width:15px; height:15px;"></button>');
+        $("#weaveBox").append('<div class="weft' + i + ' base" style="position:absolute; width:' + boxWidth + 'px; height: 15px; bottom:' + weaveBoxTop + 'px; right:0;"></div>');
+        $(".weftColorGrid").append('<button id="' + i + '" class="weftColorButton" style="position:absolute;  bottom:' + weaveBoxTop + 'px; width:15px; height:15px;"></button>');
 
     }
 
