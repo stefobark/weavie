@@ -330,7 +330,7 @@ function everything(numWarps, numWefts, numTreadles) {
         $('.treadleGridCol'+treadle).css('background', '');
         $('.harness'+harness).removeClass('.treadle'+treadle);
        
-        //if we haven't set up this treadle yet...
+        //if we haven't added shafts to this treadle yet...
         if( WIF.TIEUP[treadle] == null ){
              WIF.TIEUP[treadle]= [harness];
         } 
@@ -348,6 +348,7 @@ function everything(numWarps, numWefts, numTreadles) {
 		  var treadle = $(this).parent().attr('class').replace(/\D/g, '');
         var harness = $(this).attr('id').replace(/\D/g, '');
 		  $('.treadleGridCol'+treadle).css('background', '');
+		  $('.treadle'+treadle).removeClass('above');
 		   $('.harness'+harness).removeClass('.treadle'+treadle);
 		  //find that harness number in the array contained within the object, and get rid of it.
 		  var index = WIF.TIEUP[treadle].indexOf(harness);

@@ -5,28 +5,28 @@ var numTreadles;
         
  function capture() {
  
-		 $('.tryBox').html2canvas({
-				  onrendered: function (canvas) {
-				      //Set hidden field's value to image data (base-64 string)
-				     	var image = canvas.toDataURL();
-				      $.post( "/save", { img_val: image} ).done(function( data ) {
-				       window.location.assign(data);
-			  });;
-				     
-					  }
-				 });
-		
-		};
+	 $('.tryBox').html2canvas({
+			  onrendered: function (canvas) {
+			      //Set hidden field's value to image data (base-64 string)
+			     	var image = canvas.toDataURL();
+			      $.post( "/save", { img_val: image} ).done(function( data ) {
+			       window.location.assign(data);
+		  });;
+			     
+				  }
+			 });
 	
+	};
+
 	
   
 
 	   
-		function getWif() {
-		var wifDisplay = JSON.stringify(WIF);
-			$('#wif_val').val(wifDisplay);
-			}
-		
+function getWif() {
+	var wifDisplay = JSON.stringify(WIF);
+	$('#wif_val').val(wifDisplay);
+	}
+
 		
 var WIF = {
     "WIF": {
@@ -61,7 +61,6 @@ var WIF = {
     },
     "WARP": {
         "Threads": "",
-        "Colors" : "",
         "Palette" : "yes", 
         "Units": "Decimeters",
         "Spacing": "100",
@@ -69,7 +68,6 @@ var WIF = {
     },
     "WEFT": {
         "Threads": "",
-        "Colors" : "",
         "Palette" : "yes",
         "Units": "Decimeters",
         "Spacing": "100",
@@ -207,8 +205,8 @@ function everything(numWarps, numWefts, numTreadles) {
             var weaveBoxTop = weaveBoxTop + 15;
         }
 
-        $("#weaveBox").append('<div class="weft' + i + ' base" style="position:absolute; width:' + boxWidth + 'px; height: 15px; top:' + weaveBoxTop + 'px; right:0;"></div>');
-        $(".weftColorGrid").append('<button id="' + i + '" class="weftColorButton" style="position:absolute;  top:' + weaveBoxTop + 'px; width:15px; height:15px;"></button>');
+        $("#weaveBox").append('<div class="weft' + i + ' base" style="position:absolute; width:' + boxWidth + 'px; height: 15px; bottom:' + weaveBoxTop + 'px; right:0;"></div>');
+        $(".weftColorGrid").append('<button id="' + i + '" class="weftColorButton" style="position:absolute;  bottom:' + weaveBoxTop + 'px; width:15px; height:15px;"></button>');
 
     }
 
