@@ -29,12 +29,10 @@ pre {
 
 .warpColorChoose {
     position: absolute;
-    top: 63px;
     right: 135px;
 }
 .weftColorChoose {
     position: absolute;
-    top: 63px;
     right: 70px;
 }
 .base {
@@ -64,7 +62,6 @@ pre {
 .warpColorGrid {
     position: absolute;
     direction: rtl;
-    top: 80px;
     right: 0px;
     height: 32px;
 }
@@ -76,8 +73,7 @@ pre {
 .weftColorGrid {
     position: absolute;
     overflow: auto;
-    top: 120px;
-    right: 240px;
+    right: 230px;
     width: 35px;
 }
 .setNumbers {
@@ -89,7 +85,7 @@ pre {
     position: absolute;
     direction: rtl;
     
-    top:0px;
+  
     right: 285px;
 }
 #weaveBox {

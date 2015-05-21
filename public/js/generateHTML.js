@@ -2,8 +2,14 @@
 var numWarps;
 var numWefts;
 var numTreadles;
+var harnessNumber;
 
-//this is for generating a PNG, it creates a canvas element and turns it into png
+//this is for generating a PNG, it creates a canvas element, turns it into png data, sends that
+//to laravel /save and then takes them to view the image.. because if we don't redirect
+//the browser everything gets disorganized, none of the styling makes any sense. 
+//i think this is because everything got converted to canvas
+//it might make sense to copy the view box, then convert that copy to canvas, so the user
+//could stay on the same page and continue to work on the pattern.
 function capture() {
 
     $('.tryBox').html2canvas({
@@ -92,6 +98,7 @@ $(document).ready(function() {
         numWarps = $(".warpNum").val();
         numWefts = $(".weftNum").val();
         numTreadles = $(".treadleNum").val();
+        harnessNumber = $(".harnessNum").val();
 
 		  // call this function that does 'everything'. send it the user's choice
         everything(numWarps, numWefts, numTreadles);
@@ -130,8 +137,7 @@ function everything(numWarps, numWefts, numTreadles) {
     var boxWidth = numWarps * 15;
     var tryBoxSize = boxWidth + 300;
     var weftTop = 0;
-    var harnessNumber = 10;
-	 topGridHeight = harnessNumber * 15;
+	var topGridHeight = harnessNumber * 15;
 
     //get rid of the warp/weft/treadle setting inputs and display the draft
     $(".choose").remove();
@@ -149,7 +155,7 @@ function everything(numWarps, numWefts, numTreadles) {
     $("#wifDiv").append('<form method="POST" action="/download/wif"><input type="hidden" name="WIF" id="wif_val" value="" /><input class="btn btn-default" id="grabWif" type="submit" value="Save WIF" onclick="getWif();"  style="position:fixed; top:25px; right:300px;" /></form>');
 
     //tieUp
-    $(".tryBox").append('<div class="tieUp" style="position:absolute; right: 20px; top:0px; height:77px; width:' + tieUpWidth + 'px;"></div>');
+    $(".tryBox").append('<div class="tieUp" style="position:absolute; right: 20px; top:0px; height:'+topGridHeight+'px; width:' + tieUpWidth + 'px;"></div>');
 
 
     for (i = 0; i < colNum; i++) {
@@ -162,15 +168,15 @@ function everything(numWarps, numWefts, numTreadles) {
             if (c > 0) {
                 tieTop = tieTop + 15;
             }
-            $('.tie' + i).append('<button id="tRow' + c + '" class="tieButton" style="position: absolute; top:' + tieTop + 'px; width:15px; height:15px;"></button>');
+            $('.tie' + i).append('<button id="tRow' + c + '" class="tieButton" style="position: absolute; top:' + tieTop + 'px; left:0px; width:15px; height:15px;"></button>');
         }
     }
 
 
 
     //treadle push grid maker 
-
-    $(".tryBox").append('<div class="treadleGrid" style="position:absolute; top:120px; right: 20px; height:' + boxHeight + 'px; width:' + tieUpWidth + 'px;"></div>');
+	treadleTop = topGridHeight + 60;
+    $(".tryBox").append('<div class="treadleGrid" style="position:absolute; top:'+treadleTop+'px; right: 20px; height:' + boxHeight + 'px; width:' + tieUpWidth + 'px;"></div>');
 
 
 
@@ -193,12 +199,12 @@ function everything(numWarps, numWefts, numTreadles) {
     }
 
     //for pumping out the weaveBox
-
-    $(".tryBox").append('<div class="weaveBoxBorder" style="width:' + boxWidth + 'px;"><div id="weaveBox" ></div></div>');
+    weaveBoxTop = topGridHeight + 60;
+    $(".tryBox").append('<div class="weaveBoxBorder" style="width:' + boxWidth + 'px;"><div id="weaveBox" style=" top:'+weaveBoxTop+'px;"></div></div>');
 
     //pump out wefts
-    $(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight + 'px; display:none;"></div>');
-    $(".tryBox").append('<div class="weftColorChoose"><div style="text-align:center;">:Weft</div><input type="text" class="weftBasic"/></div>');
+    $(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight + 'px; top:'+weaveBoxTop+'px; display:none;"></div>');
+    $(".tryBox").append('<div class="weftColorChoose" style="top:'+topGridHeight+'px;"><div style="text-align:center;">:Weft</div><input type="text" class="weftBasic"/></div>');
     weaveBoxTop = 0;
 
     for (i = 0; i < numWefts; i++) {
@@ -213,7 +219,7 @@ function everything(numWarps, numWefts, numTreadles) {
     }
 
     //hGrid maker 
-    $(".weaveBoxBorder").append('<div class="hGrid" style="width:' + boxWidth + 'px; height:'+topGridHeight+';"></div>');
+    $(".weaveBoxBorder").append('<div class="hGrid" style="width:' + boxWidth + 'px; height:'+topGridHeight+'px;"></div>');
 
     var left = 0
     for (i = 0; i < numWarps; i++) {
@@ -228,9 +234,9 @@ function everything(numWarps, numWefts, numTreadles) {
         }
 
 
-        $(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; width:15px; height:'+topGridHeight+';"></div>');
+        $(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; width:15px; height:'+topGridHeight+'px;"></div>');
         for (h = 0; h < harnessNumber; h++) {
-            $('#' + i).append('<button class="harnessButton hGridRow' + h + '" style="position:absolute; top:'+top+'px; height:15px;"></button>');
+            $('#' + i).append('<button class="harnessButton hGridRow' + h + '" style="position:absolute; top:'+top+'px; left:0px; height:15px;"></button>');
             top = top + 15;
         }
     }
@@ -254,9 +260,9 @@ function everything(numWarps, numWefts, numTreadles) {
             $("#weaveBox").append('<div class="warp' + i + ' ' + pass + '" style="position:absolute; top:' + warpPassTop + '; right:' + warpPassLeft + 'px; height:15px; width:15px;" ></div>');
         }
     }
-
-    $(".weaveBoxBorder").append('<div class="warpColorGrid" style="z-index:4; display:none;"></div>');
-    $(".tryBox").append('<div class="warpColorChoose"><div style="text-align:center;">:Warp</div><input type="text" class="basic"/></div>');
+	warpColorTop = topGridHeight + 20;
+    $(".weaveBoxBorder").append('<div class="warpColorGrid" style="z-index:4; top:'+warpColorTop+'px; display:none;"></div>');
+    $(".tryBox").append('<div class="warpColorChoose" style="top:'+topGridHeight+'px;"><div style="text-align:center;">:Warp</div><input type="text" class="basic"/></div>');
 
     //warp color picker stuff
 

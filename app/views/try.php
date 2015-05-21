@@ -36,7 +36,9 @@
          <p class="help-block">Number of Wefts:</p>
          <input type="text" class="weftNum" style="margin-left:1px"><br>
          <p class="help-block">Number of Treadles:</p>
-         <input type="text" class="treadleNum" style="margin-left:1px"><br><br>
+         <input type="text" class="treadleNum" style="margin-left:1px"><br>
+         <p class="help-block">Number of Harnesses:</p>
+         <input type="text" class="harnessNum" style="margin-left:1px"><br><br>
          <button class="submit">Go</button>
          <script></script>
       </div>
