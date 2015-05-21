@@ -43,6 +43,7 @@ pre {
 .borderTryBox {
     margin-top: 50px;
     position: fixed;
+    background:white;
     text-align:center;
     padding: 20px;
     top: 30px;
@@ -106,34 +107,6 @@ pre {
     right: 0px;
     direction: rtl;
     height: 77px;
-}
-.hGridRow0 {
-    position: absolute;
-    top: 0px;
-    left: 0;
-    width: 15px;
-    height: 15px;
-}
-.hGridRow1 {
-    position: absolute;
-    top: 15px;
-    left: 0;
-    width: 15px;
-    height: 15px;
-}
-.hGridRow2 {
-    position: absolute;
-    top: 30px;
-    left: 0;
-    width: 15px;
-    height: 15px;
-}
-.hGridRow3 {
-    position: absolute;
-    left: 0px;
-    top: 45px;
-    width: 15px;
-    height: 15px;
 }
 .activeButton {
     background: #444;

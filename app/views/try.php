@@ -1,20 +1,21 @@
 <html>
    <head>
+   	<meta charset="UTF-8">
+		<meta name="description" content="Free online weave drafting software.">
+		<meta name="keywords" content="weaving, weave draft, arts, crafts, weave, weaver, fiber">
+		<meta name="author" content="Steven Barker">
       <link href="/css/tweaks2.css" rel="stylesheet">
-      <link href="/css/bootstrap.css" rel="stylesheet">
+      <link href="/css/bootstrap.min.css" rel="stylesheet">
       <script src="/js/jquery-2.1.1.min.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
       <script src="/js/jquery.alterclass.js"></script>
       <script src='/js/spectrum.js'></script>
       <link rel='stylesheet' href='/css/spectrum.css' />
       <script type="text/javascript" src="/js/jquery.func_toggle.js"></script>
-      <script type='text/javascript' src='/js/tinycolor.js'></script>
       <script type='text/javascript' src='/js/htmlToCanvas.js'></script>
       <script type="text/javascript" src="/js/jquery.plugin.html2canvas.js"></script>
-            <script type="text/javascript" src="/js/fileDownload.js"></script>
+      <script type="text/javascript" src="/js/fileDownload.js"></script>
       <script src="/js/prettyJSON.js"></script>
-
-
-    
       <script src="/js/generateHTML.js"></script>
    </head>
    <body>
