@@ -125,7 +125,7 @@ function findFloat() {
 		});	
 	}
 	
-	console.log('horizontal float num: '+weftFloatNum+' vertical float num: '+warpFloatNum);
+	alert('horizontal float num: '+weftFloatNum+' vertical float num: '+warpFloatNum);
 }
 //now, this is where things actually start to happen
 $(document).ready(function() {
@@ -157,13 +157,6 @@ function everything(numWarps, numWefts, numTreadles) {
     WIF.WARP.Threads = numWarps;
     WIF.WEFT.Threads = numWefts;
 
-
-
-    if (numTreadles > 14) {
-        alert("You don't need that many treadles. You only have 4 harnesses... 14 is the maximum number of possible combinations.");
-        numTreadles = 14;
-    }
-
 	 //here are a bunch of variables we'll use when building boxes and such
     var tieNum = 4;
     var colNum = numTreadles;
@@ -191,6 +184,7 @@ function everything(numWarps, numWefts, numTreadles) {
 
     //let the people see the wif
     $("#wifDiv").append('<form method="POST" action="/download/wif"><input type="hidden" name="WIF" id="wif_val" value="" /><input class="btn btn-default" id="grabWif" type="submit" value="Save WIF" onclick="getWif();"  style="position:fixed; top:25px; right:300px;" /></form>');
+	$("body").append('<div id="checkFloats" class="btn btn-default" style="position:fixed; top:25px; right:180px;">Check Floats</div>');
 	
     //tieUp
     $(".tryBox").append('<div class="tieUp" style="position:absolute; right: 20px; top:0px; height:'+topGridHeight+'px; width:' + tieUpWidth + 'px;"></div>');
@@ -321,7 +315,8 @@ function everything(numWarps, numWefts, numTreadles) {
     	...NO MORE APPENDING HTML
     */
 
-
+ 	
+	
     //make the treadle grid pusher work
     $(".treadlePush").click(function() {
         var findTreadle = $(this).attr('class').split(" ");
@@ -332,7 +327,6 @@ function everything(numWarps, numWefts, numTreadles) {
         $('.pass' + findPass).removeClass("above");
         var findThis = '.treadle' + findTreadle + '.pass' + findPass;
         $(findThis).addClass("above");
-		findFloat();
         WIF.TREADLING[findPass] = findTreadle;
 
     });
@@ -488,11 +482,17 @@ function everything(numWarps, numWefts, numTreadles) {
 
         });
     }
-
+	
+	
     $('disableIt').submit(function() {
         alert('I do something before the post');
         return true;
     });
+    
+    $("#checkFloats").click(function() {
+	 	findFloat();
+	 });
+	 
 
     $('body').append('<button class="btn btn-default" onclick="capture();" style="position:fixed; top:25px; right:400px;">Download Image</button>');
 
