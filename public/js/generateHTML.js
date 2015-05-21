@@ -89,6 +89,44 @@ var WIF = {
     "WEFT COLORS": {}
 };
 
+function findFloat() {
+	var weftFloatNum = 0;
+	var weftCount = 0;
+	for(i=0;i<numWefts;i++){
+		$('.pass'+i).each(function( index ) {
+		  
+		  var checkAbove = $( this ).hasClass("above");
+		  if(checkAbove == false){
+		  	weftCount = weftCount + 1;
+		  	} else {
+		  		
+		  		if(weftCount > weftFloatNum){
+		  			weftFloatNum = weftCount;
+		  		} 
+		  		weftCount = 0;
+		  	}
+		});	
+	}
+	var warpFloatNum = 0;
+	var warpCount = 0;
+	for(i=0;i<numWarps;i++){
+		$('.warp'+i).each(function( index ) {
+		  
+		  var checkAbove = $( this ).hasClass("above");
+		  if(checkAbove == true){
+		  	warpCount = warpCount + 1;
+		  	} else {
+		  		
+		  		if(warpCount > warpFloatNum){
+		  			warpFloatNum = warpCount;
+		  		} 
+		  		warpCount = 0;
+		  	}
+		});	
+	}
+	
+	console.log('horizontal float num: '+weftFloatNum+' vertical float num: '+warpFloatNum);
+}
 //now, this is where things actually start to happen
 $(document).ready(function() {
 
@@ -153,7 +191,7 @@ function everything(numWarps, numWefts, numTreadles) {
 
     //let the people see the wif
     $("#wifDiv").append('<form method="POST" action="/download/wif"><input type="hidden" name="WIF" id="wif_val" value="" /><input class="btn btn-default" id="grabWif" type="submit" value="Save WIF" onclick="getWif();"  style="position:fixed; top:25px; right:300px;" /></form>');
-
+	
     //tieUp
     $(".tryBox").append('<div class="tieUp" style="position:absolute; right: 20px; top:0px; height:'+topGridHeight+'px; width:' + tieUpWidth + 'px;"></div>');
 
@@ -257,7 +295,7 @@ function everything(numWarps, numWefts, numTreadles) {
             if (i > 0) {
                 warpPassLeft = warpPassLeft + 15
             }
-            $("#weaveBox").append('<div class="warp' + i + ' ' + pass + '" style="position:absolute; top:' + warpPassTop + '; right:' + warpPassLeft + 'px; height:15px; width:15px;" ></div>');
+            $("#weaveBox").append('<div class="weaveView warp' + i + ' ' + pass + '" style="position:absolute; top:' + warpPassTop + '; right:' + warpPassLeft + 'px; height:15px; width:15px;" ></div>');
         }
     }
 	warpColorTop = topGridHeight + 20;
@@ -294,7 +332,7 @@ function everything(numWarps, numWefts, numTreadles) {
         $('.pass' + findPass).removeClass("above");
         var findThis = '.treadle' + findTreadle + '.pass' + findPass;
         $(findThis).addClass("above");
-
+		findFloat();
         WIF.TREADLING[findPass] = findTreadle;
 
     });
