@@ -179,15 +179,16 @@ function everything(numWarps, numWefts, numTreadles) {
     	IT'S GENERATED BASED ON USER INPUT FOR
     	WARP/WEFT/TREADLE NUMBERS
     */
-
+    $(".col-md-12").append('<div class="introBox"><div class="text-center" style="margin-top:20px;"><img src="/img/intro.png"></div></div>');
     $(".col-md-12").append('<div class="borderTryBox"><div class="tryBox" style="width:' + tryBoxSize + 'px;"></div></div>');
 
     //let the people see the wif
-    $("#wifDiv").append('<form method="POST" action="/download/wif"><input type="hidden" name="WIF" id="wif_val" value="" /><input class="btn btn-default" id="grabWif" type="submit" value="Save WIF" onclick="getWif();"  style="position:fixed; top:25px; right:300px;" /></form>');
-	$("body").append('<div id="checkFloats" class="btn btn-default" style="position:fixed; top:25px; right:180px;">Check Floats</div>');
+    $("#wifDiv").append('<form method="POST" action="/download/wif"><input type="hidden" name="WIF" id="wif_val" value="" /><input class="btn btn-default" id="grabWif" type="submit" value="Save WIF" onclick="getWif();"  style="position:fixed; top:25px; right:200px;" /></form>');
+	$("body").append('<div id="checkFloats" class="btn btn-default" style="position:fixed; top:25px; right:80px;">Check Floats</div>');
 	
     //tieUp
     $(".tryBox").append('<div class="tieUp" style="position:absolute; right: 20px; top:0px; height:'+topGridHeight+'px; width:' + tieUpWidth + 'px;"></div>');
+	 $(".tryBox").append('<div class="tieUpNum" style="right:2px;"><h1><img src="/img/2.png" style="width:auto; height:20px;"></h1></div>');
 
 
     for (i = 0; i < colNum; i++) {
@@ -207,8 +208,10 @@ function everything(numWarps, numWefts, numTreadles) {
 
 
     //treadle push grid maker 
-	treadleTop = topGridHeight + 60;
+	treadleTop = topGridHeight + 80;
+	treadleNumTop = topGridHeight + 55;
     $(".tryBox").append('<div class="treadleGrid" style="position:absolute; top:'+treadleTop+'px; right: 20px; height:' + boxHeight + 'px; width:' + tieUpWidth + 'px;"></div>');
+	$(".tryBox").append('<div class="treadleGridNum" style="position:absolute; top:'+treadleNumTop+'px; right: 28px;"><img src="/img/3.png" style="width:auto; height:20px;"></div>');
 
 
 
@@ -252,6 +255,8 @@ function everything(numWarps, numWefts, numTreadles) {
 
     //hGrid maker 
     $(".weaveBoxBorder").append('<div class="hGrid" style="width:' + boxWidth + 'px; height:'+topGridHeight+'px;"></div>');
+    $(".weaveBoxBorder").append('<div class="hGridNum"><h1><img src="/img/1.png"  style="width:auto; height:20px;"></h1></div>');
+
 
     var left = 0
     for (i = 0; i < numWarps; i++) {
@@ -274,7 +279,7 @@ function everything(numWarps, numWefts, numTreadles) {
     }
 
     $(".tryBox").append('</div>');
-
+	var setColorHeight = topGridHeight + 10;
 
     warpPassTop = 0
 
@@ -295,6 +300,7 @@ function everything(numWarps, numWefts, numTreadles) {
 	warpColorTop = topGridHeight + 20;
     $(".weaveBoxBorder").append('<div class="warpColorGrid" style="z-index:4; top:'+warpColorTop+'px; display:none;"></div>');
     $(".tryBox").append('<div class="warpColorChoose" style="top:'+topGridHeight+'px;"><div style="text-align:center;">:Warp</div><input type="text" class="basic"/></div>');
+		$(".tryBox").append('<div class="setColor" style="top:'+setColorHeight+'px;"><img src="/img/setColors.png" style=" height:40px; width:auto;"></div>');
 
     //warp color picker stuff
 
@@ -493,7 +499,12 @@ function everything(numWarps, numWefts, numTreadles) {
 	 	findFloat();
 	 });
 	 
+	
+    $('body').append('<button class="btn btn-danger download" onclick="capture();" style="position:fixed; top:25px; right:300px;">Download Image</button>');
+    $('.download').hover(function() {
+   		$('#downloadWarning').css('display','block');
+   		});
+    $('body').append('<div id="downloadWarning"  style="position:fixed; top:22px; display:none; right:430px;" onhover><img src="/img/downloadWarning.png" style="height:40px; width:auto;"></div>');
 
-    $('body').append('<button class="btn btn-default" onclick="capture();" style="position:fixed; top:25px; right:400px;">Download Image</button>');
 
 }

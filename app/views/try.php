@@ -21,8 +21,8 @@
    <body>
 		
 	</form>
-      <div style="position:fixed; top:10px; left:150px;">
-         <img src="/img/logo.png" style="width:200px">
+      <div style="position:fixed; top:10px; left:10px;">
+         <img src="/img/logo.png" style="position:fixed; width:100px; top:20px; left:10px;">
       </div>
       <div id="wifDiv" style="position:fixed; top:10px; right:150px;">
       </div>
