@@ -67,7 +67,6 @@ var WIF = {
     },
     "WARP": {
         "Threads": "",
-        "Colors": "",
         "Palette": "yes",
         "Units": "Decimeters",
         "Spacing": "100",
@@ -75,7 +74,6 @@ var WIF = {
     },
     "WEFT": {
         "Threads": "",
-        "Colors": "",
         "Palette": "yes",
         "Units": "Decimeters",
         "Spacing": "100",
@@ -179,7 +177,7 @@ function everything(numWarps, numWefts, numTreadles) {
     	IT'S GENERATED BASED ON USER INPUT FOR
     	WARP/WEFT/TREADLE NUMBERS
     */
-    $(".col-md-12").append('<div class="introBox"><div class="text-center" style="margin-top:20px;"><img src="/img/intro.png"></div></div>');
+    $(".col-md-12").append('<div class="introBox"><div class="text-center" style="margin-top:-20px;"><img src="/img/intro.png"></div></div>');
     $(".col-md-12").append('<div class="borderTryBox"><div class="tryBox" style="width:' + tryBoxSize + 'px;"></div></div>');
 
     //let the people see the wif
@@ -234,7 +232,7 @@ function everything(numWarps, numWefts, numTreadles) {
     }
 
     //for pumping out the weaveBox
-    weaveBoxTop = topGridHeight + 60;
+    weaveBoxTop = topGridHeight + 80;
     $(".tryBox").append('<div class="weaveBoxBorder" style="width:' + boxWidth + 'px;"><div id="weaveBox" style=" top:'+weaveBoxTop+'px;"></div></div>');
 
     //pump out wefts
@@ -300,7 +298,7 @@ function everything(numWarps, numWefts, numTreadles) {
 	warpColorTop = topGridHeight + 20;
     $(".weaveBoxBorder").append('<div class="warpColorGrid" style="z-index:4; top:'+warpColorTop+'px; display:none;"></div>');
     $(".tryBox").append('<div class="warpColorChoose" style="top:'+topGridHeight+'px;"><div style="text-align:center;">:Warp</div><input type="text" class="basic"/></div>');
-		$(".tryBox").append('<div class="setColor" style="top:'+setColorHeight+'px;"><img src="/img/setColors.png" style=" height:40px; width:auto;"></div>');
+		$(".tryBox").append('<div class="setColor" style="top:'+setColorHeight+'px; "><img src="/img/setColors.png" style=" height:40px; width:auto; z-index:10;"></div>');
 
     //warp color picker stuff
 
@@ -413,10 +411,10 @@ function everything(numWarps, numWefts, numTreadles) {
         color: "#fff ",
         change: function(color) {
             weftColorChosen = color.toHexString();
+            //increment this to keep track of colors 
             colorEntry++;
             weftColors++;
-            WIF["COLOR PALETTE"].Entries = "" + colorEntry + "";
-            WIF["WEFT"].Colors = "" + weftColors + "";
+            WIF["COLOR PALETTE"].Entries = colorEntry;
             rgbColor = color.toRgbString().replace(/[^0-9$.,]/g, '');
             setWeftColor(weftColorChosen, rgbColor);
             $(".weftColorGrid").css("display", "block");
@@ -453,8 +451,7 @@ function everything(numWarps, numWefts, numTreadles) {
         color: "#fff ",
         change: function(color) {
             colorEntry++;
-            WIF["COLOR PALETTE"].Entries = "" + colorEntry + "";
-            WIF["WARP"].Colors = "" + warpColors + "";
+            WIF["COLOR PALETTE"].Entries = colorEntry;
             var warpColorChosen = color.toHexString();
             var rgbColor = color.toRgbString().replace(/[^0-9$.,]/g, '');
             setWarpColor(warpColorChosen, rgbColor);
