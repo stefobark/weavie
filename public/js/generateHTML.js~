@@ -298,7 +298,7 @@ function everything(numWarps, numWefts, numTreadles) {
 	warpColorTop = topGridHeight + 20;
     $(".weaveBoxBorder").append('<div class="warpColorGrid" style="z-index:4; top:'+warpColorTop+'px; display:none;"></div>');
     $(".tryBox").append('<div class="warpColorChoose" style="top:'+topGridHeight+'px;"><div style="text-align:center;">:Warp</div><input type="text" class="basic"/></div>');
-		$(".tryBox").append('<div class="setColor" style="top:'+setColorHeight+'px; z-index:10;"><img src="/img/setColors.png" style=" height:40px; width:auto;"></div>');
+		$(".tryBox").append('<div class="setColor" style="top:'+setColorHeight+'px; "><img src="/img/setColors.png" style=" height:40px; width:auto; z-index:10;"></div>');
 
     //warp color picker stuff
 
@@ -468,6 +468,7 @@ function everything(numWarps, numWefts, numTreadles) {
 
             var warpID = ($(this).attr('id'));
             $('.warp' + warpID).css("background", warpColorChosen);
+            $('.warpColorGrid#' + warpID).css("background", warpColorChosen);
             //if we haven't already set the color in the table, add it to the table
 
             colorTableIndex = $.inArray(rgbColor, WIF["COLOR TABLE"]);
