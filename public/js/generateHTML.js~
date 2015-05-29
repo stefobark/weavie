@@ -426,6 +426,7 @@ function everything(numWarps, numWefts, numTreadles) {
         $(".weftColorButton").click(function() {
 
             var weftID = ($(this).attr('id'));
+            $(this).css("background", weftColorChosen);
             $('.weft' + weftID).css("background", weftColorChosen);
             //if we haven't already set the color for this weft
             colorTableIndex = $.inArray(rgbColor, WIF["COLOR TABLE"]);

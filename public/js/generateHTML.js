@@ -405,7 +405,6 @@ function everything(numWarps, numWefts, numTreadles) {
 
     //color picking
 
-    var weftColors = 0;
 
     $(".weftBasic").spectrum({
         color: "#fff ",
@@ -413,7 +412,6 @@ function everything(numWarps, numWefts, numTreadles) {
             weftColorChosen = color.toHexString();
             //increment this to keep track of colors 
             colorEntry++;
-            weftColors++;
             WIF["COLOR PALETTE"].Entries = colorEntry;
             rgbColor = color.toRgbString().replace(/[^0-9$.,]/g, '');
             setWeftColor(weftColorChosen, rgbColor);
@@ -445,8 +443,6 @@ function everything(numWarps, numWefts, numTreadles) {
 
         });
     }
-
-    var warpColors = 0;
 
     $(".basic").spectrum({
         color: "#fff ",
