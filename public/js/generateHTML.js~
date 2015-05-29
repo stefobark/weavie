@@ -468,7 +468,7 @@ function everything(numWarps, numWefts, numTreadles) {
 
             var warpID = ($(this).attr('id'));
             $('.warp' + warpID).css("background", warpColorChosen);
-            $('.warpColorGrid#' + warpID).css("background", warpColorChosen);
+            $(this).css("background", warpColorChosen);
             //if we haven't already set the color in the table, add it to the table
 
             colorTableIndex = $.inArray(rgbColor, WIF["COLOR TABLE"]);
