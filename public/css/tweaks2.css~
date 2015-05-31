@@ -29,15 +29,15 @@ pre {
 
 .warpColorChoose {
     position: absolute;
-    right: 165px;
+    right: 195px;
 }
 .weftColorChoose {
     position: absolute;
-    right: 100px;
+    right: 130px;
 }
 .setColor {
     position: absolute;
-    right: -30px;
+    right: 30px;
 }
 
 .base {
@@ -64,8 +64,9 @@ pre {
 	box-shadow: inset 0px -4px 13px 0px rgba(0,0,0,0.33);
     }
 .borderTryBox {
-    margin-top: 200px;
+    margin-top: 100px;
     position: fixed;
+    border-radius:20px;
     background:white;
     text-align:center;
     padding: 20px;

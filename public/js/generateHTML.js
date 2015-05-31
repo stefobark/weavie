@@ -7,8 +7,8 @@ var harnessNumber;
 //this is for generating a PNG, it creates a canvas element, turns it into png data, sends that
 //to laravel /save and then takes them to view the image.. because if we don't redirect
 //the browser everything gets disorganized, none of the styling makes any sense. 
-//i think this is because everything got converted to canvas
-//it might make sense to copy the view box, then convert that copy to canvas, so the user
+//i think this is because everything gets converted to canvas
+//in the future, it might make sense to copy the view box, then convert that copy to canvas, so the user
 //could stay on the same page and continue to work on the pattern.
 function capture() {
 
@@ -160,13 +160,15 @@ function everything(numWarps, numWefts, numTreadles) {
     var colNum = numTreadles;
     var tieUpHeight = tieNum * 15;
     var tieUpWidth = numTreadles * 15 + 20;
+    var weftColorRight = tieUpWidth + 10;
+    var weaveBoxRight = tieUpWidth + 50;
     var tieLeft = 0;
     var tieTop = 0;
     var boxHeight = numWefts * 15;
     var boxWidth = numWarps * 15;
     var tryBoxSize = boxWidth + 300;
     var weftTop = 0;
-	var topGridHeight = harnessNumber * 15;
+	 var topGridHeight = harnessNumber * 15;
 
     //get rid of the warp/weft/treadle setting inputs and display the draft
     $(".choose").remove();
@@ -177,7 +179,6 @@ function everything(numWarps, numWefts, numTreadles) {
     	IT'S GENERATED BASED ON USER INPUT FOR
     	WARP/WEFT/TREADLE NUMBERS
     */
-    $(".col-md-12").append('<div class="introBox"><div class="text-center" style="margin-top:-20px;"><img src="/img/intro.png"></div></div>');
     $(".col-md-12").append('<div class="borderTryBox"><div class="tryBox" style="width:' + tryBoxSize + 'px;"></div></div>');
 
     //let the people see the wif
@@ -208,7 +209,7 @@ function everything(numWarps, numWefts, numTreadles) {
     //treadle push grid maker 
 	treadleTop = topGridHeight + 80;
 	treadleNumTop = topGridHeight + 55;
-    $(".tryBox").append('<div class="treadleGrid" style="position:absolute; top:'+treadleTop+'px; right: 20px; height:' + boxHeight + 'px; width:' + tieUpWidth + 'px;"></div>');
+    $(".tryBox").append('<div class="treadleGrid" style="position:absolute; top:'+treadleTop+'px; right:20px; height:' + boxHeight + 'px; width:' + tieUpWidth + 'px;"></div>');
 	$(".tryBox").append('<div class="treadleGridNum" style="position:absolute; top:'+treadleNumTop+'px; right: 28px;"><img src="/img/3.png" style="width:auto; height:20px;"></div>');
 
 
@@ -233,10 +234,10 @@ function everything(numWarps, numWefts, numTreadles) {
 
     //for pumping out the weaveBox
     weaveBoxTop = topGridHeight + 80;
-    $(".tryBox").append('<div class="weaveBoxBorder" style="width:' + boxWidth + 'px;"><div id="weaveBox" style=" top:'+weaveBoxTop+'px;"></div></div>');
+    $(".tryBox").append('<div class="weaveBoxBorder" style="width:' + boxWidth + 'px; right:'+weaveBoxRight+'px;"><div id="weaveBox" style=" top:'+weaveBoxTop+'px;"></div></div>');
 
     //pump out wefts
-    $(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight + 'px; top:'+weaveBoxTop+'px; display:none;"></div>');
+    $(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight + 'px; top:'+weaveBoxTop+'px; right:'+weftColorRight+'px; display:none;"></div>');
     $(".tryBox").append('<div class="weftColorChoose" style="top:'+topGridHeight+'px;"><div style="text-align:center;">:Weft</div><input type="text" class="weftBasic"/></div>');
     weaveBoxTop = 0;
 
