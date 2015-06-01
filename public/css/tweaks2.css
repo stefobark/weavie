@@ -64,7 +64,7 @@ pre {
 	box-shadow: inset 0px -4px 13px 0px rgba(0,0,0,0.33);
     }
 .borderTryBox {
-    margin-top: 100px;
+    margin-top: 80px;
     position: fixed;
     border-radius:20px;
     background:white;
@@ -115,14 +115,12 @@ pre {
 .weaveBoxBorder {
     position: absolute;
     direction: rtl;
-    
-  
-    right: 285px;
 }
 #weaveBox {
     position: absolute;
     top: 120px;
     height:100%;
+    bottom:0;
     width:100%;
 }
 .choose {
