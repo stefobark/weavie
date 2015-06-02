@@ -24,18 +24,19 @@
       <div style="position:fixed; top:10px; left:40px;">
          <img src="/img/logo.png" style="position:fixed; width:100px; top:20px; left:20px;">
       </div>
-      <div class="introBox" style="border-radius:20px;">
-      	<div class="text-center" style="margin-top:-20px;">
-      		<img src="/img/intro.png" style="margin-top:40px; height:400px; width:auto;">
-      	</div>
+     <div class="introBox"></div>
       </div>
-      <div style="background:white; border-radius: 20px; width:30%; padding:20px; position:fixed; top:520px; left: 35%;">
-      	<p>Weavie is free online weave drafting software that allows users to: 
-      		<ul>
-      			<li>Visualize weave patterns.</li>
-      			<li>Save images of drafts.</li>
-      			<li>Save drafts to WIF files (so you can use more advanced features provided by other weave drafting software).</li>
-      			<li>Check the maximum number of floats (the number of threads that any given thread 'floats' over) produced by the draft.</li>
+      <div style="background:white; border-radius: 20px; width:800px; padding:20px; position:absolute; top:120px; left: 600px;  -webkit-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); -moz-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75);">
+      	<h3 class="text-center">Weavie is free online weave drafting software</h3>.
+      	<p>It allows users to: 
+      		<ul><br>
+      			<li><strong>Visualize (draft) weave patterns.</strong><br> Threading a loom is a lot of work. It is helpful to design your pattern before you get to work.</li>
+      			<br>
+      			<li><strong>Save PNG images of drafts.</strong><br> Once you've finished designing your pattern, you can print out an image to take with you to the loom.</li>
+      			<br>
+      			<li><strong>Save weavie drafts as WIF files.</strong><br> WIF files allow you to take your drafts away from Weavie, so that you may use the more advanced features provided by other weave drafting programs.</li>
+      			<br>
+      			<li><strong>Check the maximum number of floats produced by the draft.</strong><br> A float is the number of threads that any given thread 'floats' over. </li>
       		</ul>
       	<br>
       	Email steven.j.barker.jr (at) gmail (dot) com (or tweet to <a href="https://twitter.com/steven_barker">@steven_barker</a>) if you have questions, comments or suggestions. 
@@ -46,7 +47,7 @@
       <div class="container">
       <div class="row">
       <div class="col-md-12" >
-      <div class="choose" style="position: fixed; top: 150px; left:80px; width: 400px; background: white; border-radius:20px; padding:10px; -webkit-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); -moz-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75);">
+      <div class="choose" style="position: fixed; top: 100px; left:10px; width: 400px; background: white; border-radius:20px; padding:40px; -webkit-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); -moz-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75);">
          <h3 class="text-center"><img src="/img/started.png" ></h3>
          <br>
          <p class="help-block"><img src="/img/warps.png" style="height:30px; width:auto;">

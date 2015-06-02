@@ -158,17 +158,17 @@ function everything(numWarps, numWefts, numTreadles) {
 	 //here are a bunch of variables we'll use when building boxes and such
     var tieNum = 4;
     var colNum = numTreadles;
-    var tieUpHeight = tieNum * 15;
-    var tieUpWidth = numTreadles * 15 + 20;
-    var weftColorRight = tieUpWidth + 10;
-    var weaveBoxRight = tieUpWidth + 50;
+    var tieUpHeight = tieNum * 20;
+    var tieUpWidth = numTreadles * 20 + 20;
+    var weftColorRight = tieUpWidth + 15;
+    var weaveBoxRight = tieUpWidth + 80;
     var tieLeft = 0;
     var tieTop = 0;
-    var boxHeight = numWefts * 15;
-    var boxWidth = numWarps * 15;
+    var boxHeight = numWefts * 20;
+    var boxWidth = numWarps * 20;
     var tryBoxSize = boxWidth + 300;
     var weftTop = 0;
-	 var topGridHeight = harnessNumber * 15;
+	 var topGridHeight = harnessNumber * 20;
 	 var weaveBoxTop = topGridHeight + 80;
 	 var treadleTop = topGridHeight + 80;
 	 var treadleNumTop = topGridHeight + 55;
@@ -197,15 +197,15 @@ function everything(numWarps, numWefts, numTreadles) {
 
     for (i = 0; i < colNum; i++) {
         if (i > 0) {
-            tieLeft = tieLeft + 15;
+            tieLeft = tieLeft + 20;
         }
-        $(".tieUp").append('<div class="tie' + i + '" style="position: absolute; left:' + tieLeft + 'px; width:15px; height:' + topGridHeight + 'px;"></div>');
+        $(".tieUp").append('<div class="tie' + i + '" style="position: absolute; left:' + tieLeft + 'px; width:20px; height:' + topGridHeight + 'px;"></div>');
         tieTop = 0;
         for (c = 0; c < harnessNumber; c++) {
             if (c > 0) {
-                tieTop = tieTop + 15;
+                tieTop = tieTop + 20;
             }
-            $('.tie' + i).append('<button id="tRow' + c + '" class="tieButton" style="position: absolute; top:' + tieTop + 'px; left:0px; width:15px; height:15px;"></button>');
+            $('.tie' + i).append('<button id="tRow' + c + '" class="tieButton" style="position: absolute; top:' + tieTop + 'px; left:0px; width:20px; height:20px;"></button>');
         }
     }
 
@@ -215,16 +215,16 @@ function everything(numWarps, numWefts, numTreadles) {
 
     for (w = 0; w < numWefts; w++) {
         if (w > 0) {
-            weftTop = weftTop + 15
+            weftTop = weftTop + 20;
         }
-        $(".treadleGrid").append('<div class="t' + w + '" style="position:absolute; right:0; top:' + weftTop + 'px; width:100%; height:15px;"></div>');
+        $(".treadleGrid").append('<div class="t' + w + '" style="position:absolute; right:0; top:' + weftTop + 'px; width:100%; height:20px;"></div>');
 			var treadleGridLeft = 0;
         for (col = 0; col < colNum; col++) {
             if (col > 0) {
-                treadleGridLeft = treadleGridLeft + 15
+                treadleGridLeft = treadleGridLeft + 20;
             }
             var addTreadle = '.t' + w
-            $(addTreadle).append('<button class="treadlePush treadleGridCol' + col + '" style="position:absolute; top:0; left:' + treadleGridLeft + '; width:15px; height:100%;" ></button>');
+            $(addTreadle).append('<button class="treadlePush treadleGridCol' + col + '" style="position:absolute; top:0; left:' + treadleGridLeft + '; width:20px; height:100%;" ></button>');
         }
     }
 
@@ -232,18 +232,18 @@ function everything(numWarps, numWefts, numTreadles) {
     $(".tryBox").append('<div class="weaveBoxBorder" style="width:' + boxWidth + 'px; right:'+weaveBoxRight+'px;"><div id="weaveBox" style=" top:'+weaveBoxTop+'px; bottom: 0px;"></div></div>');
 
     //pump out wefts
-    $(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight + 'px; top:'+weaveBoxTop+'px; right:'+weftColorRight+'px; display:none;"></div>');
+    $(".tryBox").append('<div class="weftColorGrid" style="height:' + boxHeight + 'px; top:'+weaveBoxTop+'px; width:60px; right:'+weftColorRight+'px; display:none;"></div>');
     $(".tryBox").append('<div class="weftColorChoose" style="top:'+topGridHeight+'px;"><div style="text-align:center;">:Weft</div><input type="text" class="weftBasic"/></div>');
    
 
     for (i = 0; i < numWefts; i++) {
 
         if (i > 0) {
-            var weaveTop = weaveTop + 15;
+            var weaveTop = weaveTop + 20;
         }
 
-        $("#weaveBox").append('<div class="weft' + i + ' base" style="position:absolute; width:' + boxWidth + 'px; height: 15px; top:' + weaveTop + 'px; right:0; -webkit-box-shadow: 0px 2px 1px 1px rgba(107,107,107,0.42); -moz-box-shadow: 0px 2px 1px 1px rgba(107,107,107,0.42); box-shadow: 0px 2px 1px 1px rgba(107,107,107,0.42);"></div>');
-        $(".weftColorGrid").append('<button id="' + i + '" class="weftColorButton" style="position:absolute;  top:' + weaveTop + 'px; width:15px; height:15px;"></button>');
+        $("#weaveBox").append('<div class="weft' + i + ' base" style="position:absolute; width:' + boxWidth + 'px; height: 20px; top:' + weaveTop + 'px; right:0;"></div>');
+        $(".weftColorGrid").append('<button id="' + i + '" class="weftColorButton" style="position:absolute;  top:' + weaveTop + 'px; left: 20px; width:20px; height:20px;"></button>');
 
     }
 
@@ -255,20 +255,20 @@ function everything(numWarps, numWefts, numTreadles) {
     var left = 0
     for (i = 0; i < numWarps; i++) {
         var top = 0;
-        //if this is not the first iteration of the loop, add 15.. we want our buttons 15 px wide, 
-        //so we need to space them 15px apart... we use this to set the left property
+        //if this is not the first iteration of the loop, add 20.. we want our buttons 20 px wide, 
+        //so we need to space them 20px apart... we use this to set the left property
         if (i > 0) {
-            left = left + 15
+            left = left + 20
         }
         if (i == 0) {
             left = 1;
         }
 
 
-        $(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; width:15px; height:'+topGridHeight+'px;"></div>');
+        $(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; width:20px; height:'+topGridHeight+'px;"></div>');
         for (h = 0; h < harnessNumber; h++) {
-            $('#' + i).append('<button class="harnessButton hGridRow' + h + '" style="position:absolute; top:'+top+'px; left:0px; height:15px;"></button>');
-            top = top + 15;
+            $('#' + i).append('<button class="harnessButton hGridRow' + h + '" style="position:absolute; top:'+top+'px; left:0px; height:20px;"></button>');
+            top = top + 20;
         }
     }
 
@@ -277,18 +277,18 @@ function everything(numWarps, numWefts, numTreadles) {
 
     warpPassTop = 0
 
-    //pump out warps, each pass on new line 15px down
+    //pump out warps, each pass on new line 20px down
     for (weft = 0; weft < numWefts; weft++) {
         warpPassLeft = 0
         var pass = 'pass' + weft;
         if (weft > 0) {
-            warpPassTop = warpPassTop + 15
+            warpPassTop = warpPassTop + 20
         }
         for (i = 0; i < numWarps; i++) {
             if (i > 0) {
-                warpPassLeft = warpPassLeft + 15
+                warpPassLeft = warpPassLeft + 20
             }
-            $("#weaveBox").append('<div class="weaveView warp' + i + ' ' + pass + '" style="position:absolute; top:' + warpPassTop + '; right:' + warpPassLeft + 'px; height:15px; width:15px; -webkit-box-shadow: 0px 2px 1px 1px rgba(107,107,107,0.42); -moz-box-shadow: 0px 2px 1px 1px rgba(107,107,107,0.42); box-shadow: 0px 2px 1px 1px rgba(107,107,107,0.42);" ></div>');
+            $("#weaveBox").append('<div class="weaveView warp' + i + ' ' + pass + '" style="position:absolute; top:' + warpPassTop + '; right:' + warpPassLeft + 'px; height:20px; width:20px;" ></div>');
         }
     }
 	warpColorTop = topGridHeight + 20;
@@ -303,9 +303,9 @@ function everything(numWarps, numWefts, numTreadles) {
     warpLeft = 0
     for (i = 0; i < numWarps; i++) {
         if (i > 0) {
-            warpLeft = warpLeft + 15
+            warpLeft = warpLeft + 20
         }
-        $(".warpColorGrid").append('<button id=' + i + ' class="warpColorButton" style="position:absolute; right:' + warpLeft + 'px; width:15px; height:15px;"></button>');
+        $(".warpColorGrid").append('<button id=' + i + ' class="warpColorButton" style="position:absolute; right:' + warpLeft + 'px; width:20px; height:20px;"></button>');
 
     }
 

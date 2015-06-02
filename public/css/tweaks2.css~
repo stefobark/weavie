@@ -46,7 +46,7 @@ pre {
 
 
 .introBox{
-    position: fixed;
+    position: absolute;
     background-image: url("/img/background.png");
     background-repeat: repeat;
     opacity: 0.8;
@@ -58,13 +58,13 @@ pre {
     direction:rtl;
     bottom: 0px;
     right: 0px;
-    left: 0px;
+    left: 100px;
    -webkit-box-shadow: inset 0px -4px 13px 0px rgba(0,0,0,0.33);
 	-moz-box-shadow: inset 0px -4px 13px 0px rgba(0,0,0,0.33);
 	box-shadow: inset 0px -4px 13px 0px rgba(0,0,0,0.33);
     }
 .borderTryBox {
-    margin-top: 100px;
+    margin-top: 80px;
     position: fixed;
     border-radius:20px;
     background:white;
@@ -115,9 +115,6 @@ pre {
 .weaveBoxBorder {
     position: absolute;
     direction: rtl;
-    
-  
-    right: 285px;
 }
 #weaveBox {
     position: absolute;
