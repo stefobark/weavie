@@ -58,7 +58,7 @@ pre {
     direction:rtl;
     bottom: 0px;
     right: 0px;
-    left: 100px;
+    left: 0px;
    -webkit-box-shadow: inset 0px -4px 13px 0px rgba(0,0,0,0.33);
 	-moz-box-shadow: inset 0px -4px 13px 0px rgba(0,0,0,0.33);
 	box-shadow: inset 0px -4px 13px 0px rgba(0,0,0,0.33);
@@ -122,9 +122,6 @@ pre {
     height:100%;
     bottom:0;
     width:100%;
-}
-.choose {
-    margin-top: 20px;
 }
 .hGrid {
     position: absolute;

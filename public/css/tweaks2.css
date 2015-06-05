@@ -123,9 +123,6 @@ pre {
     bottom:0;
     width:100%;
 }
-.choose {
-    margin-top: 20px;
-}
 .hGrid {
     position: absolute;
     top: 0px;
@@ -135,7 +132,7 @@ pre {
 .hGridNum {
     position: absolute;
     top: -50px;
-    left: 0px;
+    right: 0px;
     direction: rtl;
 }
 .activeButton {

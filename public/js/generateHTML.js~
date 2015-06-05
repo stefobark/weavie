@@ -184,7 +184,7 @@ function everything(numWarps, numWefts, numTreadles) {
     	IT'S GENERATED BASED ON USER INPUT FOR
     	WARP/WEFT/TREADLE NUMBERS
     */
-    $(".col-md-12").append('<div class="borderTryBox"><div class="tryBox" style="width:' + tryBoxSize + 'px;"></div></div>');
+    $("body").append('<div class="borderTryBox"><div class="tryBox" style="width:' + tryBoxSize + 'px;"></div></div>');
 
     //let the people see the wif
     $("#wifDiv").append('<form method="POST" action="/download/wif"><input type="hidden" name="WIF" id="wif_val" value="" /><input class="btn btn-default" id="grabWif" type="submit" value="Save WIF" onclick="getWif();"  style="position:fixed; top:25px; right:200px;" /></form>');
@@ -267,7 +267,7 @@ function everything(numWarps, numWefts, numTreadles) {
 
         $(".hGrid").append('<div id="' + i + '" style="position:absolute; top:0px; right:' + left + 'px; width:20px; height:'+topGridHeight+'px;"></div>');
         for (h = 0; h < harnessNumber; h++) {
-            $('#' + i).append('<button class="harnessButton hGridRow' + h + '" style="position:absolute; top:'+top+'px; left:0px; height:20px;"></button>');
+            $('#' + i).append('<button class="harnessButton hGridRow' + h + '" style="position:absolute; top:'+top+'px; left:0px; width: 20px; height:20px;"></button>');
             top = top + 20;
         }
     }

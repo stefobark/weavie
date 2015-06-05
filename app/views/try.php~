@@ -24,41 +24,50 @@
       <div style="position:fixed; top:10px; left:40px;">
          <img src="/img/logo.png" style="position:fixed; width:100px; top:20px; left:20px;">
       </div>
-     <div class="introBox"></div>
-      </div>
-      <div style="background:white; border-radius: 20px; width:800px; padding:20px; position:absolute; top:120px; left: 600px;  -webkit-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); -moz-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75);">
-      	<h3 class="text-center">Weavie is free online weave drafting software</h3>.
-      	<p>It allows users to: 
-      		<ul><br>
-      			<li><strong>Visualize (draft) weave patterns.</strong><br> Threading a loom is a lot of work. It is helpful to design your pattern before you get to work.</li>
-      			<br>
-      			<li><strong>Save PNG images of drafts.</strong><br> Once you've finished designing your pattern, you can print out an image to take with you to the loom.</li>
-      			<br>
-      			<li><strong>Save weavie drafts as WIF files.</strong><br> WIF files allow you to take your drafts away from Weavie, so that you may use the more advanced features provided by other weave drafting software).</li>
-      			<br>
-      			<li><strong>Check the maximum number of floats produced by the draft.</strong><br> A float is the number of threads that any given thread 'floats' over. </li>
-      		</ul>
-      	<br>
-      	Email steven.j.barker.jr (at) gmail (dot) com (or tweet to <a href="https://twitter.com/steven_barker">@steven_barker</a>) if you have questions, comments or suggestions. 
-      	</p>
-      </div>
       <div id="wifDiv" style="position:fixed; top:10px; right:150px;">
       </div>
-      <div class="container">
-      <div class="row">
-      <div class="col-md-12" >
-      <div class="choose" style="position: fixed; top: 100px; left:10px; width: 400px; background: white; border-radius:20px; padding:40px; -webkit-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); -moz-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75);">
-         <h3 class="text-center"><img src="/img/started.png" ></h3>
-         <br>
-         <p class="help-block"><img src="/img/warps.png" style="height:30px; width:auto;">
-         </p>
-         <input type="text" class="warpNum" value="50"><br>
-         <p class="help-block"><img src="/img/wefts.png" style="height:30px; width:auto;"></p>
-         <input type="text" class="weftNum" style="margin-left:1px" value="50"><br>
-         <p class="help-block"><img src="/img/treadles.png" style="height:30px; width:auto;"></p>
-         <input type="text" class="treadleNum" style="margin-left:1px" value="14"><br>
-         <p class="help-block"><img src="/img/harnesses.png" style="height:25px; width:auto;"></p>
-         <input type="text" class="harnessNum" style="margin-left:1px" value="4"><br><br>
-         <button class="submit ">Go</button>
-      </div>
+      
+      <div class="introBox"></div>
+		   <div class="choose">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3" >
+							<div style="background: white; position:absolute; top:95px; z-index:10; border-radius:20px; padding:40px; -webkit-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); -moz-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75);">
+							  
+								<h3 class="text-center"><img src="/img/started.png" style="width:100px"></h3>
+								<br>
+								<p class="help-block"><img src="/img/warps.png" style="height:30px; width:auto;">
+								</p>
+								<input type="text" class="warpNum" value="50"><br>
+								<p class="help-block"><img src="/img/wefts.png" style="height:30px; width:auto;"></p>
+								<input type="text" class="weftNum" style="margin-left:1px" value="50"><br>
+								<p class="help-block"><img src="/img/treadles.png" style="height:30px; width:auto;"></p>
+								<input type="text" class="treadleNum" style="margin-left:1px" value="14"><br>
+								<p class="help-block"><img src="/img/harnesses.png" style="height:25px; width:auto;"></p>
+								<input type="text" class="harnessNum" style="margin-left:1px" value="4"><br><br>
+								<button class="submit ">Go</button>
+							</div>
+						</div>
+						<div class="col-md-9">
+							<div style="background:white; position:absolute; top:95px; border-radius: 20px; padding:40px; -webkit-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); -moz-box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75); box-shadow: 2px 10px 20px 0px rgba(0,0,0,0.75);">
+								<h3 class="text-center">Weavie is free online weave drafting software</h3>.
+								<p>It allows users to: 
+									<ul><br>
+										<li><strong>Visualize (draft) weave patterns.</strong><br> Threading a loom is a lot of work. It is helpful to design your pattern before you get to work.</li>
+										<br>
+										<li><strong>Save PNG images of drafts.</strong><br> Once you've finished designing your pattern, you can print out an image to take with you to the loom.</li>
+										<br>
+										<li><strong>Save weavie drafts as WIF files.</strong><br> WIF files allow you to take your drafts away from Weavie, so that you may use the more advanced features provided by other weave drafting programs.</li>
+										<br>
+										<li><strong>Check the maximum number of floats produced by the draft.</strong><br> A float is the number of threads that any given thread 'floats' over. </li>
+									</ul>
+								<br>
+								Email steven.j.barker.jr (at) gmail (dot) com (or tweet to <a href="https://twitter.com/steven_barker">@steven_barker</a>) if you have questions, comments or suggestions. 
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
    </body>

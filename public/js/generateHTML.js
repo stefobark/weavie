@@ -184,7 +184,7 @@ function everything(numWarps, numWefts, numTreadles) {
     	IT'S GENERATED BASED ON USER INPUT FOR
     	WARP/WEFT/TREADLE NUMBERS
     */
-    $(".col-md-12").append('<div class="borderTryBox"><div class="tryBox" style="width:' + tryBoxSize + 'px;"></div></div>');
+    $("body").append('<div class="borderTryBox"><div class="tryBox" style="width:' + tryBoxSize + 'px;"></div></div>');
 
     //let the people see the wif
     $("#wifDiv").append('<form method="POST" action="/download/wif"><input type="hidden" name="WIF" id="wif_val" value="" /><input class="btn btn-default" id="grabWif" type="submit" value="Save WIF" onclick="getWif();"  style="position:fixed; top:25px; right:200px;" /></form>');
